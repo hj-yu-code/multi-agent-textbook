@@ -50,6 +50,11 @@ markdown_extensions:
   - attr_list
   - md_in_html
 
+extra:
+  analytics:
+    provider: google
+    property: G-V094YV0S4G
+
 nav:
   - 홈: index.md
   - 목차: 00_목차.md
