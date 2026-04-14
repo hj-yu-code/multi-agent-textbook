@@ -1,3 +1,5 @@
+[![교재 바로가기](https://img.shields.io/badge/📖_교재_보기-GitHub_Pages-blue?style=for-the-badge)](https://hj-yu-code.github.io/multi-agent-textbook/)
+
 # Multi-Agent Orchestration: Theory and Practice
 
 **멀티에이전트 오케스트레이션: 이론과 실전**
