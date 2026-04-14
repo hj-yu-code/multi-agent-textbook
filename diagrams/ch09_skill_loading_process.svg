@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 780" width="560" height="780"
+     font-family="Segoe UI, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#868e96"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e7b30"/>
+    </marker>
+    <marker id="arrow-rose" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c92a2a"/>
+    </marker>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="560" height="780" fill="#ffffff"/>
+
+  <!-- 제목 -->
+  <text x="280" y="36" text-anchor="middle" font-size="16" font-weight="700"
+        fill="#212529" letter-spacing="0.5">스킬 로딩 프로세스</text>
+  <text x="280" y="54" text-anchor="middle" font-size="10" fill="#868e96">
+    Activity Diagram — 3단계 점진적 로딩 전략
+  </text>
+
+  <!-- ── 시작 노드 ── -->
+  <circle cx="280" cy="90" r="14" fill="#495057"/>
+  <line x1="280" y1="104" x2="280" y2="128"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 1단계: 세션 시작 박스 -->
+  <!-- body -->
+  <rect x="140" y="128" width="280" height="56" rx="6" fill="#f5f0eb"/>
+  <!-- header -->
+  <rect x="140" y="128" width="280" height="28" rx="6" fill="#f5f0eb"/>
+  <rect x="140" y="148" width="280" height="8" fill="#f5f0eb"/>
+  <line x1="140" y1="156" x2="420" y2="156" stroke="#6b6560" stroke-width="1"/>
+  <rect x="140" y="128" width="280" height="56" rx="6" fill="none" stroke="#6b6560" stroke-width="1.5"/>
+  <text x="280" y="148" text-anchor="middle" font-size="13" font-weight="600" fill="#212529">세션 시작</text>
+  <text x="280" y="170" text-anchor="middle" font-size="11" fill="#495057">Claude Code 초기화</text>
+
+  <!-- 화살표: 세션 시작 → 1단계 Metadata -->
+  <line x1="280" y1="184" x2="280" y2="208"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 1단계: Metadata 로딩 (Blue) -->
+  <!-- body -->
+  <rect x="100" y="208" width="360" height="72" rx="6" fill="#f5f0eb"/>
+  <!-- header band -->
+  <rect x="100" y="208" width="360" height="28" rx="6" fill="#dbe4ff"/>
+  <rect x="100" y="228" width="360" height="8" fill="#dbe4ff"/>
+  <line x1="100" y1="236" x2="460" y2="236" stroke="#364fc7" stroke-width="1"/>
+  <rect x="100" y="208" width="360" height="72" rx="6" fill="none" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="280" y="228" text-anchor="middle" font-size="13" font-weight="600" fill="#212529">1단계: Metadata 로딩</text>
+  <text x="280" y="252" text-anchor="middle" font-size="11" fill="#495057">모든 스킬의 name / description / triggers</text>
+  <text x="280" y="268" text-anchor="middle" font-size="11" fill="#495057">항상 로딩 (~수 KB, 즉시 완료)</text>
+
+  <!-- 화살표: Metadata → 사용자 입력 -->
+  <line x1="280" y1="280" x2="280" y2="304"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 사용자 입력 박스 (Gray) -->
+  <rect x="140" y="304" width="280" height="56" rx="6" fill="#f5f0eb"/>
+  <rect x="140" y="304" width="280" height="28" rx="6" fill="#f5f0eb"/>
+  <rect x="140" y="324" width="280" height="8" fill="#f5f0eb"/>
+  <line x1="140" y1="332" x2="420" y2="332" stroke="#6b6560" stroke-width="1"/>
+  <rect x="140" y="304" width="280" height="56" rx="6" fill="none" stroke="#6b6560" stroke-width="1.5"/>
+  <text x="280" y="324" text-anchor="middle" font-size="13" font-weight="600" fill="#212529">사용자 입력</text>
+  <text x="280" y="346" text-anchor="middle" font-size="11" fill="#495057">명령 / 프롬프트 수신</text>
+
+  <!-- 화살표: 사용자 입력 → 트리거 매칭? -->
+  <line x1="280" y1="360" x2="280" y2="390"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 다이아몬드: 트리거 매칭? (Amber) -->
+  <polygon points="280,390 370,422 280,454 190,422" fill="#fff3bf" stroke="#e67700" stroke-width="1.5"/>
+  <text x="280" y="418" text-anchor="middle" font-size="12" font-weight="600" fill="#212529">트리거 매칭?</text>
+  <text x="280" y="433" text-anchor="middle" font-size="10" fill="#e67700">입력이 스킬 트리거에 해당하는가</text>
+
+  <!-- No 분기: 오른쪽으로 → 위로 → 사용자 입력 대기 루프백 -->
+  <path d="M 370,422 L 480,422 L 480,332 L 420,332"
+        fill="none" stroke="#868e96" stroke-width="1.5" stroke-dasharray="6,3"
+        marker-end="url(#arrow)"/>
+  <text x="425" y="415" text-anchor="middle" font-size="10" fill="#495057">No</text>
+  <text x="490" y="382" text-anchor="middle" font-size="10" fill="#868e96" font-style="italic">대기</text>
+
+  <!-- Yes 분기: 아래로 →  2단계 Body 로딩 -->
+  <line x1="280" y1="454" x2="280" y2="478"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="292" y="470" font-size="10" fill="#495057">Yes</text>
+
+  <!-- 2단계: Body 로딩 (Blue) -->
+  <rect x="100" y="478" width="360" height="72" rx="6" fill="#f5f0eb"/>
+  <rect x="100" y="478" width="360" height="28" rx="6" fill="#dbe4ff"/>
+  <rect x="100" y="498" width="360" height="8" fill="#dbe4ff"/>
+  <line x1="100" y1="506" x2="460" y2="506" stroke="#364fc7" stroke-width="1"/>
+  <rect x="100" y="478" width="360" height="72" rx="6" fill="none" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="280" y="498" text-anchor="middle" font-size="13" font-weight="600" fill="#212529">2단계: Body 로딩</text>
+  <text x="280" y="522" text-anchor="middle" font-size="11" fill="#495057">매칭된 스킬의 마크다운 본문 파싱</text>
+  <text x="280" y="538" text-anchor="middle" font-size="11" fill="#495057">→ 시스템 프롬프트 컨텍스트 주입</text>
+
+  <!-- 화살표: Body → 실행 필요? -->
+  <line x1="280" y1="550" x2="280" y2="580"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 다이아몬드: 실행 필요? (Amber) -->
+  <polygon points="280,580 370,612 280,644 190,612" fill="#fff3bf" stroke="#e67700" stroke-width="1.5"/>
+  <text x="280" y="608" text-anchor="middle" font-size="12" font-weight="600" fill="#212529">실행 필요?</text>
+  <text x="280" y="623" text-anchor="middle" font-size="10" fill="#e67700">Scripts / References 로딩 요구 여부</text>
+
+  <!-- No 분기 오른쪽 (대기/종료) -->
+  <path d="M 370,612 L 480,612"
+        fill="none" stroke="#868e96" stroke-width="1.5" stroke-dasharray="6,3"
+        marker-end="url(#arrow)"/>
+  <text x="425" y="605" text-anchor="middle" font-size="10" fill="#495057">No</text>
+  <text x="510" y="616" font-size="10" fill="#868e96" font-style="italic">완료</text>
+
+  <!-- Yes 분기: 아래로 → 3단계 -->
+  <line x1="280" y1="644" x2="280" y2="668"
+        stroke="#1e7b30" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <text x="292" y="660" font-size="10" fill="#495057">Yes</text>
+
+  <!-- 3단계: Scripts 로딩 (Green) -->
+  <rect x="100" y="668" width="360" height="56" rx="6" fill="#d3f9d8"/>
+  <rect x="100" y="668" width="360" height="28" rx="6" fill="#d3f9d8"/>
+  <rect x="100" y="688" width="360" height="8" fill="#d3f9d8"/>
+  <line x1="100" y1="696" x2="460" y2="696" stroke="#1e7b30" stroke-width="1"/>
+  <rect x="100" y="668" width="360" height="56" rx="6" fill="none" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="280" y="688" text-anchor="middle" font-size="13" font-weight="600" fill="#212529">3단계: Scripts / References 로딩</text>
+  <text x="280" y="710" text-anchor="middle" font-size="11" fill="#495057">스크립트, 템플릿, 참조 파일 I/O</text>
+
+  <!-- 화살표: 3단계 → 스킬 실행 -->
+  <line x1="280" y1="724" x2="280" y2="744"
+        stroke="#1e7b30" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <!-- 종료 노드 -->
+  <circle cx="280" cy="758" r="14" fill="#ffffff" stroke="#1e7b30" stroke-width="3"/>
+  <circle cx="280" cy="758" r="9" fill="#1e7b30"/>
+  <text x="280" y="778" text-anchor="middle" font-size="10" fill="#868e96">스킬 실행 완료</text>
+</svg>

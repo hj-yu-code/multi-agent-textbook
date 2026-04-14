@@ -1,0 +1,195 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 802" width="660" height="802"
+     font-family="Segoe UI, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#868e96"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e7b30"/>
+    </marker>
+    <marker id="arrow-rose" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c92a2a"/>
+    </marker>
+  </defs>
+  <rect width="660" height="802" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="330" y="30" text-anchor="middle" font-size="16" font-weight="700"
+        fill="#212529" letter-spacing="0.5">OMC Team 모드 5단계 파이프라인</text>
+
+  <!-- ====== CONNECTIONS (painted first) ====== -->
+
+  <!-- Start → Stage 1 -->
+  <line x1="300" y1="60" x2="300" y2="78"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Stage 1 → Stage 2 -->
+  <line x1="300" y1="144" x2="300" y2="172"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Stage 2 → Stage 3 -->
+  <line x1="300" y1="238" x2="300" y2="266"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Stage 3 → Fork bar -->
+  <line x1="300" y1="332" x2="300" y2="356"
+        stroke="#868e96" stroke-width="1.5"/>
+
+  <!-- Fork bar → Worker 1 -->
+  <line x1="120" y1="362" x2="120" y2="380"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- Fork bar → Worker 2 -->
+  <line x1="300" y1="362" x2="300" y2="380"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- Fork bar → Worker 3 -->
+  <line x1="480" y1="362" x2="480" y2="380"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Worker 1 → Join bar -->
+  <line x1="120" y1="444" x2="120" y2="468"
+        stroke="#868e96" stroke-width="1.5"/>
+  <!-- Worker 2 → Join bar -->
+  <line x1="300" y1="444" x2="300" y2="468"
+        stroke="#868e96" stroke-width="1.5"/>
+  <!-- Worker 3 → Join bar -->
+  <line x1="480" y1="444" x2="480" y2="468"
+        stroke="#868e96" stroke-width="1.5"/>
+
+  <!-- Join bar → Stage 4 -->
+  <line x1="300" y1="474" x2="300" y2="502"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Stage 4 → Decision diamond -->
+  <line x1="300" y1="568" x2="300" y2="596"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Decision: Pass → End (green) -->
+  <line x1="300" y1="636" x2="300" y2="674"
+        stroke="#1e7b30" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <text x="312" y="660" font-size="10" font-weight="400" fill="#1e7b30">통과</text>
+
+  <!-- Decision: Fail → Stage 5 (rose, right path) -->
+  <line x1="330" y1="616" x2="478" y2="616"
+        stroke="#c92a2a" stroke-width="1.5" marker-end="url(#arrow-rose)"/>
+  <text x="400" y="608" text-anchor="middle" font-size="10" font-weight="400" fill="#c92a2a">실패</text>
+
+  <!-- Stage 5 → Loopback to Stage 3 (rose path) -->
+  <path d="M 560,680 L 560,290 L 460,290"
+        fill="none" stroke="#c92a2a" stroke-width="1.5"
+        marker-end="url(#arrow-rose)"/>
+  <text x="568" y="500" font-size="10" font-weight="400" fill="#c92a2a">재실행</text>
+
+  <!-- ====== NODES (painted on top) ====== -->
+
+  <!-- Start node -->
+  <circle cx="300" cy="50" r="10" fill="#6b6560"/>
+
+  <!-- Stage 1: team-plan (Blue) -->
+  <rect x="160" y="80" width="280" height="64" rx="6" fill="#f5f0eb"/>
+  <rect x="160" y="80" width="280" height="28" rx="6" fill="#dbe4ff"/>
+  <rect x="160" y="100" width="280" height="8" fill="#dbe4ff"/>
+  <line x1="160" y1="108" x2="440" y2="108" stroke="#364fc7" stroke-width="1"/>
+  <rect x="160" y="80" width="280" height="64" rx="6"
+        fill="none" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="300" y="99" text-anchor="middle" font-size="13"
+        font-weight="600" fill="#212529">1단계: team-plan (계획)</text>
+  <text x="176" y="130" font-size="11" fill="#495057">작업 분석 및 실행 계획 수립</text>
+
+  <!-- Stage 2: team-prd (Blue) -->
+  <rect x="160" y="174" width="280" height="64" rx="6" fill="#f5f0eb"/>
+  <rect x="160" y="174" width="280" height="28" rx="6" fill="#dbe4ff"/>
+  <rect x="160" y="194" width="280" height="8" fill="#dbe4ff"/>
+  <line x1="160" y1="202" x2="440" y2="202" stroke="#364fc7" stroke-width="1"/>
+  <rect x="160" y="174" width="280" height="64" rx="6"
+        fill="none" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="300" y="193" text-anchor="middle" font-size="13"
+        font-weight="600" fill="#212529">2단계: team-prd (PRD 작성)</text>
+  <text x="176" y="224" font-size="11" fill="#495057">요구사항 정의서 및 기술 명세 작성</text>
+
+  <!-- Stage 3: team-exec (Blue) -->
+  <rect x="160" y="268" width="280" height="64" rx="6" fill="#f5f0eb"/>
+  <rect x="160" y="268" width="280" height="28" rx="6" fill="#dbe4ff"/>
+  <rect x="160" y="288" width="280" height="8" fill="#dbe4ff"/>
+  <line x1="160" y1="296" x2="440" y2="296" stroke="#364fc7" stroke-width="1"/>
+  <rect x="160" y="268" width="280" height="64" rx="6"
+        fill="none" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="300" y="287" text-anchor="middle" font-size="13"
+        font-weight="600" fill="#212529">3단계: team-exec (구현)</text>
+  <text x="176" y="318" font-size="11" fill="#495057">병렬 워커를 통한 구현 실행</text>
+
+  <!-- Fork bar -->
+  <rect x="60" y="356" width="480" height="6" rx="3" fill="#6b6560"/>
+
+  <!-- Worker 1 (Amber) -->
+  <rect x="40" y="382" width="160" height="62" rx="6"
+        fill="#fff3bf" stroke="#e67700" stroke-width="1.5"/>
+  <text x="120" y="404" text-anchor="middle" font-size="12"
+        font-weight="600" fill="#e67700">Worker 1</text>
+  <text x="120" y="420" text-anchor="middle" font-size="10"
+        fill="#495057">모듈 A 구현</text>
+
+  <!-- Worker 2 (Amber) -->
+  <rect x="220" y="382" width="160" height="62" rx="6"
+        fill="#fff3bf" stroke="#e67700" stroke-width="1.5"/>
+  <text x="300" y="404" text-anchor="middle" font-size="12"
+        font-weight="600" fill="#e67700">Worker 2</text>
+  <text x="300" y="420" text-anchor="middle" font-size="10"
+        fill="#495057">모듈 B 구현</text>
+
+  <!-- Worker 3 (Amber) -->
+  <rect x="400" y="382" width="160" height="62" rx="6"
+        fill="#fff3bf" stroke="#e67700" stroke-width="1.5"/>
+  <text x="480" y="404" text-anchor="middle" font-size="12"
+        font-weight="600" fill="#e67700">Worker 3</text>
+  <text x="480" y="420" text-anchor="middle" font-size="10"
+        fill="#495057">모듈 C 구현</text>
+
+  <!-- Join bar -->
+  <rect x="60" y="468" width="480" height="6" rx="3" fill="#6b6560"/>
+
+  <!-- Stage 4: team-verify (Green) -->
+  <rect x="160" y="504" width="280" height="64" rx="6" fill="#d3f9d8"/>
+  <rect x="160" y="504" width="280" height="28" rx="6" fill="#d3f9d8"/>
+  <rect x="160" y="524" width="280" height="8" fill="#d3f9d8"/>
+  <line x1="160" y1="532" x2="440" y2="532" stroke="#1e7b30" stroke-width="1"/>
+  <rect x="160" y="504" width="280" height="64" rx="6"
+        fill="none" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="300" y="523" text-anchor="middle" font-size="13"
+        font-weight="600" fill="#1e7b30">4단계: team-verify (검증)</text>
+  <text x="176" y="554" font-size="11" fill="#495057">테스트 실행 및 품질 검증</text>
+
+  <!-- Decision diamond -->
+  <polygon points="300,598 330,616 300,634 270,616"
+           fill="#f5f0eb" stroke="#6b6560" stroke-width="1.5"/>
+
+  <!-- End node -->
+  <circle cx="300" cy="686" r="12" fill="none" stroke="#1e7b30" stroke-width="1.5"/>
+  <circle cx="300" cy="686" r="8" fill="#1e7b30"/>
+
+  <!-- Stage 5: team-fix (Rose) -->
+  <rect x="480" y="598" width="160" height="82" rx="6" fill="#ffe3e3"/>
+  <rect x="480" y="598" width="160" height="28" rx="6" fill="#ffe3e3"/>
+  <rect x="480" y="618" width="160" height="8" fill="#ffe3e3"/>
+  <line x1="480" y1="626" x2="640" y2="626" stroke="#c92a2a" stroke-width="1"/>
+  <rect x="480" y="598" width="160" height="82" rx="6"
+        fill="none" stroke="#c92a2a" stroke-width="1.5"/>
+  <text x="560" y="617" text-anchor="middle" font-size="13"
+        font-weight="600" fill="#c92a2a">5단계: team-fix</text>
+  <text x="496" y="645" font-size="11" fill="#495057">실패 원인 분석</text>
+  <text x="496" y="661" font-size="11" fill="#495057">코드 수정 및 재시도</text>
+
+  <!-- Legend annotation -->
+  <text x="20" y="760" font-size="10" font-weight="600" fill="#6b6560">범례:</text>
+  <rect x="20" y="770" width="12" height="12" rx="2" fill="#dbe4ff" stroke="#364fc7" stroke-width="0.75"/>
+  <text x="38" y="781" font-size="10" fill="#495057">계획/구현 단계</text>
+  <rect x="140" y="770" width="12" height="12" rx="2" fill="#fff3bf" stroke="#e67700" stroke-width="0.75"/>
+  <text x="158" y="781" font-size="10" fill="#495057">병렬 워커</text>
+  <rect x="240" y="770" width="12" height="12" rx="2" fill="#d3f9d8" stroke="#1e7b30" stroke-width="0.75"/>
+  <text x="258" y="781" font-size="10" fill="#495057">검증 통과</text>
+  <rect x="340" y="770" width="12" height="12" rx="2" fill="#ffe3e3" stroke="#c92a2a" stroke-width="0.75"/>
+  <text x="358" y="781" font-size="10" fill="#495057">수정 (실패 시)</text>
+
+</svg>

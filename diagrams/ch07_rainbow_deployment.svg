@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 500" width="760" height="500"
+     font-family="Segoe UI, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#868e96"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e7b30"/>
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#364fc7"/>
+    </marker>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="760" height="500" fill="#ffffff"/>
+
+  <!-- 제목 -->
+  <text x="380" y="36" text-anchor="middle" font-size="16" font-weight="700"
+        fill="#212529" letter-spacing="0.5">레인보우 배포 시간축</text>
+  <text x="380" y="54" text-anchor="middle" font-size="10" font-weight="400"
+        fill="#868e96">Rainbow Deployment — 다중 버전 공존 · 점진적 전환 · 진행 중 작업 보호</text>
+
+  <!-- ===== 시간축 레이블 영역 ===== -->
+  <!-- 좌측 버전 레이블 헤더 -->
+  <text x="80" y="84" text-anchor="middle" font-size="11" font-weight="600"
+        fill="#6b6560">버전</text>
+  <!-- 시간축 헤더 -->
+  <text x="430" y="84" text-anchor="middle" font-size="11" font-weight="600"
+        fill="#6b6560">시간 흐름 →</text>
+
+  <!-- ===== 시간축 눈금 구분선 ===== -->
+  <!-- T0 ~ T6 수직 점선 -->
+  <!-- T0=140, T1=240, T2=340, T3=440, T4=540, T5=640, T6=720 -->
+  <line x1="140" y1="92" x2="140" y2="390" stroke="#dee2e6" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="240" y1="92" x2="240" y2="390" stroke="#dee2e6" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="340" y1="92" x2="340" y2="390" stroke="#dee2e6" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="440" y1="92" x2="440" y2="390" stroke="#dee2e6" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="540" y1="92" x2="540" y2="390" stroke="#dee2e6" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="640" y1="92" x2="640" y2="390" stroke="#dee2e6" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- 시간 눈금 레이블 -->
+  <text x="140" y="100" text-anchor="middle" font-size="9" fill="#868e96">T0</text>
+  <text x="240" y="100" text-anchor="middle" font-size="9" fill="#868e96">T1</text>
+  <text x="340" y="100" text-anchor="middle" font-size="9" fill="#868e96">T2</text>
+  <text x="440" y="100" text-anchor="middle" font-size="9" fill="#868e96">T3</text>
+  <text x="540" y="100" text-anchor="middle" font-size="9" fill="#868e96">T4</text>
+  <text x="640" y="100" text-anchor="middle" font-size="9" fill="#868e96">T5</text>
+
+  <!-- ===== 수평 시간 화살표 ===== -->
+  <line x1="130" y1="390" x2="720" y2="390"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="726" y="394" font-size="10" fill="#868e96">시간</text>
+
+  <!-- =================================================
+       VERSION BARS (수직 중앙: 레인)
+       레인 1: v1.0  y=130 height=52
+       레인 2: v1.1  y=210 height=52
+       레인 3: v1.2  y=290 height=52
+       ================================================= -->
+
+  <!-- 버전 레이블 세로선 구분 -->
+  <line x1="126" y1="108" x2="126" y2="370" stroke="#dee2e6" stroke-width="1"/>
+
+  <!-- ---- v1.0 레인 배경 ---- -->
+  <rect x="127" y="115" width="596" height="62" rx="4" fill="#f8f9fa"/>
+  <!-- v1.0 레이블 -->
+  <text x="80" y="150" text-anchor="middle" font-size="12" font-weight="600" fill="#6b6560">v1.0</text>
+  <text x="80" y="164" text-anchor="middle" font-size="9" fill="#868e96">(Gray)</text>
+
+  <!-- v1.0 수명 바: T0~T4 점진 감소 (Gray) -->
+  <!-- 전체 바: T0(140)~T4(540) -->
+  <rect x="140" y="125" width="400" height="42" rx="6"
+        fill="#e9ecef" stroke="#6b6560" stroke-width="1.5"/>
+  <text x="200" y="142" text-anchor="middle" font-size="10" font-weight="600" fill="#495057">v1.0 — 진행 중 작업 완료 대기</text>
+  <!-- 작업 아이콘 텍스트 -->
+  <text x="200" y="158" text-anchor="middle" font-size="9" fill="#6b6560">● 기존 작업 계속 처리 중</text>
+
+  <!-- v1.0 페이드아웃 표시 (우측 그라데이션 효과 — 사선 해칭) -->
+  <!-- T3~T4 구간에 점진 종료 표시 -->
+  <rect x="440" y="125" width="100" height="42" rx="0"
+        fill="#dee2e6" stroke="none" opacity="0.7"/>
+  <text x="490" y="150" text-anchor="middle" font-size="9" fill="#868e96">종료 예정</text>
+
+  <!-- ---- v1.1 레인 배경 ---- -->
+  <rect x="127" y="195" width="596" height="62" rx="4" fill="#f8f9fa"/>
+  <!-- v1.1 레이블 -->
+  <text x="80" y="230" text-anchor="middle" font-size="12" font-weight="600" fill="#364fc7">v1.1</text>
+  <text x="80" y="244" text-anchor="middle" font-size="9" fill="#868e96">(Blue)</text>
+
+  <!-- v1.1 수명 바: T1(240)~T5(640) (Blue) -->
+  <rect x="240" y="205" width="400" height="42" rx="6"
+        fill="#dbe4ff" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="420" y="222" text-anchor="middle" font-size="10" font-weight="600" fill="#364fc7">v1.1 — 새 작업 할당 받음</text>
+  <text x="420" y="238" text-anchor="middle" font-size="9" fill="#364fc7">▶ 신규 요청 처리 시작</text>
+
+  <!-- T1 배포 시작 표시 -->
+  <line x1="240" y1="195" x2="240" y2="265" stroke="#364fc7" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="248" y="270" font-size="9" fill="#364fc7">v1.1 배포</text>
+
+  <!-- v1.1 페이드아웃 표시 -->
+  <rect x="580" y="205" width="60" height="42" rx="0"
+        fill="#bac8ff" stroke="none" opacity="0.7"/>
+  <text x="610" y="230" text-anchor="middle" font-size="9" fill="#364fc7">종료 예정</text>
+
+  <!-- ---- v1.2 레인 배경 ---- -->
+  <rect x="127" y="275" width="596" height="62" rx="4" fill="#f8f9fa"/>
+  <!-- v1.2 레이블 -->
+  <text x="80" y="310" text-anchor="middle" font-size="12" font-weight="600" fill="#1e7b30">v1.2</text>
+  <text x="80" y="324" text-anchor="middle" font-size="9" fill="#868e96">(Green)</text>
+
+  <!-- v1.2 수명 바: T3(440)~ 이후 (Green, 진행 중) -->
+  <rect x="440" y="285" width="280" height="42" rx="6"
+        fill="#d3f9d8" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="560" y="302" text-anchor="middle" font-size="10" font-weight="600" fill="#1e7b30">v1.2 — 최신 버전</text>
+  <text x="560" y="318" text-anchor="middle" font-size="9" fill="#1e7b30">▶ 모든 신규 작업 수신</text>
+  <!-- 진행 중 끝 화살표 -->
+  <line x1="720" y1="306" x2="730" y2="306" stroke="#1e7b30" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <!-- T3 배포 시작 표시 -->
+  <line x1="440" y1="275" x2="440" y2="348" stroke="#1e7b30" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="448" y="352" font-size="9" fill="#1e7b30">v1.2 배포</text>
+
+  <!-- ===== 새 작업 라우팅 화살표 ===== -->
+  <!-- T2 이후 새 작업 → v1.1 -->
+  <path d="M 340,108 L 340,130 L 340,200"
+        fill="none" stroke="#364fc7" stroke-width="1.5" stroke-dasharray="5,3"
+        marker-end="url(#arrow-blue)"/>
+  <text x="348" y="165" font-size="9" fill="#364fc7">새 작업</text>
+
+  <!-- T4 이후 새 작업 → v1.2 -->
+  <path d="M 540,108 L 540,130 L 540,280"
+        fill="none" stroke="#1e7b30" stroke-width="1.5" stroke-dasharray="5,3"
+        marker-end="url(#arrow-green)"/>
+  <text x="548" y="200" font-size="9" fill="#1e7b30">새 작업</text>
+
+  <!-- ===== 동시 공존 기간 강조 브래킷 ===== -->
+  <!-- T1~T4 구간: 3버전 공존 없음, T3~T4: v1.0+v1.1+v1.2 공존 -->
+  <!-- 공존 구간 표시 (T3~T4) -->
+  <rect x="440" y="112" width="100" height="6" rx="3" fill="#e67700" opacity="0.7"/>
+  <text x="490" y="122" text-anchor="middle" font-size="8" fill="#e67700">3버전 공존</text>
+
+  <!-- T1~T3 구간: v1.0 + v1.1 공존 -->
+  <rect x="240" y="112" width="200" height="6" rx="3" fill="#868e96" opacity="0.5"/>
+  <text x="340" y="122" text-anchor="middle" font-size="8" fill="#868e96">2버전 공존</text>
+
+  <!-- ===== 하단 원칙 요약 박스 ===== -->
+  <rect x="20" y="400" width="720" height="80" rx="6"
+        fill="#f5f0eb" stroke="#6b6560" stroke-width="1.5"/>
+  <!-- 제목 -->
+  <text x="380" y="420" text-anchor="middle" font-size="12" font-weight="600" fill="#495057">레인보우 배포 핵심 원칙</text>
+
+  <!-- 원칙 1 -->
+  <rect x="36" y="428" width="10" height="10" rx="2" fill="#d3f9d8" stroke="#1e7b30" stroke-width="1"/>
+  <text x="52" y="437" font-size="10" fill="#495057">새 버전은 새 작업만 수신 — 기존 작업을 빼앗지 않는다</text>
+
+  <!-- 원칙 2 -->
+  <rect x="36" y="444" width="10" height="10" rx="2" fill="#e9ecef" stroke="#6b6560" stroke-width="1"/>
+  <text x="52" y="453" font-size="10" fill="#495057">이전 버전은 할당된 작업을 완료한 뒤 자연스럽게 종료된다</text>
+
+  <!-- 원칙 3 -->
+  <rect x="36" y="460" width="10" height="10" rx="2" fill="#dbe4ff" stroke="#364fc7" stroke-width="1"/>
+  <text x="52" y="469" font-size="10" fill="#495057">다중 버전이 일정 기간 공존 — 점진적 전환으로 서비스 중단 없음</text>
+
+  <!-- 원칙 4 -->
+  <rect x="400" y="428" width="10" height="10" rx="2" fill="#fff3bf" stroke="#e67700" stroke-width="1"/>
+  <text x="416" y="437" font-size="10" fill="#495057">버전 전환 지점에서 3버전이 최대 동시 공존</text>
+
+  <!-- 원칙 5 -->
+  <rect x="400" y="444" width="10" height="10" rx="2" fill="#d3f9d8" stroke="#1e7b30" stroke-width="1"/>
+  <text x="416" y="453" font-size="10" fill="#495057">블루-그린 대비 자원 효율 낮지만 롤백 안전성 높음</text>
+
+  <!-- 원칙 6 -->
+  <rect x="400" y="460" width="10" height="10" rx="2" fill="#ffe3e3" stroke="#c92a2a" stroke-width="1"/>
+  <text x="416" y="469" font-size="10" fill="#495057">장기 실행 에이전트 작업에 특히 적합한 배포 전략</text>
+</svg>

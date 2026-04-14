@@ -1,0 +1,221 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 700" width="760" height="700"
+     font-family="Segoe UI, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#868e96"/>
+    </marker>
+  </defs>
+  <rect width="760" height="700" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="380" y="30" text-anchor="middle" font-size="16" font-weight="700"
+        fill="#212529" letter-spacing="0.5">gstack 6-Role System</text>
+
+  <!-- ============================================ -->
+  <!-- Connection lines (drawn first, behind boxes) -->
+  <!-- ============================================ -->
+
+  <!-- Center → CEO (top-left) -->
+  <line x1="310" y1="260" x2="190" y2="148"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- Center → Designer (top-right) -->
+  <line x1="450" y1="260" x2="570" y2="148"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- Center → Eng Manager (left) -->
+  <line x1="280" y1="296" x2="200" y2="296"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- Center → Release Manager (right) -->
+  <line x1="480" y1="296" x2="560" y2="296"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- Center → Doc Engineer (bottom-left) -->
+  <line x1="310" y1="332" x2="190" y2="432"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- Center → QA Lead (bottom-right) -->
+  <line x1="450" y1="332" x2="570" y2="432"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ============================================ -->
+  <!-- Center: Claude Code (Core) -->
+  <!-- ============================================ -->
+  <rect x="280" y="240" width="200" height="112" rx="6" fill="#f5f0eb"/>
+  <rect x="280" y="240" width="200" height="28" rx="6" fill="#dbe4ff"/>
+  <rect x="280" y="260" width="200" height="8" fill="#dbe4ff"/>
+  <line x1="280" y1="268" x2="480" y2="268" stroke="#364fc7" stroke-width="1"/>
+  <rect x="280" y="240" width="200" height="112" rx="6"
+        fill="none" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="380" y="258" text-anchor="middle" font-size="13"
+        font-weight="600" fill="#364fc7">Claude Code</text>
+  <text x="380" y="296" text-anchor="middle" font-size="12"
+        font-weight="600" fill="#212529">Core Engine</text>
+  <text x="380" y="316" text-anchor="middle" font-size="11"
+        fill="#495057">6개 역할 오케스트레이션</text>
+  <text x="380" y="336" text-anchor="middle" font-size="11"
+        fill="#495057">컨텍스트 기반 역할 전환</text>
+
+  <!-- ============================================ -->
+  <!-- Role 1: CEO (top-left) - Blue -->
+  <!-- ============================================ -->
+  <rect x="20" y="80" width="180" height="64" rx="6" fill="#dbe4ff"/>
+  <rect x="20" y="80" width="180" height="28" rx="6" fill="#dbe4ff"/>
+  <rect x="20" y="100" width="180" height="8" fill="#dbe4ff"/>
+  <line x1="20" y1="108" x2="200" y2="108" stroke="#364fc7" stroke-width="1"/>
+  <rect x="20" y="80" width="180" height="64" rx="6"
+        fill="none" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="110" y="98" text-anchor="middle" font-size="12"
+        font-weight="600" fill="#364fc7">CEO</text>
+  <text x="110" y="130" text-anchor="middle" font-size="11" fill="#495057">전략 / 비전 수립</text>
+
+  <!-- ============================================ -->
+  <!-- Role 2: Designer (top-right) - Amber -->
+  <!-- ============================================ -->
+  <rect x="560" y="80" width="180" height="64" rx="6" fill="#fff3bf"/>
+  <rect x="560" y="80" width="180" height="28" rx="6" fill="#fff3bf"/>
+  <rect x="560" y="100" width="180" height="8" fill="#fff3bf"/>
+  <line x1="560" y1="108" x2="740" y2="108" stroke="#e67700" stroke-width="1"/>
+  <rect x="560" y="80" width="180" height="64" rx="6"
+        fill="none" stroke="#e67700" stroke-width="1.5"/>
+  <text x="650" y="98" text-anchor="middle" font-size="12"
+        font-weight="600" fill="#e67700">Designer</text>
+  <text x="650" y="130" text-anchor="middle" font-size="11" fill="#495057">UI / UX 설계</text>
+
+  <!-- ============================================ -->
+  <!-- Role 3: Eng Manager (left) - Blue -->
+  <!-- ============================================ -->
+  <rect x="20" y="264" width="180" height="64" rx="6" fill="#dbe4ff"/>
+  <rect x="20" y="264" width="180" height="28" rx="6" fill="#dbe4ff"/>
+  <rect x="20" y="284" width="180" height="8" fill="#dbe4ff"/>
+  <line x1="20" y1="292" x2="200" y2="292" stroke="#364fc7" stroke-width="1"/>
+  <rect x="20" y="264" width="180" height="64" rx="6"
+        fill="none" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="110" y="282" text-anchor="middle" font-size="12"
+        font-weight="600" fill="#364fc7">Eng Manager</text>
+  <text x="110" y="314" text-anchor="middle" font-size="11" fill="#495057">코드 품질 관리</text>
+
+  <!-- ============================================ -->
+  <!-- Role 4: Release Manager (right) - Green -->
+  <!-- ============================================ -->
+  <rect x="560" y="264" width="180" height="64" rx="6" fill="#d3f9d8"/>
+  <rect x="560" y="264" width="180" height="28" rx="6" fill="#d3f9d8"/>
+  <rect x="560" y="284" width="180" height="8" fill="#d3f9d8"/>
+  <line x1="560" y1="292" x2="740" y2="292" stroke="#1e7b30" stroke-width="1"/>
+  <rect x="560" y="264" width="180" height="64" rx="6"
+        fill="none" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="650" y="282" text-anchor="middle" font-size="12"
+        font-weight="600" fill="#1e7b30">Release Manager</text>
+  <text x="650" y="314" text-anchor="middle" font-size="11" fill="#495057">배포 / 릴리스</text>
+
+  <!-- ============================================ -->
+  <!-- Role 5: Doc Engineer (bottom-left) - Gray -->
+  <!-- ============================================ -->
+  <rect x="20" y="432" width="180" height="64" rx="6" fill="#f5f0eb"/>
+  <rect x="20" y="432" width="180" height="28" rx="6" fill="#f5f0eb"/>
+  <rect x="20" y="452" width="180" height="8" fill="#f5f0eb"/>
+  <line x1="20" y1="460" x2="200" y2="460" stroke="#6b6560" stroke-width="1"/>
+  <rect x="20" y="432" width="180" height="64" rx="6"
+        fill="none" stroke="#6b6560" stroke-width="1.5"/>
+  <text x="110" y="450" text-anchor="middle" font-size="12"
+        font-weight="600" fill="#6b6560">Doc Engineer</text>
+  <text x="110" y="482" text-anchor="middle" font-size="11" fill="#495057">문서 작성 / 관리</text>
+
+  <!-- ============================================ -->
+  <!-- Role 6: QA Lead (bottom-right) - Rose -->
+  <!-- ============================================ -->
+  <rect x="560" y="432" width="180" height="64" rx="6" fill="#ffe3e3"/>
+  <rect x="560" y="432" width="180" height="28" rx="6" fill="#ffe3e3"/>
+  <rect x="560" y="452" width="180" height="8" fill="#ffe3e3"/>
+  <line x1="560" y1="460" x2="740" y2="460" stroke="#c92a2a" stroke-width="1"/>
+  <rect x="560" y="432" width="180" height="64" rx="6"
+        fill="none" stroke="#c92a2a" stroke-width="1.5"/>
+  <text x="650" y="450" text-anchor="middle" font-size="12"
+        font-weight="600" fill="#c92a2a">QA Lead</text>
+  <text x="650" y="482" text-anchor="middle" font-size="11" fill="#495057">테스트 / 품질 보증</text>
+
+  <!-- ============================================ -->
+  <!-- Separator line -->
+  <!-- ============================================ -->
+  <line x1="40" y1="540" x2="720" y2="540"
+        stroke="#868e96" stroke-width="1" stroke-dasharray="6,3"/>
+
+  <!-- ============================================ -->
+  <!-- Bottom: 7-Step Flow -->
+  <!-- ============================================ -->
+  <text x="380" y="572" text-anchor="middle" font-size="13" font-weight="600"
+        fill="#212529">7-Step Execution Flow</text>
+
+  <!-- Step boxes: Think → Plan → Build → Review → Test → Ship → Reflect -->
+  <!-- Each box: 80x40, gap 16, total = 7*80 + 6*16 = 656, start x = (760-656)/2 = 52 -->
+
+  <!-- Think -->
+  <rect x="52" y="592" width="80" height="40" rx="6"
+        fill="#dbe4ff" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="92" y="616" text-anchor="middle" font-size="11"
+        font-weight="600" fill="#364fc7">Think</text>
+
+  <!-- Arrow -->
+  <line x1="132" y1="612" x2="144" y2="612"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Plan -->
+  <rect x="148" y="592" width="80" height="40" rx="6"
+        fill="#dbe4ff" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="188" y="616" text-anchor="middle" font-size="11"
+        font-weight="600" fill="#364fc7">Plan</text>
+
+  <!-- Arrow -->
+  <line x1="228" y1="612" x2="240" y2="612"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Build -->
+  <rect x="244" y="592" width="80" height="40" rx="6"
+        fill="#dbe4ff" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="284" y="616" text-anchor="middle" font-size="11"
+        font-weight="600" fill="#364fc7">Build</text>
+
+  <!-- Arrow -->
+  <line x1="324" y1="612" x2="336" y2="612"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Review -->
+  <rect x="340" y="592" width="80" height="40" rx="6"
+        fill="#fff3bf" stroke="#e67700" stroke-width="1.5"/>
+  <text x="380" y="616" text-anchor="middle" font-size="11"
+        font-weight="600" fill="#e67700">Review</text>
+
+  <!-- Arrow -->
+  <line x1="420" y1="612" x2="432" y2="612"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Test -->
+  <rect x="436" y="592" width="80" height="40" rx="6"
+        fill="#d3f9d8" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="476" y="616" text-anchor="middle" font-size="11"
+        font-weight="600" fill="#1e7b30">Test</text>
+
+  <!-- Arrow -->
+  <line x1="516" y1="612" x2="528" y2="612"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Ship -->
+  <rect x="532" y="592" width="80" height="40" rx="6"
+        fill="#d3f9d8" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="572" y="616" text-anchor="middle" font-size="11"
+        font-weight="600" fill="#1e7b30">Ship</text>
+
+  <!-- Arrow (loopback from Ship to Reflect below) -->
+  <line x1="612" y1="612" x2="624" y2="612"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Reflect -->
+  <rect x="628" y="592" width="80" height="40" rx="6"
+        fill="#f5f0eb" stroke="#6b6560" stroke-width="1.5"/>
+  <text x="668" y="616" text-anchor="middle" font-size="11"
+        font-weight="600" fill="#6b6560">Reflect</text>
+
+  <!-- Summary box -->
+  <rect x="20" y="652" width="720" height="28" rx="6"
+        fill="#f5f0eb" stroke="#6b6560" stroke-width="1"
+        stroke-dasharray="6,3"/>
+  <text x="380" y="670" text-anchor="middle" font-size="11"
+        fill="#5a6268">Think → Plan → Build → Review → Test → Ship → Reflect 순환</text>
+</svg>

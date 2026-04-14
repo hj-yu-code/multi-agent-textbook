@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 580" width="780" height="580"
+     font-family="Segoe UI, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#868e96"/>
+    </marker>
+    <marker id="arrow-rose" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c92a2a"/>
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#364fc7"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e7b30"/>
+    </marker>
+  </defs>
+  <rect width="780" height="580" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="390" y="30" text-anchor="middle" font-size="16" font-weight="700"
+        fill="#212529" letter-spacing="0.5">AgentShield: 3-Agent Adversarial Pipeline</text>
+
+  <!-- ============ Input Box ============ -->
+  <rect x="20" y="60" width="160" height="120" rx="6" fill="#f5f0eb"/>
+  <rect x="20" y="60" width="160" height="28" rx="6" fill="#f5f0eb"/>
+  <rect x="20" y="80" width="160" height="8" fill="#f5f0eb"/>
+  <line x1="20" y1="88" x2="180" y2="88" stroke="#6b6560" stroke-width="1"/>
+  <rect x="20" y="60" width="160" height="120" rx="6"
+        fill="none" stroke="#6b6560" stroke-width="1.5"/>
+  <text x="100" y="80" text-anchor="middle" font-size="13"
+        font-weight="600" fill="#6b6560">설정 파일</text>
+  <text x="36" y="108" font-size="11" fill="#495057">CLAUDE.md</text>
+  <text x="36" y="124" font-size="11" fill="#495057">settings.json</text>
+  <text x="36" y="140" font-size="11" fill="#495057">hooks</text>
+  <text x="36" y="156" font-size="11" fill="#495057">MCP servers</text>
+
+  <!-- ============ Connection Lines (drawn before boxes per painter's model) ============ -->
+
+  <!-- Input → Red Team -->
+  <line x1="180" y1="120" x2="218" y2="120"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Red Team → Blue Team -->
+  <line x1="420" y1="120" x2="458" y2="120"
+        stroke="#c92a2a" stroke-width="1.5" marker-end="url(#arrow-rose)"/>
+  <text x="439" y="112" text-anchor="middle" font-size="10" fill="#c92a2a">공격</text>
+
+  <!-- Blue Team → Auditor (curved down) -->
+  <path d="M 620,180 L 620,240 L 520,240 L 520,270"
+        fill="none" stroke="#364fc7" stroke-width="1.5"
+        marker-end="url(#arrow-blue)"/>
+  <text x="578" y="234" font-size="10" fill="#364fc7">방어 결과</text>
+
+  <!-- Red Team → Auditor (curved down) -->
+  <path d="M 340,180 L 340,240 L 440,240 L 440,270"
+        fill="none" stroke="#c92a2a" stroke-width="1.5"
+        marker-end="url(#arrow-rose)"/>
+  <text x="382" y="234" font-size="10" fill="#c92a2a">공격 결과</text>
+
+  <!-- Auditor → Output -->
+  <line x1="480" y1="390" x2="480" y2="418"
+        stroke="#1e7b30" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <!-- ============ Red Team (Rose) ============ -->
+  <rect x="220" y="60" width="200" height="120" rx="6" fill="#ffe3e3"/>
+  <rect x="220" y="60" width="200" height="28" rx="6" fill="#ffe3e3"/>
+  <rect x="220" y="80" width="200" height="8" fill="#ffe3e3"/>
+  <line x1="220" y1="88" x2="420" y2="88" stroke="#c92a2a" stroke-width="1"/>
+  <rect x="220" y="60" width="200" height="120" rx="6"
+        fill="none" stroke="#c92a2a" stroke-width="1.5"/>
+  <text x="320" y="80" text-anchor="middle" font-size="13"
+        font-weight="600" fill="#c92a2a">Red Team (공격자)</text>
+  <text x="236" y="108" font-size="11" fill="#495057">프롬프트 인젝션 시도</text>
+  <text x="236" y="124" font-size="11" fill="#495057">권한 상승 탐색</text>
+  <text x="236" y="140" font-size="11" fill="#495057">설정 우회 공격 생성</text>
+  <text x="236" y="156" font-size="11" fill="#495057">데이터 유출 시나리오</text>
+
+  <!-- ============ Blue Team (Blue) ============ -->
+  <rect x="460" y="60" width="200" height="120" rx="6" fill="#f5f0eb"/>
+  <rect x="460" y="60" width="200" height="28" rx="6" fill="#dbe4ff"/>
+  <rect x="460" y="80" width="200" height="8" fill="#dbe4ff"/>
+  <line x1="460" y1="88" x2="660" y2="88" stroke="#364fc7" stroke-width="1"/>
+  <rect x="460" y="60" width="200" height="120" rx="6"
+        fill="none" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="560" y="80" text-anchor="middle" font-size="13"
+        font-weight="600" fill="#364fc7">Blue Team (방어자)</text>
+  <text x="476" y="108" font-size="11" fill="#495057">공격 벡터 분석</text>
+  <text x="476" y="124" font-size="11" fill="#495057">방어 전략 수립</text>
+  <text x="476" y="140" font-size="11" fill="#495057">설정 강화 제안</text>
+  <text x="476" y="156" font-size="11" fill="#495057">취약점 패치 권고</text>
+
+  <!-- ============ Auditor (Amber) ============ -->
+  <rect x="340" y="272" width="280" height="120" rx="6" fill="#f5f0eb"/>
+  <rect x="340" y="272" width="280" height="28" rx="6" fill="#fff3bf"/>
+  <rect x="340" y="292" width="280" height="8" fill="#fff3bf"/>
+  <line x1="340" y1="300" x2="620" y2="300" stroke="#e67700" stroke-width="1"/>
+  <rect x="340" y="272" width="280" height="120" rx="6"
+        fill="none" stroke="#e67700" stroke-width="1.5"/>
+  <text x="480" y="292" text-anchor="middle" font-size="13"
+        font-weight="600" fill="#e67700">Auditor (감사자)</text>
+  <text x="356" y="320" font-size="11" fill="#495057">공격/방어 결과 종합 판정</text>
+  <text x="356" y="336" font-size="11" fill="#495057">심각도 분류 (CRITICAL ~ INFO)</text>
+  <text x="356" y="352" font-size="11" fill="#495057">개선 우선순위 결정</text>
+  <text x="356" y="368" font-size="11" fill="#495057">최종 보안 보고서 생성</text>
+
+  <!-- ============ Output: 보안 보고서 (Green) ============ -->
+  <rect x="340" y="420" width="280" height="48" rx="6"
+        fill="#d3f9d8" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="480" y="449" text-anchor="middle" font-size="13"
+        font-weight="600" fill="#1e7b30">보안 보고서 (Security Report)</text>
+
+  <!-- ============ 5 Scan Categories ============ -->
+  <rect x="20" y="490" width="740" height="70" rx="6"
+        fill="#f5f0eb" stroke="#6b6560" stroke-width="1"
+        stroke-dasharray="6,3"/>
+  <text x="40" y="512" font-size="12" font-weight="600" fill="#6b6560">5개 스캔 카테고리</text>
+
+  <!-- Category badges -->
+  <rect x="40" y="524" width="120" height="22" rx="4"
+        fill="#ffe3e3" stroke="#c92a2a" stroke-width="0.75"/>
+  <text x="100" y="539" text-anchor="middle" font-size="10"
+        font-weight="600" fill="#c92a2a">Prompt Injection</text>
+
+  <rect x="172" y="524" width="120" height="22" rx="4"
+        fill="#ffe3e3" stroke="#c92a2a" stroke-width="0.75"/>
+  <text x="232" y="539" text-anchor="middle" font-size="10"
+        font-weight="600" fill="#c92a2a">권한 상승</text>
+
+  <rect x="304" y="524" width="120" height="22" rx="4"
+        fill="#fff3bf" stroke="#e67700" stroke-width="0.75"/>
+  <text x="364" y="539" text-anchor="middle" font-size="10"
+        font-weight="600" fill="#e67700">데이터 유출</text>
+
+  <rect x="436" y="524" width="120" height="22" rx="4"
+        fill="#fff3bf" stroke="#e67700" stroke-width="0.75"/>
+  <text x="496" y="539" text-anchor="middle" font-size="10"
+        font-weight="600" fill="#e67700">설정 우회</text>
+
+  <rect x="568" y="524" width="120" height="22" rx="4"
+        fill="#dbe4ff" stroke="#364fc7" stroke-width="0.75"/>
+  <text x="628" y="539" text-anchor="middle" font-size="10"
+        font-weight="600" fill="#364fc7">MCP 보안</text>
+</svg>

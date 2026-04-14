@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 320" width="860" height="320"
+     font-family="Segoe UI, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#868e96"/>
+    </marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#e67700"/>
+    </marker>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="860" height="320" fill="#ffffff"/>
+
+  <!-- 제목 -->
+  <text x="430" y="32" text-anchor="middle" font-size="16" font-weight="700"
+        fill="#212529" letter-spacing="0.5">워크플로우 ↔ 에이전트 연속체</text>
+
+  <!-- 스펙트럼 바 배경 (Amber) -->
+  <rect x="20" y="48" width="820" height="32" rx="6"
+        fill="#fff3bf" stroke="#e67700" stroke-width="1.5"/>
+
+  <!-- 스펙트럼 그래디언트 효과: 왼쪽 "워크플로우" 라벨 -->
+  <text x="36" y="69" font-size="12" font-weight="600" fill="#e67700">◀ 워크플로우 (코드가 결정)</text>
+
+  <!-- 스펙트럼 오른쪽 "에이전트" 라벨 -->
+  <text x="824" y="69" text-anchor="end" font-size="12" font-weight="600" fill="#e67700">에이전트 (LLM이 결정) ▶</text>
+
+  <!-- 예측 가능성 / 유연성 화살표 -->
+  <line x1="20" y1="95" x2="840" y2="95" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="240" y="108" text-anchor="middle" font-size="10" fill="#868e96">예측 가능성 높음 · 유연성 낮음</text>
+  <text x="640" y="108" text-anchor="middle" font-size="10" fill="#868e96">예측 가능성 낮음 · 유연성 높음</text>
+
+  <!-- ===== 단계 1: 프롬프트 체이닝 (Gray) ===== -->
+  <rect x="20" y="118" width="148" height="100" rx="6" fill="#f5f0eb"/>
+  <rect x="20" y="118" width="148" height="28" rx="6" fill="#6b6560"/>
+  <rect x="20" y="138" width="148" height="8" fill="#6b6560"/>
+  <line x1="20" y1="146" x2="168" y2="146" stroke="#6b6560" stroke-width="1"/>
+  <rect x="20" y="118" width="148" height="100" rx="6" fill="none" stroke="#6b6560" stroke-width="1.5"/>
+  <text x="94" y="138" text-anchor="middle" font-size="13" font-weight="600" fill="#ffffff">프롬프트 체이닝</text>
+  <text x="94" y="162" text-anchor="middle" font-size="11" fill="#495057">단계별 출력</text>
+  <text x="94" y="178" text-anchor="middle" font-size="11" fill="#495057">다음 입력 연결</text>
+  <text x="94" y="194" text-anchor="middle" font-size="10" fill="#868e96">고정 경로</text>
+  <text x="94" y="208" text-anchor="middle" font-size="10" fill="#868e96">순서 결정적</text>
+
+  <!-- 특성 라벨 1 -->
+  <rect x="40" y="232" width="68" height="20" rx="4"
+        fill="#f5f0eb" stroke="#6b6560" stroke-width="0.75"/>
+  <text x="74" y="246" text-anchor="middle" font-size="10" font-weight="600" fill="#6b6560">고정 경로</text>
+
+  <!-- 화살표 1→2 -->
+  <line x1="168" y1="168" x2="184" y2="168" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ===== 단계 2: 라우팅 (Gray) ===== -->
+  <rect x="184" y="118" width="148" height="100" rx="6" fill="#f5f0eb"/>
+  <rect x="184" y="118" width="148" height="28" rx="6" fill="#6b6560"/>
+  <rect x="184" y="138" width="148" height="8" fill="#6b6560"/>
+  <line x1="184" y1="146" x2="332" y2="146" stroke="#6b6560" stroke-width="1"/>
+  <rect x="184" y="118" width="148" height="100" rx="6" fill="none" stroke="#6b6560" stroke-width="1.5"/>
+  <text x="258" y="138" text-anchor="middle" font-size="13" font-weight="600" fill="#ffffff">라우팅</text>
+  <text x="258" y="162" text-anchor="middle" font-size="11" fill="#495057">입력 유형 분류</text>
+  <text x="258" y="178" text-anchor="middle" font-size="11" fill="#495057">적합 경로 선택</text>
+  <text x="258" y="194" text-anchor="middle" font-size="10" fill="#868e96">분류 기반</text>
+  <text x="258" y="208" text-anchor="middle" font-size="10" fill="#868e96">조건 분기</text>
+
+  <!-- 특성 라벨 2 -->
+  <rect x="204" y="232" width="68" height="20" rx="4"
+        fill="#f5f0eb" stroke="#6b6560" stroke-width="0.75"/>
+  <text x="238" y="246" text-anchor="middle" font-size="10" font-weight="600" fill="#6b6560">분류 기반</text>
+
+  <!-- 화살표 2→3 -->
+  <line x1="332" y1="168" x2="348" y2="168" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ===== 단계 3: 오케스트레이터-워커 (중간, Green tint) ===== -->
+  <rect x="348" y="118" width="164" height="100" rx="6" fill="#f5f0eb"/>
+  <rect x="348" y="118" width="164" height="28" rx="6" fill="#1e7b30"/>
+  <rect x="348" y="138" width="164" height="8" fill="#1e7b30"/>
+  <line x1="348" y1="146" x2="512" y2="146" stroke="#1e7b30" stroke-width="1"/>
+  <rect x="348" y="118" width="164" height="100" rx="6" fill="none" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="430" y="138" text-anchor="middle" font-size="13" font-weight="600" fill="#ffffff">오케스트레이터-워커</text>
+  <text x="430" y="162" text-anchor="middle" font-size="11" fill="#495057">작업 동적 분배</text>
+  <text x="430" y="178" text-anchor="middle" font-size="11" fill="#495057">워커 병렬 실행</text>
+  <text x="430" y="194" text-anchor="middle" font-size="10" fill="#868e96">동적 분배</text>
+  <text x="430" y="208" text-anchor="middle" font-size="10" fill="#868e96">부분 자율</text>
+
+  <!-- 특성 라벨 3 -->
+  <rect x="366" y="232" width="68" height="20" rx="4"
+        fill="#d3f9d8" stroke="#1e7b30" stroke-width="0.75"/>
+  <text x="400" y="246" text-anchor="middle" font-size="10" font-weight="600" fill="#1e7b30">동적 분배</text>
+
+  <!-- 화살표 3→4 -->
+  <line x1="512" y1="168" x2="528" y2="168" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ===== 단계 4: 단일 에이전트 (Blue) ===== -->
+  <rect x="528" y="118" width="148" height="100" rx="6" fill="#f5f0eb"/>
+  <rect x="528" y="118" width="148" height="28" rx="6" fill="#364fc7"/>
+  <rect x="528" y="138" width="148" height="8" fill="#364fc7"/>
+  <line x1="528" y1="146" x2="676" y2="146" stroke="#364fc7" stroke-width="1"/>
+  <rect x="528" y="118" width="148" height="100" rx="6" fill="none" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="602" y="138" text-anchor="middle" font-size="13" font-weight="600" fill="#ffffff">단일 에이전트</text>
+  <text x="602" y="162" text-anchor="middle" font-size="11" fill="#495057">LLM이 판단·결정</text>
+  <text x="602" y="178" text-anchor="middle" font-size="11" fill="#495057">도구 사용 루프</text>
+  <text x="602" y="194" text-anchor="middle" font-size="10" fill="#868e96">자율 루프</text>
+  <text x="602" y="208" text-anchor="middle" font-size="10" fill="#868e96">ReAct 패턴</text>
+
+  <!-- 특성 라벨 4 -->
+  <rect x="548" y="232" width="68" height="20" rx="4"
+        fill="#dbe4ff" stroke="#364fc7" stroke-width="0.75"/>
+  <text x="582" y="246" text-anchor="middle" font-size="10" font-weight="600" fill="#364fc7">자율 루프</text>
+
+  <!-- 화살표 4→5 -->
+  <line x1="676" y1="168" x2="692" y2="168" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ===== 단계 5: 멀티에이전트 (Blue - 가장 자율적) ===== -->
+  <rect x="692" y="118" width="148" height="100" rx="6" fill="#f5f0eb"/>
+  <rect x="692" y="118" width="148" height="28" rx="6" fill="#364fc7"/>
+  <rect x="692" y="138" width="148" height="8" fill="#364fc7"/>
+  <line x1="692" y1="146" x2="840" y2="146" stroke="#364fc7" stroke-width="1"/>
+  <rect x="692" y="118" width="148" height="100" rx="6" fill="none" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="766" y="138" text-anchor="middle" font-size="13" font-weight="600" fill="#ffffff">멀티에이전트</text>
+  <text x="766" y="162" text-anchor="middle" font-size="11" fill="#495057">에이전트 간 협업</text>
+  <text x="766" y="178" text-anchor="middle" font-size="11" fill="#495057">자율적 조율</text>
+  <text x="766" y="194" text-anchor="middle" font-size="10" fill="#868e96">협업 조율</text>
+  <text x="766" y="208" text-anchor="middle" font-size="10" fill="#868e96">완전 자율</text>
+
+  <!-- 특성 라벨 5 -->
+  <rect x="712" y="232" width="68" height="20" rx="4"
+        fill="#dbe4ff" stroke="#364fc7" stroke-width="0.75"/>
+  <text x="746" y="246" text-anchor="middle" font-size="10" font-weight="600" fill="#364fc7">협업 조율</text>
+
+  <!-- 하단 요약 바 -->
+  <rect x="20" y="268" width="820" height="32" rx="6"
+        fill="#d3f9d8" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="430" y="289" text-anchor="middle" font-size="12" font-weight="600" fill="#1e7b30">
+    실무 선택 기준: 예측 가능성이 필요하면 왼쪽, 유연성과 자율성이 필요하면 오른쪽
+  </text>
+</svg>

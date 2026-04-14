@@ -1,0 +1,2076 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="AI 코딩 에이전트의 멀티에이전트 오케스트레이션 교재">
+      
+      
+        <meta name="author" content="유혜정">
+      
+      
+        <link rel="canonical" href="https://hj-yu-code.github.io/multi-agent-textbook/11_%EB%B6%80%EB%A1%9D/">
+      
+      
+        <link rel="prev" href="../10_%ED%94%84%EB%A1%9C%EB%8D%95%EC%85%98_%EB%B0%B0%ED%8F%AC/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>부록 - 멀티에이전트 오케스트레이션</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-V094YV0S4G"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-V094YV0S4G",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-V094YV0S4G",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#11" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href=".." title="멀티에이전트 오케스트레이션" class="md-header__button md-logo" aria-label="멀티에이전트 오케스트레이션" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            멀티에이전트 오케스트레이션
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              부록
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="다크 모드로 전환"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="다크 모드로 전환" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="라이트 모드로 전환"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="라이트 모드로 전환" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/hj-yu-code/multi-agent-textbook" title="저장소로 이동" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    multi-agent-textbook
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  홈
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../00_%EB%AA%A9%EC%B0%A8/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  목차
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../01_%EC%84%9C%EB%A1%A0/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  1장 서론
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../02_%EA%B8%B0%EB%B3%B8_%ED%8C%A8%ED%84%B4/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  2장 기본 패턴
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../03_%EC%98%A4%EC%BC%80%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%85%98_%ED%8C%A8%ED%84%B4/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  3장 오케스트레이션
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../04_%EC%9E%91%EC%97%85_%EB%B6%84%ED%95%B4_%ED%8C%A8%ED%84%B4/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  4장 작업 분해
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../05_%EB%AA%A8%EB%8D%B8_%EB%9D%BC%EC%9A%B0%ED%8C%85_%ED%8C%A8%ED%84%B4/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  5장 모델 라우팅
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../06_%ED%92%88%EC%A7%88_%EB%B3%B4%EC%A6%9D_%ED%8C%A8%ED%84%B4/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  6장 품질 보증
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../07_%EC%98%A4%EB%A5%98_%EC%B2%98%EB%A6%AC_%EB%B0%8F_%EC%95%88%EC%A0%84/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  7장 오류 처리
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../08_%EC%8B%A4%EC%A0%84_%EB%8F%84%EA%B5%AC_%EB%B6%84%EC%84%9D/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  8장 실전 도구
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../09_%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8_%EA%B5%AC%ED%98%84_%EA%B0%80%EC%9D%B4%EB%93%9C/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  9장 구현 가이드
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../10_%ED%94%84%EB%A1%9C%EB%8D%95%EC%85%98_%EB%B0%B0%ED%8F%AC/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  10장 프로덕션
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  부록
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="멀티에이전트 오케스트레이션" class="md-nav__button md-logo" aria-label="멀티에이전트 오케스트레이션" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    멀티에이전트 오케스트레이션
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/hj-yu-code/multi-agent-textbook" title="저장소로 이동" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    multi-agent-textbook
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    홈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00_%EB%AA%A9%EC%B0%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    목차
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_%EC%84%9C%EB%A1%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1장 서론
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_%EA%B8%B0%EB%B3%B8_%ED%8C%A8%ED%84%B4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2장 기본 패턴
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_%EC%98%A4%EC%BC%80%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%85%98_%ED%8C%A8%ED%84%B4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3장 오케스트레이션
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_%EC%9E%91%EC%97%85_%EB%B6%84%ED%95%B4_%ED%8C%A8%ED%84%B4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4장 작업 분해
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_%EB%AA%A8%EB%8D%B8_%EB%9D%BC%EC%9A%B0%ED%8C%85_%ED%8C%A8%ED%84%B4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5장 모델 라우팅
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_%ED%92%88%EC%A7%88_%EB%B3%B4%EC%A6%9D_%ED%8C%A8%ED%84%B4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6장 품질 보증
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_%EC%98%A4%EB%A5%98_%EC%B2%98%EB%A6%AC_%EB%B0%8F_%EC%95%88%EC%A0%84/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7장 오류 처리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_%EC%8B%A4%EC%A0%84_%EB%8F%84%EA%B5%AC_%EB%B6%84%EC%84%9D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8장 실전 도구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8_%EA%B5%AC%ED%98%84_%EA%B0%80%EC%9D%B4%EB%93%9C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9장 구현 가이드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_%ED%94%84%EB%A1%9C%EB%8D%95%EC%85%98_%EB%B0%B0%ED%8F%AC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10장 프로덕션
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    부록
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    부록
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#111" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.1 용어 사전
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#112" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.2 전체 출처 목록
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.2 전체 출처 목록">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anthropic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anthropic 공식 자료
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        학술 논문 및 기술 보고서
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        산업 자료
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#113" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.3 다이어그램 목록
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#114" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.4 도구별 설치 명령어 빠른 참조
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.4 도구별 설치 명령어 빠른 참조">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#oh-my-claudecode-omc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        oh-my-claudecode (OMC)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#everything-claude-code-ecc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Everything Claude Code (ECC)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#superpowers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Superpowers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gstack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        gstack
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gsd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GSD
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gas-town" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gas Town
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#111" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.1 용어 사전
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#112" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.2 전체 출처 목록
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.2 전체 출처 목록">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anthropic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anthropic 공식 자료
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        학술 논문 및 기술 보고서
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        산업 자료
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#113" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.3 다이어그램 목록
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#114" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.4 도구별 설치 명령어 빠른 참조
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.4 도구별 설치 명령어 빠른 참조">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#oh-my-claudecode-omc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        oh-my-claudecode (OMC)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#everything-claude-code-ecc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Everything Claude Code (ECC)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#superpowers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Superpowers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gstack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        gstack
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gsd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GSD
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gas-town" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gas Town
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="11">제11단원. 부록 — 참고 자료<a class="headerlink" href="#11" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="111">11.1 용어 사전<a class="headerlink" href="#111" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>용어</th>
+<th>영문</th>
+<th>정의</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>에이전트</td>
+<td>Agent</td>
+<td>LLM이 자신의 프로세스와 도구 사용을 동적으로 결정하는 시스템</td>
+</tr>
+<tr>
+<td>워크플로우</td>
+<td>Workflow</td>
+<td>LLM과 도구가 사전 정의된 코드 경로로 오케스트레이션되는 시스템</td>
+</tr>
+<tr>
+<td>에이전틱 시스템</td>
+<td>Agentic System</td>
+<td>에이전트와 워크플로우를 모두 포괄하는 상위 개념</td>
+</tr>
+<tr>
+<td>오케스트레이션</td>
+<td>Orchestration</td>
+<td>여러 에이전트 간의 작업 분배, 조율, 합성 과정</td>
+</tr>
+<tr>
+<td>subagent</td>
+<td>Subagent</td>
+<td>lead agent에 의해 스폰되는 하위 에이전트. 독립된 컨텍스트 윈도우에서 실행된다</td>
+</tr>
+<tr>
+<td>컨텍스트 윈도우</td>
+<td>Context Window</td>
+<td>LLM이 한 번에 처리할 수 있는 최대 토큰 수</td>
+</tr>
+<tr>
+<td>토큰</td>
+<td>Token</td>
+<td>LLM이 처리하는 텍스트의 최소 단위 (~0.75 영문 단어)</td>
+</tr>
+<tr>
+<td>프롬프트 체이닝</td>
+<td>Prompt Chaining</td>
+<td>순차적 LLM 호출로 작업을 처리하는 패턴</td>
+</tr>
+<tr>
+<td>라우팅</td>
+<td>Routing</td>
+<td>입력을 분류하여 적절한 처리 경로로 연결하는 패턴</td>
+</tr>
+<tr>
+<td>캐스케이딩</td>
+<td>Cascading</td>
+<td>저비용 모델부터 시작하여 필요 시 고비용 모델로 에스컬레이션</td>
+</tr>
+<tr>
+<td>모델 티어</td>
+<td>Model Tier</td>
+<td>성능/비용에 따른 모델 등급 (Opus &gt; Sonnet &gt; Haiku)</td>
+</tr>
+<tr>
+<td>Fan-In</td>
+<td>Fan-In</td>
+<td>여러 병렬 에이전트의 결과가 하나의 합성자에게 모이는 구조</td>
+</tr>
+<tr>
+<td>핸드오프</td>
+<td>Handoff</td>
+<td>에이전트 간 제어권의 동적 이전</td>
+</tr>
+<tr>
+<td>MoA</td>
+<td>Mixture of Agents</td>
+<td>여러 LLM을 레이어로 쌓아 성능을 향상시키는 아키텍처</td>
+</tr>
+<tr>
+<td>서킷 브레이커</td>
+<td>Circuit Breaker</td>
+<td>장애 감지 시 자동으로 폴백하는 안전 메커니즘</td>
+</tr>
+<tr>
+<td>DPMO</td>
+<td>Defects Per Million Opportunities</td>
+<td>100만 기회당 결함 수 (품질 지표)</td>
+</tr>
+<tr>
+<td>블랙보드</td>
+<td>Blackboard</td>
+<td>공유 작업 공간을 통해 에이전트가 자율적으로 협업하는 패턴</td>
+</tr>
+<tr>
+<td>계획-실행 분리</td>
+<td>Planner-Executor</td>
+<td>계획과 실행을 별도 에이전트가 담당하는 패턴</td>
+</tr>
+<tr>
+<td>스캐터-개더</td>
+<td>Scatter-Gather</td>
+<td>작업을 병렬 분배 후 결과를 집계하는 패턴</td>
+</tr>
+<tr>
+<td>THREAD</td>
+<td>THREAD</td>
+<td>재귀적으로 자식 스레드를 스폰하는 작업 분해 프레임워크</td>
+</tr>
+<tr>
+<td>메타프롬프팅</td>
+<td>Meta-Prompting</td>
+<td>프롬프트를 생성하는 프롬프트 시스템. GSD가 대표적 구현</td>
+</tr>
+<tr>
+<td>컨텍스트 부패</td>
+<td>Context Rot</td>
+<td>긴 세션에서 누적된 정보가 품질을 저하시키는 현상. GSD의 태스크별 깨끗한 컨텍스트로 해소</td>
+</tr>
+<tr>
+<td>토큰 예산</td>
+<td>Token Budget</td>
+<td>에이전트에 허용된 최대 토큰 수. 임계값 도달 시 보고 또는 강제 종료</td>
+</tr>
+<tr>
+<td>컨텍스트 엔지니어링</td>
+<td>Context Engineering</td>
+<td>에이전트가 올바른 정보를 올바른 형식으로 컨텍스트에 받도록 설계하는 기법</td>
+</tr>
+<tr>
+<td>레인보우 배포</td>
+<td>Rainbow Deployment</td>
+<td>여러 버전을 동시에 운영하며 점진적으로 전환하는 에이전트 배포 전략</td>
+</tr>
+<tr>
+<td>웨이브</td>
+<td>Wave</td>
+<td>GSD에서 독립적 태스크를 병렬 실행하는 배치 단위</td>
+</tr>
+<tr>
+<td>worktree 격리</td>
+<td>Worktree Isolation</td>
+<td>git worktree로 에이전트별 독립된 작업 디렉터리를 생성하는 격리 기법</td>
+</tr>
+<tr>
+<td>DLP</td>
+<td>Data Loss Prevention</td>
+<td>데이터 손실 방지 메커니즘</td>
+</tr>
+<tr>
+<td>HUD</td>
+<td>Heads-Up Display</td>
+<td>실시간 모니터링 상태줄</td>
+</tr>
+<tr>
+<td>ACI</td>
+<td>Agent-Computer Interface</td>
+<td>에이전트와 도구 간의 인터페이스</td>
+</tr>
+<tr>
+<td>MCP</td>
+<td>Model Context Protocol</td>
+<td>Anthropic의 도구/데이터 접근 프로토콜</td>
+</tr>
+<tr>
+<td>A2A</td>
+<td>Agent-to-Agent</td>
+<td>Google의 에이전트 간 통신 프로토콜</td>
+</tr>
+<tr>
+<td>worktree</td>
+<td>Git Worktree</td>
+<td>단일 레포지토리에서 여러 작업 디렉토리를 관리하는 Git 기능</td>
+</tr>
+<tr>
+<td>Plan Approval Gate</td>
+<td>Plan Approval Gate</td>
+<td>계획 단계에서 실행으로 넘어가기 전 인간 또는 검증 에이전트가 계획을 승인하는 체크포인트 패턴</td>
+</tr>
+<tr>
+<td>FrugalGPT</td>
+<td>FrugalGPT</td>
+<td>저비용 모델부터 순차적으로 시도하며 신뢰도 기준 미달 시 상위 모델로 에스컬레이션하는 캐스케이딩 프레임워크</td>
+</tr>
+<tr>
+<td>AgentShield</td>
+<td>AgentShield</td>
+<td>Red Team(공격자) · Blue Team(방어자) · Auditor(감사자) 3-에이전트 적대적 파이프라인으로 보안 취약점을 자동 탐지·방어하는 ECC 구성 요소</td>
+</tr>
+<tr>
+<td>Beads</td>
+<td>Beads</td>
+<td>Gas Town 프레임워크의 영속 메모리 시스템. 에이전트 재시작 후에도 상태를 유지하는 구조화된 메모리 단위</td>
+</tr>
+<tr>
+<td>Magentic-One</td>
+<td>Magentic-One</td>
+<td>Microsoft의 멀티에이전트 시스템. Orchestrator가 세션마다 동적으로 계획을 수립하고 전문 서브에이전트에 작업을 위임하는 일반 목적 아키텍처</td>
+</tr>
+<tr>
+<td>LLM-as-Judge</td>
+<td>LLM-as-Judge</td>
+<td>LLM을 품질 심사관으로 활용하여 다른 LLM의 출력에 0.0~1.0 점수와 합격/불합격 판정을 부여하는 평가 패턴</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="112">11.2 전체 출처 목록<a class="headerlink" href="#112" title="Permanent link">&para;</a></h2>
+<h3 id="anthropic">Anthropic 공식 자료<a class="headerlink" href="#anthropic" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>출처</th>
+<th>핵심 내용</th>
+<th>발표일</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="https://www.anthropic.com/engineering/multi-agent-research-system">How We Built Our Multi-Agent Research System</a></td>
+<td>Opus Lead + Sonnet Subagent, 90.2% 성능 향상, 토큰 사용량 80% 분산</td>
+<td>2025.06</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="https://www.anthropic.com/research/building-effective-agents">Building Effective Agents</a></td>
+<td>6가지 기본 패턴, 에이전트 vs 워크플로우 구분</td>
+<td>2024.12</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="https://www.anthropic.com/engineering/building-c-compiler">Building a C Compiler with Parallel Claudes</a></td>
+<td>16 병렬 에이전트, $20K, 100K줄 컴파일러</td>
+<td>2026.02</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_1">학술 논문 및 기술 보고서<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>출처</th>
+<th>핵심 내용</th>
+<th>발표일</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4</td>
+<td><a href="https://arxiv.org/abs/2510.01285">arxiv 2510.01285 — Blackboard MAS</a></td>
+<td>블랙보드 패턴, 정적 할당 대비 13~57% 향상</td>
+<td>2025.10</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="https://arxiv.org/abs/2305.14325">arxiv 2305.14325 — Multi-Agent Debate</a></td>
+<td>멀티에이전트 토론, 사실성 향상</td>
+<td>2023.05</td>
+</tr>
+<tr>
+<td>5-1</td>
+<td><a href="https://arxiv.org/abs/2511.07784">arxiv 2511.07784 — Diversity of Thought in Multi-Agent Debate</a></td>
+<td>토론 참여 에이전트 다양성이 품질에 미치는 영향 분석</td>
+<td>2025.11</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="https://arxiv.org/abs/2512.20845">arxiv 2512.20845 — MAR</a></td>
+<td>다중 에이전트 리플렉션, HumanEval 82.6%</td>
+<td>2025.12</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="https://arxiv.org/abs/2503.09572">arxiv 2503.09572 — Plan-and-Act</a></td>
+<td>계획-실행 분리, 약한 Planner가 치명적 병목</td>
+<td>2025.03</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="https://arxiv.org/abs/2405.17402">arxiv 2405.17402 — THREAD</a></td>
+<td>재귀적 스레드 생성, 10~50% 성능 향상</td>
+<td>2024.05</td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="https://arxiv.org/abs/2601.22290">arxiv 2601.22290 — Six Sigma Agent</a></td>
+<td>합의 투표, 신뢰도 14,700배 향상</td>
+<td>2026.01</td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="https://arxiv.org/abs/2505.24239">arxiv 2505.24239 — Credibility Scoring</a></td>
+<td>신뢰도 점수 기반 적대적 저항</td>
+<td>2025.05</td>
+</tr>
+<tr>
+<td>11</td>
+<td><a href="https://arxiv.org/html/2406.04692v1">arxiv 2406.04692 — Mixture-of-Agents</a></td>
+<td>MoA, GPT-4o 대비 8.2% 향상</td>
+<td>2024.06</td>
+</tr>
+<tr>
+<td>12</td>
+<td><a href="https://arxiv.org/abs/2505.19234">arxiv 2505.19234 — GUARDIAN</a></td>
+<td>가디언 에이전트, 환각 전파 감지</td>
+<td>2025.05</td>
+</tr>
+<tr>
+<td>13</td>
+<td><a href="https://arxiv.org/abs/2603.04445">arxiv 2603.04445 — Dynamic Model Routing Survey</a></td>
+<td>라우팅 vs 캐스케이딩 체계적 분류</td>
+<td>2026.03</td>
+</tr>
+<tr>
+<td>14</td>
+<td><a href="https://arxiv.org/abs/2411.13768">arxiv 2411.13768 — Eval-Driven LLM Ops</a></td>
+<td>카나리/블루-그린 에이전트 배포</td>
+<td>2024.11</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_2">산업 자료<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>출처</th>
+<th>핵심 내용</th>
+<th>발표일</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>15</td>
+<td><a href="https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns">Azure — AI Agent Design Patterns</a></td>
+<td>Fan-out/Fan-in, 동시 오케스트레이션</td>
+<td>2025.04</td>
+</tr>
+<tr>
+<td>16</td>
+<td><a href="https://www.microsoft.com/en-us/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks/">Microsoft — MagenticOne</a></td>
+<td>동적 매니저 오케스트레이션</td>
+<td>2024.11</td>
+</tr>
+<tr>
+<td>17</td>
+<td><a href="https://cookbook.openai.com/examples/orchestrating_agents">OpenAI — Orchestrating Agents</a></td>
+<td>핸드오프 오케스트레이션</td>
+<td>2025.04</td>
+</tr>
+<tr>
+<td>18</td>
+<td><a href="https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/">Google — A2A Protocol</a></td>
+<td>에이전트 간 통신 표준</td>
+<td>2025.04</td>
+</tr>
+<tr>
+<td>19</td>
+<td><a href="https://docs.aws.amazon.com/prescriptive-guidance/latest/agentic-ai-patterns/parallelization-and-scatter-gather-patterns.html">AWS — Scatter-Gather Patterns</a></td>
+<td>처리 시간 60~80% 단축</td>
+<td>2025.06</td>
+</tr>
+<tr>
+<td>20</td>
+<td><a href="https://addyosmani.com/blog/code-agent-orchestra/">Addy Osmani — The Code Agent Orchestra</a></td>
+<td>계층적 분해, 토큰 예산</td>
+<td>2025.10</td>
+</tr>
+<tr>
+<td>21</td>
+<td><a href="https://portkey.ai/blog/implementing-frugalgpt-smarter-llm-usage-for-lower-costs/">Portkey — Implementing FrugalGPT</a></td>
+<td>캐스케이딩 구현, 98% 비용 절감</td>
+<td>2024.08</td>
+</tr>
+<tr>
+<td>22</td>
+<td><a href="https://www.getmaxim.ai/articles/top-5-llm-routing-techniques/">Maxim — Top 5 LLM Routing Techniques</a></td>
+<td>의미적/비용 인식/섀도 라우팅</td>
+<td>2025.07</td>
+</tr>
+<tr>
+<td>23</td>
+<td><a href="https://getpushtoprod.substack.com/p/30-tips-for-claude-code-agent-teams">30 Tips for Claude Code Agent Teams</a></td>
+<td>실무 팁, 모델 티어링</td>
+<td>2025.09</td>
+</tr>
+<tr>
+<td>24</td>
+<td><a href="https://zylos.ai/research/2026-03-02-event-driven-architecture-ai-agent-systems">Zylos — Event-Driven AI Agent Systems</a></td>
+<td>Pub-Sub 에이전트 통신</td>
+<td>2026.03</td>
+</tr>
+<tr>
+<td>25</td>
+<td><a href="https://www.codeant.ai/blogs/llm-shadow-traffic-ab-testing">CodeAnt — Shadow Testing for LLMs</a></td>
+<td>섀도 모드 테스트</td>
+<td>2025.11</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="113">11.3 다이어그램 목록<a class="headerlink" href="#113" title="Permanent link">&para;</a></h2>
+<p>이 교재에서 참조하는 SVG 다이어그램 목록이다. 모든 다이어그램은 <code>multi_agent/diagrams/</code> 디렉토리에 위치한다.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>그림명</th>
+<th>유형</th>
+<th>위치 (단원)</th>
+<th>파일명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>단일 에이전트 vs 멀티에이전트 아키텍처 비교</td>
+<td>Component</td>
+<td>01단원</td>
+<td><code>ch01_single_vs_multi_agent.svg</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td>워크플로우-에이전트 연속체</td>
+<td>Component</td>
+<td>01단원</td>
+<td><code>ch01_agent_vs_workflow_continuum.svg</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td>기본 패턴 선택 의사결정 트리</td>
+<td>Activity</td>
+<td>02단원</td>
+<td><code>ch02_pattern_decision_tree.svg</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td>오케스트레이션 패턴 비교</td>
+<td>Component</td>
+<td>03단원</td>
+<td><code>ch03_orchestration_patterns.svg</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td>계획-실행 분리 전체 흐름</td>
+<td>Activity</td>
+<td>03단원</td>
+<td><code>ch03_planner_executor_flow.svg</code></td>
+</tr>
+<tr>
+<td>6</td>
+<td>핸드오프 vs 오케스트레이터-워커 비교</td>
+<td>Component</td>
+<td>03단원</td>
+<td><code>ch03_handoff_vs_orchestrator.svg</code></td>
+</tr>
+<tr>
+<td>7</td>
+<td>작업 분해 패턴 비교</td>
+<td>Component</td>
+<td>04단원</td>
+<td><code>ch04_task_decomposition_patterns.svg</code></td>
+</tr>
+<tr>
+<td>8</td>
+<td>Fan-In 병목 해소 패턴</td>
+<td>Component</td>
+<td>04단원</td>
+<td><code>ch04_fan_in_patterns.svg</code></td>
+</tr>
+<tr>
+<td>9</td>
+<td>모델 라우팅 패턴 비교</td>
+<td>Component</td>
+<td>05단원</td>
+<td><code>ch05_model_routing_patterns.svg</code></td>
+</tr>
+<tr>
+<td>10</td>
+<td>FrugalGPT 캐스케이딩 흐름</td>
+<td>Activity</td>
+<td>05단원</td>
+<td><code>ch05_frugalgpt_cascading.svg</code></td>
+</tr>
+<tr>
+<td>11</td>
+<td>프로덕션 라우팅 5레이어 스택</td>
+<td>Component</td>
+<td>05단원</td>
+<td><code>ch05_production_routing_layers.svg</code></td>
+</tr>
+<tr>
+<td>12</td>
+<td>품질 보증 패턴 비교</td>
+<td>Component</td>
+<td>06단원</td>
+<td><code>ch06_quality_assurance_patterns.svg</code></td>
+</tr>
+<tr>
+<td>13</td>
+<td>Six Sigma 합의 투표 프로세스</td>
+<td>Activity</td>
+<td>06단원</td>
+<td><code>ch06_six_sigma_consensus.svg</code></td>
+</tr>
+<tr>
+<td>14</td>
+<td>통신/안전/배포 패턴</td>
+<td>Component</td>
+<td>07단원</td>
+<td><code>ch07_communication_safety_deployment.svg</code></td>
+</tr>
+<tr>
+<td>15</td>
+<td>오류 처리 패턴</td>
+<td>Component</td>
+<td>07단원</td>
+<td><code>ch07_error_handling_patterns.svg</code></td>
+</tr>
+<tr>
+<td>16</td>
+<td>서킷 브레이커 상태 전이</td>
+<td>Statechart</td>
+<td>07단원</td>
+<td><code>ch07_circuit_breaker_statechart.svg</code></td>
+</tr>
+<tr>
+<td>17</td>
+<td>레인보우 배포 시간축</td>
+<td>Activity</td>
+<td>07단원</td>
+<td><code>ch07_rainbow_deployment.svg</code></td>
+</tr>
+<tr>
+<td>18</td>
+<td>OMC Team 모드 5단계 파이프라인</td>
+<td>Activity</td>
+<td>08단원</td>
+<td><code>ch08_omc_team_pipeline.svg</code></td>
+</tr>
+<tr>
+<td>19</td>
+<td>OMC 3티어 모델 라우팅</td>
+<td>Component</td>
+<td>08단원</td>
+<td><code>ch08_omc_model_routing.svg</code></td>
+</tr>
+<tr>
+<td>20</td>
+<td>ECC 개발 워크플로우</td>
+<td>Activity</td>
+<td>08단원</td>
+<td><code>ch08_ecc_dev_workflow.svg</code></td>
+</tr>
+<tr>
+<td>21</td>
+<td>AgentShield 적대적 파이프라인</td>
+<td>Activity</td>
+<td>08단원</td>
+<td><code>ch08_ecc_agentshield.svg</code></td>
+</tr>
+<tr>
+<td>22</td>
+<td>Superpowers 워크플로우</td>
+<td>Activity</td>
+<td>08단원</td>
+<td><code>ch08_superpowers_workflow.svg</code></td>
+</tr>
+<tr>
+<td>23</td>
+<td>gstack 6가지 역할 시스템</td>
+<td>Component</td>
+<td>08단원</td>
+<td><code>ch08_gstack_roles.svg</code></td>
+</tr>
+<tr>
+<td>24</td>
+<td>GSD 스펙 기반 개발 파이프라인</td>
+<td>Activity</td>
+<td>08단원</td>
+<td><code>ch08_gsd_pipeline.svg</code></td>
+</tr>
+<tr>
+<td>25</td>
+<td>Gas Town Mayor 패턴 아키텍처</td>
+<td>Component</td>
+<td>08단원</td>
+<td><code>ch08_gastown_mayor.svg</code></td>
+</tr>
+<tr>
+<td>26</td>
+<td>3단계 스킬 로딩 프로세스</td>
+<td>Activity</td>
+<td>09단원</td>
+<td><code>ch09_skill_loading_process.svg</code></td>
+</tr>
+<tr>
+<td>27</td>
+<td>Opus 코디네이터 종합 아키텍처</td>
+<td>Component</td>
+<td>09단원</td>
+<td><code>ch09_opus_coordinator_pattern.svg</code></td>
+</tr>
+<tr>
+<td>28</td>
+<td>병렬 에이전트 Docker 동기화 아키텍처</td>
+<td>Component</td>
+<td>10단원</td>
+<td><code>ch10_parallel_agent_sync.svg</code></td>
+</tr>
+<tr>
+<td>29</td>
+<td>인간-에이전트 협업 검증 프로세스</td>
+<td>Activity</td>
+<td>10단원</td>
+<td><code>ch10_human_agent_verification.svg</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="114">11.4 도구별 설치 명령어 빠른 참조<a class="headerlink" href="#114" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>참고</strong>: 이 섹션의 모든 버전은 교재 작성 기준(2026년 4월)에 테스트 완료된 버전이다. 최신 버전은 각 GitHub 저장소의 Releases 페이지에서 확인한다.</p>
+</blockquote>
+<h3 id="oh-my-claudecode-omc">oh-my-claudecode (OMC)<a class="headerlink" href="#oh-my-claudecode-omc" title="Permanent link">&para;</a></h3>
+<p>테스트 완료 버전: <code>oh-my-claude-sisyphus</code> <strong>v4.11.2</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 플러그인 마켓플레이스</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>/plugin<span class="w"> </span>marketplace<span class="w"> </span>add<span class="w"> </span>https://github.com/Yeachan-Heo/oh-my-claudecode
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>/plugin<span class="w"> </span>install<span class="w"> </span>oh-my-claudecode
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>/oh-my-claudecode:omc-setup<span class="w"> </span>--global
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># npm (특정 버전 고정 설치)</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>oh-my-claude-sisyphus@4.11.2
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># 환경변수 (필수)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS</span><span class="o">=</span><span class="m">1</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="c1"># 환경 진단</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>/oh-my-claudecode:omc-doctor
+</code></pre></div>
+<h3 id="everything-claude-code-ecc">Everything Claude Code (ECC)<a class="headerlink" href="#everything-claude-code-ecc" title="Permanent link">&para;</a></h3>
+<p>테스트 완료 버전: <code>ecc-universal</code> <strong>v1.1.0</strong> (v1.1.0부터 완전 Node.js, Windows 지원)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># 플러그인 마켓플레이스</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>/plugin<span class="w"> </span>marketplace<span class="w"> </span>add<span class="w"> </span>affaan-m/everything-claude-code
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>/plugin<span class="w"> </span>install<span class="w"> </span>everything-claude-code@everything-claude-code
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># npm CLI (특정 버전 고정 설치)</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>ecc-universal@1.1.0
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>ecc<span class="w"> </span>install<span class="w">                          </span><span class="c1"># 기본 설치</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>ecc<span class="w"> </span>install<span class="w"> </span>--profile<span class="w"> </span>full<span class="w">           </span><span class="c1"># 전체 설치</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>ecc<span class="w"> </span>install<span class="w"> </span>--profile<span class="w"> </span>developer<span class="w">      </span><span class="c1"># 개발자 프로필</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="c1"># 보안 스캔</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>npx<span class="w"> </span>ecc-agentshield<span class="w"> </span>scan<span class="w">             </span><span class="c1"># 기본</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>npx<span class="w"> </span>ecc-agentshield<span class="w"> </span>scan<span class="w"> </span>--opus<span class="w">      </span><span class="c1"># 3-에이전트 적대적</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="c1"># 환경 진단</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>ecc<span class="w"> </span>doctor
+</code></pre></div>
+<h3 id="superpowers">Superpowers<a class="headerlink" href="#superpowers" title="Permanent link">&para;</a></h3>
+<p>테스트 완료 버전: Claude Code 공식 마켓플레이스 등록 버전 (2026년 4월 기준, <strong>2025.10.09</strong> 최초 출시)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Claude Code 공식 마켓플레이스 (권장)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>/plugin<span class="w"> </span>install<span class="w"> </span>superpowers@claude-plugins-official
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Superpowers 마켓플레이스</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>/plugin<span class="w"> </span>marketplace<span class="w"> </span>add<span class="w"> </span>obra/superpowers-marketplace
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>/plugin<span class="w"> </span>install<span class="w"> </span>superpowers@superpowers-marketplace
+</code></pre></div>
+<h3 id="gstack">gstack<a class="headerlink" href="#gstack" title="Permanent link">&para;</a></h3>
+<p>테스트 완료 버전: GitHub <code>main</code> 브랜치 (2026년 4월 기준, Bun 컴파일 바이너리 ~58MB)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># 설치</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/garrytan/gstack.git<span class="w"> </span>~/.claude/skills/gstack
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nb">cd</span><span class="w"> </span>~/.claude/skills/gstack<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>./setup
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1"># 설정</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>~/.claude/skills/gstack/bin/gstack-config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>proactive<span class="w"> </span><span class="nb">true</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1"># 업그레이드</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>/gstack-upgrade
+</code></pre></div>
+<h3 id="gsd">GSD<a class="headerlink" href="#gsd" title="Permanent link">&para;</a></h3>
+<p>테스트 완료 버전: <code>gsd-2</code> <strong>v2.x</strong> (<code>npm info gsd-2 version</code> 으로 현재 버전 확인)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Claude Code — 글로벌</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>npx<span class="w"> </span>get-shit-done-cc<span class="w"> </span>--claude<span class="w"> </span>--global
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># Claude Code — 로컬</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>npx<span class="w"> </span>get-shit-done-cc<span class="w"> </span>--claude<span class="w"> </span>--local
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># GSD-2 독립 CLI</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>gsd-2
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>npx<span class="w"> </span>gsd-2<span class="w"> </span>init
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="c1"># 프로젝트 시작</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>/gsd:new-project
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="c1"># 자율 실행</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>/gsd<span class="w"> </span>auto
+</code></pre></div>
+<h3 id="gas-town">Gas Town<a class="headerlink" href="#gas-town" title="Permanent link">&para;</a></h3>
+<p>테스트 완료 버전: <code>gt</code> 및 <code>bd</code> Go 바이너리 <strong>@latest</strong> (2026년 4월 기준, Go 1.21+ 필요)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># GT CLI 설치</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>go<span class="w"> </span>install<span class="w"> </span>github.com/steveyegge/gastown/cmd/gt@latest
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Beads 설치</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>go<span class="w"> </span>install<span class="w"> </span>github.com/steveyegge/beads/cmd/bd@latest
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1"># PATH 설정</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$PATH</span><span class="s2">:</span><span class="nv">$HOME</span><span class="s2">/go/bin&quot;</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="c1"># HQ 초기화</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>gt<span class="w"> </span>install<span class="w"> </span>~/gt<span class="w"> </span>--shell
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>gt<span class="w"> </span><span class="nb">enable</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>gt<span class="w"> </span>git-init
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>gt<span class="w"> </span>up
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="c1"># 프로젝트 추가</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>gt<span class="w"> </span>rig<span class="w"> </span>add<span class="w"> </span>my-project<span class="w"> </span>~/projects/my-project
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="c1"># 헬스 체크</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>gt<span class="w"> </span>doctor
+</code></pre></div>
+<hr />
+<p><em>이 교재의 모든 내용은 원저작자의 저작권 하에 인용되었다. 학술 및 교육 목적으로만 사용할 것을 권장한다.</em></p>
+<p><em>이전 단원: <a href="../10_%ED%94%84%EB%A1%9C%EB%8D%95%EC%85%98_%EB%B0%B0%ED%8F%AC/">제10단원. 프로덕션 배포</a> | <a href="../00_%EB%AA%A9%EC%B0%A8/">목차로 돌아가기</a></em></p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

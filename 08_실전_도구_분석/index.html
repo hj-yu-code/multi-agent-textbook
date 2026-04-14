@@ -1,0 +1,3141 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="AI 코딩 에이전트의 멀티에이전트 오케스트레이션 교재">
+      
+      
+        <meta name="author" content="유혜정">
+      
+      
+        <link rel="canonical" href="https://hj-yu-code.github.io/multi-agent-textbook/08_%EC%8B%A4%EC%A0%84_%EB%8F%84%EA%B5%AC_%EB%B6%84%EC%84%9D/">
+      
+      
+        <link rel="prev" href="../07_%EC%98%A4%EB%A5%98_%EC%B2%98%EB%A6%AC_%EB%B0%8F_%EC%95%88%EC%A0%84/">
+      
+      
+        <link rel="next" href="../09_%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8_%EA%B5%AC%ED%98%84_%EA%B0%80%EC%9D%B4%EB%93%9C/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>8장 실전 도구 - 멀티에이전트 오케스트레이션</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-V094YV0S4G"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-V094YV0S4G",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-V094YV0S4G",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#8-claude-code" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href=".." title="멀티에이전트 오케스트레이션" class="md-header__button md-logo" aria-label="멀티에이전트 오케스트레이션" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            멀티에이전트 오케스트레이션
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              8장 실전 도구
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="다크 모드로 전환"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="다크 모드로 전환" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="라이트 모드로 전환"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="라이트 모드로 전환" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/hj-yu-code/multi-agent-textbook" title="저장소로 이동" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    multi-agent-textbook
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  홈
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../00_%EB%AA%A9%EC%B0%A8/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  목차
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../01_%EC%84%9C%EB%A1%A0/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  1장 서론
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../02_%EA%B8%B0%EB%B3%B8_%ED%8C%A8%ED%84%B4/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  2장 기본 패턴
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../03_%EC%98%A4%EC%BC%80%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%85%98_%ED%8C%A8%ED%84%B4/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  3장 오케스트레이션
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../04_%EC%9E%91%EC%97%85_%EB%B6%84%ED%95%B4_%ED%8C%A8%ED%84%B4/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  4장 작업 분해
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../05_%EB%AA%A8%EB%8D%B8_%EB%9D%BC%EC%9A%B0%ED%8C%85_%ED%8C%A8%ED%84%B4/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  5장 모델 라우팅
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../06_%ED%92%88%EC%A7%88_%EB%B3%B4%EC%A6%9D_%ED%8C%A8%ED%84%B4/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  6장 품질 보증
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../07_%EC%98%A4%EB%A5%98_%EC%B2%98%EB%A6%AC_%EB%B0%8F_%EC%95%88%EC%A0%84/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  7장 오류 처리
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  8장 실전 도구
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../09_%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8_%EA%B5%AC%ED%98%84_%EA%B0%80%EC%9D%B4%EB%93%9C/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  9장 구현 가이드
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../10_%ED%94%84%EB%A1%9C%EB%8D%95%EC%85%98_%EB%B0%B0%ED%8F%AC/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  10장 프로덕션
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../11_%EB%B6%80%EB%A1%9D/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  부록
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="멀티에이전트 오케스트레이션" class="md-nav__button md-logo" aria-label="멀티에이전트 오케스트레이션" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    멀티에이전트 오케스트레이션
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/hj-yu-code/multi-agent-textbook" title="저장소로 이동" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    multi-agent-textbook
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    홈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00_%EB%AA%A9%EC%B0%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    목차
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_%EC%84%9C%EB%A1%A0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1장 서론
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_%EA%B8%B0%EB%B3%B8_%ED%8C%A8%ED%84%B4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2장 기본 패턴
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_%EC%98%A4%EC%BC%80%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%85%98_%ED%8C%A8%ED%84%B4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3장 오케스트레이션
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_%EC%9E%91%EC%97%85_%EB%B6%84%ED%95%B4_%ED%8C%A8%ED%84%B4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4장 작업 분해
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_%EB%AA%A8%EB%8D%B8_%EB%9D%BC%EC%9A%B0%ED%8C%85_%ED%8C%A8%ED%84%B4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5장 모델 라우팅
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_%ED%92%88%EC%A7%88_%EB%B3%B4%EC%A6%9D_%ED%8C%A8%ED%84%B4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6장 품질 보증
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_%EC%98%A4%EB%A5%98_%EC%B2%98%EB%A6%AC_%EB%B0%8F_%EC%95%88%EC%A0%84/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7장 오류 처리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8장 실전 도구
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8장 실전 도구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        학습 목표
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#81-oh-my-claudecode-omc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 oh-my-claudecode (OMC)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.1 oh-my-claudecode (OMC)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        프로젝트 개요
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5가지 실행 모드
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#team-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Team 모드 5단계 파이프라인
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        32 에이전트 티어 분포
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ralph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ralph 모드 (영속 실행)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        한계 및 주의사항
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#82-everything-claude-code-ecc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Everything Claude Code (ECC)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.2 Everything Claude Code (ECC)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        프로젝트 개요
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        에이전트 카테고리
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ECC 개발 워크플로우
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agentshield-3-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AgentShield 3-에이전트 적대적 파이프라인
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cl2-instinct" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CL2 지속 학습 시스템 (Instinct)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        한계 및 주의사항
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#83-superpowers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 Superpowers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.3 Superpowers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        프로젝트 개요
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        핵심 철학: "제안이 아닌 강제"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7단계 개발 워크플로우
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주요 스킬 (20+ 핵심)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        한계 및 주의사항
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#84-gstack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 gstack
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.4 gstack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        프로젝트 개요
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6가지 역할 시스템
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        브라우저 자동화
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        한계 및 주의사항
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#85-gsd-get-stuff-done" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5 GSD (Get Stuff Done)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.5 GSD (Get Stuff Done)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        프로젝트 개요
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        스펙 기반 개발: 마일스톤 → 슬라이스 → 태스크
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        컨텍스트 엔지니어링의 핵심
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-dlp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7가지 DLP 안전장치
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        한계 및 주의사항
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#86-gas-town" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.6 Gas Town
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.6 Gas Town">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        프로젝트 개요
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mayor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mayor 패턴
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beads 영속 메모리 시스템
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3단계 에스컬레이션
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        한계 및 주의사항
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#87" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.7 통합 비교 매트릭스
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#88" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.8 상황별 선택 가이드
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#89" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.9 도구 조합 전략
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.9 도구 조합 전략">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        전략 1: 방법론 + 오케스트레이션
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        전략 2: 보안 + 역할
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        전략 3: 스펙 기반 + 영속 실행
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#claude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        전략 조합 시 .claude/ 디렉터리 구성 예시
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#810" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.10 리뷰어 비율 규칙 (실무 가이드라인)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.10 리뷰어 비율 규칙 (실무 가이드라인)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        규칙
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        근거
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실전 적용
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        비율 위반 시 증상
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        복습 질문
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8_%EA%B5%AC%ED%98%84_%EA%B0%80%EC%9D%B4%EB%93%9C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9장 구현 가이드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_%ED%94%84%EB%A1%9C%EB%8D%95%EC%85%98_%EB%B0%B0%ED%8F%AC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10장 프로덕션
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_%EB%B6%80%EB%A1%9D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    부록
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        학습 목표
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#81-oh-my-claudecode-omc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 oh-my-claudecode (OMC)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.1 oh-my-claudecode (OMC)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        프로젝트 개요
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5가지 실행 모드
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#team-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Team 모드 5단계 파이프라인
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        32 에이전트 티어 분포
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ralph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ralph 모드 (영속 실행)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        한계 및 주의사항
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#82-everything-claude-code-ecc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Everything Claude Code (ECC)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.2 Everything Claude Code (ECC)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        프로젝트 개요
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        에이전트 카테고리
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ECC 개발 워크플로우
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agentshield-3-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AgentShield 3-에이전트 적대적 파이프라인
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cl2-instinct" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CL2 지속 학습 시스템 (Instinct)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        한계 및 주의사항
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#83-superpowers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 Superpowers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.3 Superpowers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        프로젝트 개요
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        핵심 철학: "제안이 아닌 강제"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7단계 개발 워크플로우
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주요 스킬 (20+ 핵심)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        한계 및 주의사항
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#84-gstack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 gstack
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.4 gstack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        프로젝트 개요
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6가지 역할 시스템
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        브라우저 자동화
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        한계 및 주의사항
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#85-gsd-get-stuff-done" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5 GSD (Get Stuff Done)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.5 GSD (Get Stuff Done)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        프로젝트 개요
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        스펙 기반 개발: 마일스톤 → 슬라이스 → 태스크
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        컨텍스트 엔지니어링의 핵심
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-dlp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7가지 DLP 안전장치
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        한계 및 주의사항
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#86-gas-town" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.6 Gas Town
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.6 Gas Town">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        프로젝트 개요
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mayor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mayor 패턴
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beads 영속 메모리 시스템
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3단계 에스컬레이션
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        한계 및 주의사항
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#87" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.7 통합 비교 매트릭스
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#88" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.8 상황별 선택 가이드
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#89" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.9 도구 조합 전략
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.9 도구 조합 전략">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        전략 1: 방법론 + 오케스트레이션
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        전략 2: 보안 + 역할
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        전략 3: 스펙 기반 + 영속 실행
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#claude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        전략 조합 시 .claude/ 디렉터리 구성 예시
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#810" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.10 리뷰어 비율 규칙 (실무 가이드라인)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.10 리뷰어 비율 규칙 (실무 가이드라인)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        규칙
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        근거
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실전 적용
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        비율 위반 시 증상
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        복습 질문
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="8-claude-code">제8단원. 실전 도구 분석 — 주요 Claude Code 도구 비교<a class="headerlink" href="#8-claude-code" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="_1">학습 목표<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>이 단원을 마치면 다음을 할 수 있다:</p>
+<ol>
+<li>6개 주요 Claude Code 오케스트레이션 도구의 핵심 특성을 설명할 수 있다</li>
+<li>10개 이상의 차원에서 도구를 비교 분석할 수 있다</li>
+<li>프로젝트 상황에 맞는 도구를 선택하고 조합할 수 있다</li>
+</ol>
+<hr />
+<p>2025~2026년 사이 Claude Code 생태계에서는 멀티에이전트 오케스트레이션 도구가 폭발적으로 등장하였다. 이 단원에서는 가장 영향력 있는 6개 도구를 체계적으로 분석한다.</p>
+<hr />
+<h2 id="81-oh-my-claudecode-omc">8.1 oh-my-claudecode (OMC)<a class="headerlink" href="#81-oh-my-claudecode-omc" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>"A weapon, not a tool."</strong></p>
+</blockquote>
+<h3 id="_2">프로젝트 개요<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GitHub</td>
+<td><a href="https://github.com/Yeachan-Heo/oh-my-claudecode">Yeachan-Heo/oh-my-claudecode</a></td>
+</tr>
+<tr>
+<td>저자</td>
+<td>Yeachan Heo (Bellman) — 퀀트 트레이딩 종사자</td>
+</tr>
+<tr>
+<td>스타</td>
+<td>~26,400</td>
+</tr>
+<tr>
+<td>핵심</td>
+<td>32 에이전트, 5 실행 모드, 3티어 모델 라우팅</td>
+</tr>
+<tr>
+<td>npm</td>
+<td><code>oh-my-claude-sisyphus</code> (v4.11.2)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="5">5가지 실행 모드<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>모드</th>
+<th>동시 워커</th>
+<th>모델 라우팅</th>
+<th>적합한 상황</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Autopilot</strong></td>
+<td>1</td>
+<td>자동 (의도 기반)</td>
+<td>표준 작업, 단일 포커스</td>
+</tr>
+<tr>
+<td><strong>Ultrapilot</strong></td>
+<td>최대 5</td>
+<td>3레이어 아키텍처</td>
+<td>20+ 파일 리팩토링</td>
+</tr>
+<tr>
+<td><strong>Swarm</strong></td>
+<td>N</td>
+<td>복잡도 기반</td>
+<td>독립적 다수 마이크로태스크</td>
+</tr>
+<tr>
+<td><strong>Pipeline</strong></td>
+<td>1 (순차)</td>
+<td>단계별 최적</td>
+<td>구조화된 순차 워크플로우</td>
+</tr>
+<tr>
+<td><strong>Ecomode</strong></td>
+<td>1</td>
+<td>Haiku 우선</td>
+<td>비용 제한 환경</td>
+</tr>
+</tbody>
+</table>
+<h3 id="team-5">Team 모드 5단계 파이프라인<a class="headerlink" href="#team-5" title="Permanent link">&para;</a></h3>
+<p><img alt="OMC Team 파이프라인" src="../diagrams/ch08_omc_team_pipeline.svg" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>team-plan(Opus) → team-prd(Opus) → team-exec(Sonnet) → team-verify(Sonnet) → team-fix(Sonnet)
+</code></pre></div>
+<h3 id="32">32 에이전트 티어 분포<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<p><img alt="OMC 모델 라우팅" src="../diagrams/ch08_omc_model_routing.svg" /></p>
+<table>
+<thead>
+<tr>
+<th>티어</th>
+<th>수량</th>
+<th>비율</th>
+<th>대표 에이전트</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Opus (심층 추론)</td>
+<td>8</td>
+<td>25%</td>
+<td>architect, planner, critic, team-lead</td>
+</tr>
+<tr>
+<td>Sonnet (루틴 실행)</td>
+<td>16</td>
+<td>50%</td>
+<td>executor, debugger, verifier, security-auditor</td>
+</tr>
+<tr>
+<td>Haiku (단순/반복)</td>
+<td>8</td>
+<td>25%</td>
+<td>explore, git-master, formatter, searcher</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ralph">Ralph 모드 (영속 실행)<a class="headerlink" href="#ralph" title="Permanent link">&para;</a></h3>
+<p>시지프스 모티프에서 영감을 받은 영속 실행 모드이다. Rate limit에 걸려도 지수 백오프로 자동 대기 후 재개하며, 검증 통과까지 무한 반복한다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Planner(Opus) → Executor(Sonnet) → Verifier(Sonnet) → PASS? → 완료
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>                                         │
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>                                        FAIL
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>                                         │
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>                                   Debugger(Sonnet) → Planner로 돌아감
+</code></pre></div>
+<h3 id="_3">한계 및 주의사항<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>설치 복잡도</strong>: tmux, Node.js(npm), Claude Code 동시 요구. Windows는 WSL 필요로 실험적 지원에 그침</li>
+<li><strong>Ultrapilot 비용</strong>: 5 워커 동시 실행 시 단일 세션 대비 토큰 사용량 3~7배 증가. API 비용 예측이 어렵다</li>
+<li><strong>Ralph 무한 루프 위험</strong>: 검증 조건이 잘못 설계되면 무한 반복에 빠질 수 있다. 최대 반복 횟수(<code>maxTurns</code>)를 반드시 설정해야 한다</li>
+<li><strong>32 에이전트의 커스터마이징 복잡도</strong>: 에이전트 수가 많아 프로젝트 특화 수정이 번거롭다</li>
+<li><strong>커뮤니티 규모</strong>: 스타 수 ~26K로 상대적으로 소규모. 이슈 해결이 느릴 수 있다</li>
+</ul>
+<hr />
+<h2 id="82-everything-claude-code-ecc">8.2 Everything Claude Code (ECC)<a class="headerlink" href="#82-everything-claude-code-ecc" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>"The agent harness performance optimization system"</strong></p>
+</blockquote>
+<h3 id="_4">프로젝트 개요<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GitHub</td>
+<td><a href="https://github.com/affaan-m/everything-claude-code">affaan-m/everything-claude-code</a></td>
+</tr>
+<tr>
+<td>저자</td>
+<td>Affaan Mustafa — Anthropic 해커톤 우승자</td>
+</tr>
+<tr>
+<td>스타</td>
+<td>~145,700 (GitHub Global Rank #46)</td>
+</tr>
+<tr>
+<td>핵심</td>
+<td>47 에이전트, 181 스킬, AgentShield 보안, 크로스플랫폼</td>
+</tr>
+<tr>
+<td>테스트</td>
+<td>1,282개 (98% 커버리지)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_5">에이전트 카테고리<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>카테고리</th>
+<th>수량</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Core Workflow</td>
+<td>9</td>
+<td>planner, architect, code-reviewer, tdd-guide</td>
+</tr>
+<tr>
+<td>Infrastructure/Meta</td>
+<td>5</td>
+<td>chief-of-staff, loop-operator, eval-harness</td>
+</tr>
+<tr>
+<td>Language-Specific Reviewers</td>
+<td>8</td>
+<td>go-reviewer, rust-reviewer, python-reviewer</td>
+</tr>
+<tr>
+<td>Build Resolvers</td>
+<td>5</td>
+<td>go-build-resolver, rust-build-resolver</td>
+</tr>
+<tr>
+<td>Domain-Specific</td>
+<td>1+</td>
+<td>database-reviewer</td>
+</tr>
+<tr>
+<td>기타</td>
+<td>19</td>
+<td>api-designer, docker-advisor, react-reviewer</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ecc">ECC 개발 워크플로우<a class="headerlink" href="#ecc" title="Permanent link">&para;</a></h3>
+<p><img alt="ECC 개발 워크플로우" src="../diagrams/ch08_ecc_dev_workflow.svg" /></p>
+<p>ECC의 전체 개발 워크플로우는 위 다이어그램과 같이, chief-of-staff orchestrator가 최상위에서 작업을 분배하고, 각 언어별/도메인별 전문 에이전트가 병렬로 작업한 뒤, eval-harness가 품질을 검증하는 구조이다.</p>
+<h3 id="agentshield-3-">AgentShield 3-에이전트 적대적 파이프라인<a class="headerlink" href="#agentshield-3-" title="Permanent link">&para;</a></h3>
+<p><img alt="AgentShield" src="../diagrams/ch08_ecc_agentshield.svg" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Red Team (공격자) → Blue Team (방어자) → Auditor (감사자)
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  공격 벡터 탐색      방어 수준 평가       최종 보안 등급
+</code></pre></div>
+<ul>
+<li>102개 정적 분석 규칙, 5개 카테고리</li>
+<li>25+ MCP 취약점 데이터베이스</li>
+<li><code>--opus</code> 플래그로 3-에이전트 적대적 분석 활성화</li>
+</ul>
+<h3 id="cl2-instinct">CL2 지속 학습 시스템 (Instinct)<a class="headerlink" href="#cl2-instinct" title="Permanent link">&para;</a></h3>
+<p>ECC의 고유 기능인 CL2(Continuous Learning v2)는 에이전트가 세션 간에 학습한 패턴을 유지하는 메커니즘이다. <code>/instinct-status</code>, <code>/instinct-import</code>, <code>/instinct-export</code> 커맨드로 관리한다.</p>
+<h3 id="_6">한계 및 주의사항<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>크로스플랫폼의 범위</strong>: 비교 매트릭스에서 "6개 도구 지원"은 Claude Code, Cursor, Windsurf, Zed, Continue, Copilot 등의 코딩 어시스턴트 도구를 의미한다. 범용 지원이 아니라 코딩 어시스턴트에 한정된다</li>
+<li><strong>181 스킬의 초기 진입 장벽</strong>: 스킬 수가 많아 새 팀원이 학습하는 데 시간이 필요하다. 팀 전체가 ECC를 사용하지 않으면 효과가 반감된다</li>
+<li><strong>CL2(Instinct)의 한계</strong>: 세션 간 학습이 실제 모델 업데이트가 아닌 프롬프트 컨텍스트에 의존한다. 컨텍스트 윈도우를 많이 소비할 수 있다</li>
+<li><strong>AgentShield 오탐</strong>: 102개 규칙 기반 정적 분석은 컨텍스트를 이해하지 못하므로 오탐(false positive)이 발생할 수 있다</li>
+</ul>
+<hr />
+<h2 id="83-superpowers">8.3 Superpowers<a class="headerlink" href="#83-superpowers" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>"An agentic skills framework &amp; software development methodology that works."</strong></p>
+</blockquote>
+<h3 id="_7">프로젝트 개요<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GitHub</td>
+<td><a href="https://github.com/obra/superpowers">obra/superpowers</a></td>
+</tr>
+<tr>
+<td>저자</td>
+<td>Jesse Vincent (obra) — RT 창시자</td>
+</tr>
+<tr>
+<td>스타</td>
+<td>~107,000 (2026년 4월 기준, Claude Code 플러그인 최다)</td>
+</tr>
+<tr>
+<td>핵심</td>
+<td>강제적 스킬, TDD 사이클 강제, 7단계 워크플로우</td>
+</tr>
+<tr>
+<td>최초 출시</td>
+<td>2025.10.09 (Anthropic 플러그인 시스템 출시 당일)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_8">핵심 철학: "제안이 아닌 강제"<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p><img alt="Superpowers 워크플로우" src="../diagrams/ch08_superpowers_workflow.svg" /></p>
+<p>Superpowers는 스킬이 <strong>제안(suggestion)이 아닌 강제(enforcement)</strong>라는 점에서 다른 도구와 근본적으로 다르다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>기존 CLAUDE.md:                    Superpowers:
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>&quot;테스트를 먼저 작성하라&quot;             스킬 발견 → 로드 → 실행 강제
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>     │                                │
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>     ▼                                ▼
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a> 에이전트가 무시                     게이트가 차단
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a> → 테스트 없는 코드                  → RED 테스트 없으면 구현 불가
+</code></pre></div>
+<h3 id="7">7단계 개발 워크플로우<a class="headerlink" href="#7" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>brainstorming → writing-plans → using-git-worktrees
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>→ subagent-driven-development (또는 dispatching-parallel-agents)
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>→ verification-before-completion → requesting-code-review
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>→ finishing-a-development-branch
+</code></pre></div>
+<h3 id="20">주요 스킬 (20+ 핵심)<a class="headerlink" href="#20" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>카테고리</th>
+<th>스킬</th>
+<th>역할</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>워크플로우 코어</td>
+<td>brainstorming, writing-plans, executing-plans</td>
+<td>설계→구현 파이프라인</td>
+</tr>
+<tr>
+<td>품질 보증</td>
+<td>test-driven-development, systematic-debugging</td>
+<td>TDD + 4단계 디버깅</td>
+</tr>
+<tr>
+<td>subagent 관리</td>
+<td>subagent-driven-development, dispatching-parallel-agents</td>
+<td>작업별 subagent 파견</td>
+</tr>
+<tr>
+<td>디버깅</td>
+<td>root-cause-tracing, defense-in-depth</td>
+<td>근본 원인 분석</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_9">한계 및 주의사항<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>"강제" 메커니즘의 실제 한계</strong>: 스킬 강제는 Claude Code의 프롬프트 레이어에서 작동한다. 에이전트가 스킬을 무시하는 경우를 완전히 막을 수는 없으며, 강제는 권고에 가깝다</li>
+<li><strong>GitHub 스타 수</strong>: 교재 작성 시점(2026년 4월) 기준 ~107,000 (2025년 출시 이후 성장 중)</li>
+<li><strong>모델 라우팅 부재</strong>: 단일 모델로 모든 스킬을 실행한다. 비용 효율이 중요한 환경에서는 OMC와 조합 필요</li>
+<li><strong>7단계 워크플로우의 경직성</strong>: 빠른 프로토타이핑이나 탐색적 작업에는 단계가 너무 많아 과도할 수 있다</li>
+</ul>
+<hr />
+<h2 id="84-gstack">8.4 gstack<a class="headerlink" href="#84-gstack" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>"AI is most valuable when it runs engineering process, not when it writes code."</strong></p>
+</blockquote>
+<h3 id="_10">프로젝트 개요<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GitHub</td>
+<td><a href="https://github.com/garrytan/gstack">garrytan/gstack</a></td>
+</tr>
+<tr>
+<td>저자</td>
+<td>Garry Tan — Y Combinator CEO</td>
+</tr>
+<tr>
+<td>스타</td>
+<td>~50,000 (2026년 4월 기준, 출시 48시간 만에 10K)</td>
+</tr>
+<tr>
+<td>핵심</td>
+<td>6역할 시스템, 23개 도구, 브라우저 자동화</td>
+</tr>
+<tr>
+<td>저자의 생산성</td>
+<td>주당 10K 라인 코드 + 100 PR</td>
+</tr>
+</tbody>
+</table>
+<h3 id="6">6가지 역할 시스템<a class="headerlink" href="#6" title="Permanent link">&para;</a></h3>
+<p><img alt="gstack 역할 시스템" src="../diagrams/ch08_gstack_roles.svg" /></p>
+<table>
+<thead>
+<tr>
+<th>역할</th>
+<th>핵심 기능</th>
+<th>게이트 유형</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CEO</strong></td>
+<td>제품 방향 검증, YC 오피스아워 시뮬레이션</td>
+<td>정보 제공</td>
+</tr>
+<tr>
+<td><strong>Designer</strong></td>
+<td>AI 슬롭 감지, 디자인 시스템 구축</td>
+<td>정보 제공</td>
+</tr>
+<tr>
+<td><strong>Eng Manager</strong></td>
+<td>아키텍처 리뷰, 코드 리뷰</td>
+<td><strong>필수 게이트</strong></td>
+</tr>
+<tr>
+<td><strong>Release Manager</strong></td>
+<td>PR 생성, 카나리 배포, 벤치마크</td>
+<td>실행</td>
+</tr>
+<tr>
+<td><strong>Doc Engineer</strong></td>
+<td>diff 기반 문서 드리프트 감지 및 갱신</td>
+<td>실행</td>
+</tr>
+<tr>
+<td><strong>QA Lead</strong></td>
+<td>실제 Chromium 브라우저 테스트, 보안 감사</td>
+<td>실행</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_11">브라우저 자동화<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Playwright 기반 <strong>영속 헤드리스 Chromium 데몬</strong></li>
+<li>콜드 스타트 3~5초, 웜 호출 100~200ms</li>
+<li>바이너리 크기 ~58MB (Bun 컴파일)</li>
+<li>실제 브라우저에서 쿠키 임포트 가능</li>
+</ul>
+<h3 id="_12">한계 및 주의사항<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>단일 세션 실행</strong>: 병렬 에이전트를 지원하지 않는다. 대규모 프로젝트에서는 OMC나 GSD와 조합 필요</li>
+<li><strong>브라우저 자동화 의존</strong>: Chromium 데몬이 필요하므로 CI/CD 환경이나 서버리스 환경에서 제약이 있다</li>
+<li><strong>Eng Manager 게이트가 필수 병목</strong>: 모든 코드가 Eng Manager 게이트를 통과해야 하므로, 이 역할의 설정이 부실하면 전체 워크플로우가 느려진다</li>
+<li><strong>스타 수 불안정</strong>: 빠른 성장(48시간 10K)은 바이럴 효과에 의존하며, 장기 유지보수 여부를 보장하지 않는다</li>
+<li><strong>커스터마이징 진입 장벽</strong>: 6가지 역할의 프롬프트를 프로젝트에 맞게 수정하려면 각 역할의 의도와 게이트 로직을 깊이 이해해야 한다. 기본 설정만으로는 YC 스타일 제품 개발에 특화되어 있어 다른 도메인에 적용 시 조정이 필요하다</li>
+</ul>
+<hr />
+<h2 id="85-gsd-get-stuff-done">8.5 GSD (Get Stuff Done)<a class="headerlink" href="#85-gsd-get-stuff-done" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>"A powerful meta-prompting, context engineering and spec-driven development system."</strong></p>
+</blockquote>
+<h3 id="_13">프로젝트 개요<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GitHub</td>
+<td><a href="https://github.com/gsd-build/gsd-2">gsd-build/gsd-2</a></td>
+</tr>
+<tr>
+<td>저자</td>
+<td>Lex Christopherson (TACHES)</td>
+</tr>
+<tr>
+<td>스타</td>
+<td>~35,000</td>
+</tr>
+<tr>
+<td>핵심</td>
+<td>스펙 기반 개발, 메타프롬프팅, 7가지 DLP 안전장치</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_14">스펙 기반 개발: 마일스톤 → 슬라이스 → 태스크<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p><img alt="GSD 파이프라인" src="../diagrams/ch08_gsd_pipeline.svg" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>마일스톤 (릴리스 가능한 가치 단위)
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  └── 슬라이스 (독립 배포 가능한 기능 조각)
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>        └── 태스크 (단일 컨텍스트 윈도우 내 완결)
+</code></pre></div>
+<h3 id="_15">컨텍스트 엔지니어링의 핵심<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<p>GSD v2의 가장 강력한 특성은 <strong>태스크별 깨끗한 컨텍스트</strong>이다:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>단일 세션:  시작: 10% → 중간: 60% → 끝: 95% (품질 저하)
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>GSD:       태스크 1: 20% | 태스크 2: 20% | 태스크 3: 20%
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>           → 태스크 50이 태스크 1과 동일 품질
+</code></pre></div>
+<h3 id="7-dlp">7가지 DLP 안전장치<a class="headerlink" href="#7-dlp" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>안전장치</th>
+<th>역할</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>환각 가드</td>
+<td>도구 호출 0회 태스크를 환각으로 판정</td>
+</tr>
+<tr>
+<td>머지 앵커 검증</td>
+<td>워크트리 해체 전 데이터 손실 방지</td>
+</tr>
+<tr>
+<td>더티 트리 감지</td>
+<td>커밋 안 된 변경의 워크트리 삭제 방지</td>
+</tr>
+<tr>
+<td>크래시 복구</td>
+<td>auto.lock + PID 추적 → 자동 재개</td>
+</tr>
+<tr>
+<td>교착 감지</td>
+<td>동일 태스크 반복 실패 루프 감지</td>
+</tr>
+<tr>
+<td>스냅샷</td>
+<td>실행 전 상태 백업</td>
+</tr>
+<tr>
+<td>사전 머지 검사</td>
+<td>머지 전 자동 검증</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_16">한계 및 주의사항<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>스펙 품질에 극도로 의존</strong>: 마일스톤/슬라이스/태스크 정의가 부정확하면 전체 시스템이 잘못된 방향으로 작동한다. 초기 스펙 작성에 상당한 노력이 필요하다</li>
+<li><strong>학습 곡선</strong>: 메타프롬프팅 개념과 GSD의 고유 용어(wave, slice, task 등)를 익히는 데 시간이 필요하다</li>
+<li><strong>12개 도구 지원의 복잡성</strong>: 지원 범위가 넓지만, 각 도구와의 통합 품질에 차이가 있다</li>
+</ul>
+<hr />
+<h2 id="86-gas-town">8.6 Gas Town<a class="headerlink" href="#86-gas-town" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>"Kubernetes for AI agents."</strong></p>
+</blockquote>
+<h3 id="_17">프로젝트 개요<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GitHub</td>
+<td><a href="https://github.com/steveyegge/gastown">steveyegge/gastown</a></td>
+</tr>
+<tr>
+<td>저자</td>
+<td>Steve Yegge — 전 Google/Amazon 엔지니어</td>
+</tr>
+<tr>
+<td>스타</td>
+<td>~13,200</td>
+</tr>
+<tr>
+<td>핵심</td>
+<td>Mayor 패턴, Beads 영속 메모리, 3단계 에스컬레이션</td>
+</tr>
+<tr>
+<td>언어</td>
+<td>Go</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mayor">Mayor 패턴<a class="headerlink" href="#mayor" title="Permanent link">&para;</a></h3>
+<p><img alt="Gas Town Mayor 아키텍처" src="../diagrams/ch08_gastown_mayor.svg" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Overseer (인간) → Mayor (수석 에이전트) → Polecat (워커, 임시)
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>                       │
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>                  ┌────┼────┐
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>                  ▼    ▼    ▼
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>              Witness  Refinery  Deacon
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>              (감시)   (머지)    (순찰)
+</code></pre></div>
+<h3 id="beads">Beads 영속 메모리 시스템<a class="headerlink" href="#beads" title="Permanent link">&para;</a></h3>
+<p>모든 상태가 git으로 백업되는 이슈 트래킹 시스템이다. MEOW(Molecular Expression of Work) 스택으로 크래시 복구 가능한 작업 오케스트레이션을 구현한다.</p>
+<p><strong>비결정적 경로, 결정적 결과</strong>: 에이전트가 매번 다른 접근법을 선택할 수 있지만, 수락 기준이 명시적이므로 결과는 수렴한다.</p>
+<h3 id="3">3단계 에스컬레이션<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>심각도</th>
+<th>라우팅</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CRITICAL (P0)</td>
+<td>Polecat → Deacon → Mayor → <strong>Overseer</strong></td>
+</tr>
+<tr>
+<td>HIGH (P1)</td>
+<td>Polecat → Deacon → <strong>Mayor</strong></td>
+</tr>
+<tr>
+<td>MEDIUM (P2)</td>
+<td>Polecat → <strong>Deacon</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_18">한계 및 주의사항<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Go 언어 의존</strong>: Go 런타임 필요. Python/Node.js 생태계에 익숙한 팀은 별도 환경 설정 필요</li>
+<li><strong>Windows 미지원</strong>: Unix/Linux/macOS 전용. Windows 개발 환경에서는 사용 불가</li>
+<li><strong>설치 복잡도</strong>: 6개 도구 중 가장 높은 설치 복잡도. Docker, Go, git 등의 사전 설정 필요</li>
+<li><strong>Beads 시스템의 운영 부담</strong>: git 기반 상태 관리는 강력하지만, 많은 bead 항목이 쌓이면 관리가 복잡해진다</li>
+<li><strong>소규모 커뮤니티</strong>: 스타 수 ~13K로 6개 도구 중 가장 낮음. 공식 문서 미흡, 이슈 해결 지원이 제한적</li>
+</ul>
+<hr />
+<h2 id="87">8.7 통합 비교 매트릭스<a class="headerlink" href="#87" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>차원</th>
+<th>OMC</th>
+<th>ECC</th>
+<th>Superpowers</th>
+<th>gstack</th>
+<th>GSD</th>
+<th>Gas Town</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>접근법</strong></td>
+<td>멀티에이전트 오케스트레이션</td>
+<td>에이전트 하네스 최적화</td>
+<td>스킬/방법론 프레임워크</td>
+<td>역할 기반 스킬 팩</td>
+<td>메타프롬프팅+스펙</td>
+<td>멀티에이전트 워크스페이스</td>
+</tr>
+<tr>
+<td><strong>에이전트 수</strong></td>
+<td>32</td>
+<td>47</td>
+<td>38(+subagent)</td>
+<td>-</td>
+<td>-</td>
+<td>7 역할</td>
+</tr>
+<tr>
+<td><strong>스킬 수</strong></td>
+<td>43</td>
+<td>181</td>
+<td>156</td>
+<td>23+8</td>
+<td>44(v1)</td>
+<td>TOML Formula</td>
+</tr>
+<tr>
+<td><strong>병렬 실행</strong></td>
+<td>최대 5 워커</td>
+<td>단일 세션</td>
+<td>subagent 파견</td>
+<td>단일 세션</td>
+<td>웨이브 병렬</td>
+<td>12~30 Polecat</td>
+</tr>
+<tr>
+<td><strong>모델 라우팅</strong></td>
+<td>3티어 자동</td>
+<td>에이전트별 지정</td>
+<td>없음(동적)</td>
+<td>브라우저 작업별</td>
+<td>없음</td>
+<td>없음</td>
+</tr>
+<tr>
+<td><strong>Git 격리</strong></td>
+<td>worktree</td>
+<td>없음</td>
+<td>worktree</td>
+<td>없음</td>
+<td>worktree</td>
+<td>git 기반 전체</td>
+</tr>
+<tr>
+<td><strong>영속 실행</strong></td>
+<td>Ralph 모드</td>
+<td>없음</td>
+<td>없음</td>
+<td>없음</td>
+<td>auto 모드</td>
+<td>Beads+Molecule</td>
+</tr>
+<tr>
+<td><strong>보안</strong></td>
+<td>훅 기반</td>
+<td>AgentShield 102규칙</td>
+<td>도구 화이트리스트</td>
+<td>/careful, /freeze</td>
+<td>DLP 7가지</td>
+<td>에스컬레이션</td>
+</tr>
+<tr>
+<td><strong>크로스플랫폼</strong></td>
+<td>Claude Code</td>
+<td>6개 도구[^1]</td>
+<td>6개 도구[^1]</td>
+<td>7개 도구[^2]</td>
+<td>12개 도구[^3]</td>
+<td>Claude Code</td>
+</tr>
+<tr>
+<td><strong>Windows</strong></td>
+<td>실험적(WSL)</td>
+<td>전체 지원</td>
+<td>지원</td>
+<td>부분 지원</td>
+<td>지원</td>
+<td>미지원</td>
+</tr>
+<tr>
+<td><strong>설치 복잡도</strong></td>
+<td>중간</td>
+<td>낮음</td>
+<td>매우 낮음</td>
+<td>낮음</td>
+<td>낮음</td>
+<td>높음</td>
+</tr>
+<tr>
+<td><strong>GitHub 스타</strong></td>
+<td>~26K</td>
+<td>~145K</td>
+<td>~137K</td>
+<td>~50K</td>
+<td>~35K</td>
+<td>~13K</td>
+</tr>
+</tbody>
+</table>
+<p><strong>크로스플랫폼 각주</strong>:
+- [^1]: Claude Code, Cursor, Windsurf, Zed, Continue, Copilot (코딩 어시스턴트 6개)
+- [^2]: 위 6개 + JetBrains (7개)
+- [^3]: 위 7개 + VS Code, Neovim, Emacs 등 확장 지원 (12개)</p>
+<hr />
+<h2 id="88">8.8 상황별 선택 가이드<a class="headerlink" href="#88" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>상황</th>
+<th>1순위 추천</th>
+<th>이유</th>
+<th>2순위</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>즉시 속도 3~5배 향상</td>
+<td><strong>OMC</strong> (Ultrapilot)</td>
+<td>tmux 병렬, worktree 격리</td>
+<td>Gas Town</td>
+</tr>
+<tr>
+<td>체계적 코드 품질 + 보안</td>
+<td><strong>ECC</strong> (AgentShield)</td>
+<td>102 정적 규칙, Red/Blue Team</td>
+<td>Superpowers</td>
+</tr>
+<tr>
+<td>SDLC 전체 강제</td>
+<td><strong>Superpowers</strong></td>
+<td>강제적 스킬, TDD 사이클</td>
+<td>ECC</td>
+</tr>
+<tr>
+<td>빠른 시작 + 실전 검증</td>
+<td><strong>gstack</strong></td>
+<td>YC CEO 실전 설정, 30초 설치</td>
+<td>Superpowers</td>
+</tr>
+<tr>
+<td>장기 자율 실행</td>
+<td><strong>GSD</strong> (auto 모드)</td>
+<td>깨끗한 컨텍스트, DLP 7가지</td>
+<td>OMC (Ralph)</td>
+</tr>
+<tr>
+<td>Steve Yegge 스타일 공장</td>
+<td><strong>Gas Town</strong></td>
+<td>Mayor 패턴, Beads 영속</td>
+<td>OMC</td>
+</tr>
+<tr>
+<td>Windows 환경</td>
+<td><strong>ECC</strong></td>
+<td>v1.1.0부터 완전 Node.js</td>
+<td>GSD</td>
+</tr>
+<tr>
+<td>최소 오버헤드</td>
+<td><strong>gstack</strong></td>
+<td>마크다운 프롬프트만, PATH 미수정</td>
+<td>Superpowers</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="89">8.9 도구 조합 전략<a class="headerlink" href="#89" title="Permanent link">&para;</a></h2>
+<p>이 도구들은 상호 배타적이지 않다. 실무에서는 <strong>레이어별로 조합</strong>하여 사용할 수 있다:</p>
+<h3 id="1">전략 1: 방법론 + 오케스트레이션<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Superpowers (방법론 레이어)
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    + OMC (오케스트레이션 레이어)
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>→ Superpowers가 TDD, 계획, 리뷰를 강제하고
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>  OMC가 병렬 실행과 모델 라우팅을 담당
+</code></pre></div>
+<h3 id="2">전략 2: 보안 + 역할<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>ECC AgentShield (보안 레이어)
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    + gstack (역할 기반 워크플로우)
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>→ gstack의 6역할 워크플로우에
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>  ECC의 보안 스캐닝을 추가
+</code></pre></div>
+<h3 id="3_1">전략 3: 스펙 기반 + 영속 실행<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>GSD (스펙 + 컨텍스트 엔지니어링)
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    + OMC Ralph (영속 실행)
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>→ GSD가 마일스톤/슬라이스/태스크를 관리하고
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>  Ralph가 rate limit 대응을 처리
+</code></pre></div>
+<h3 id="claude">전략 조합 시 .claude/ 디렉터리 구성 예시<a class="headerlink" href="#claude" title="Permanent link">&para;</a></h3>
+<p>도구를 레이어별로 조합할 때 <code>.claude/</code> 디렉터리는 다음과 같이 구성한다 (전략 1 기준):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>.claude/
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>├── settings.json               # 공통 설정 (훅, 권한 등)
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>├── agents/
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>│   ├── omc/                    # OMC 에이전트 정의
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>│   │   ├── architect.md
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>│   │   ├── executor.md
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>│   │   └── verifier.md
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>│   └── custom/                 # 프로젝트 특화 에이전트
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>│       └── domain-expert.md
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>├── skills/
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>│   ├── superpowers/            # Superpowers 스킬 (방법론 레이어)
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>│   │   ├── SKILLS.md
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>│   │   ├── brainstorming.md
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>│   │   └── test-driven-development.md
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>│   └── project/                # 프로젝트 특화 스킬
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>│       └── deploy-prod.md
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>└── hooks/
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>    ├── pre-tool-use.sh          # 도구 실행 전 검증
+<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>    └── post-tool-use.sh         # 도구 실행 후 정리
+</code></pre></div>
+<hr />
+<h2 id="810">8.10 리뷰어 비율 규칙 (실무 가이드라인)<a class="headerlink" href="#810" title="Permanent link">&para;</a></h2>
+<p>원본 연구(8_multi_agent_orchestration_patterns.md 4.3절)에서 제시하는 중요한 실무 원칙이다.</p>
+<h3 id="_19">규칙<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<p><strong>빌더(builder) 에이전트 3~4명당 전담 리뷰어(reviewer) 에이전트 1명</strong>을 배치하여 지속적 품질 게이트를 제공한다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Builder A ──▶ ┐
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>Builder B ──▶ ┤──▶ Reviewer (1명): 지속적 코드 리뷰
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>Builder C ──▶ ┘
+</code></pre></div>
+<h3 id="_20">근거<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<ul>
+<li>리뷰어 1명이 빌더 5명 이상을 담당하면 리뷰가 병목이 되어 전체 파이프라인이 지연된다</li>
+<li>리뷰어 수가 빌더 수와 같으면 불필요한 비용이 발생한다 (리뷰 대기 시간 증가)</li>
+<li>빌더 3~4명: 리뷰어 1명 비율이 실험적으로 최적 균형점으로 확인되었다</li>
+</ul>
+<h3 id="_21">실전 적용<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<p>OMC의 경우 code-reviewer 에이전트가 리뷰어 역할을 담당한다. Ultrapilot에서 4 워커(빌더) + 1 verifier(리뷰어) 구성이 이 비율을 따른다.</p>
+<p>ECC는 47개 에이전트 중 code-reviewer를 포함한 Language-Specific Reviewers 8개를 별도 카테고리로 분리하여, 리뷰어 풀을 명시적으로 관리한다.</p>
+<p>Gas Town의 경우, Mayor 오케스트레이터가 작업 완료 후 QA Polecat을 리뷰어로 파견하는 구조로 비율을 유연하게 조정한다. 작업 규모에 따라 QA Polecat 수를 늘리거나 줄일 수 있다.</p>
+<h3 id="_22">비율 위반 시 증상<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<p>리뷰어 비율 규칙을 어기면 다음 증상이 나타난다:
+- <strong>리뷰어 부족(1:5+)</strong>: 리뷰 큐 지연, 미리뷰 코드 축적, 기술 부채 증가
+- <strong>리뷰어 과잉(1:1~2)</strong>: 빌더 대기 시간 증가, 리뷰어 유휴 상태, 비용 낭비
+- <strong>리뷰어 없음</strong>: 빌더 오류가 파이프라인 끝까지 전파, 후반 수정 비용 급증</p>
+<blockquote>
+<p><strong>핵심 정리: 도구 선택의 3원칙</strong></p>
+<ol>
+<li><strong>가장 단순한 것부터 시작한다</strong> — gstack 또는 Superpowers로 시작하여 병목이 발견되면 확장</li>
+<li><strong>문제에 맞는 도구를 선택한다</strong> — 속도 문제면 OMC, 품질 문제면 ECC, 프로세스 문제면 Superpowers</li>
+<li><strong>레이어별로 조합한다</strong> — 방법론, 오케스트레이션, 보안은 서로 다른 레이어이므로 조합 가능</li>
+</ol>
+</blockquote>
+<hr />
+<h2 id="_23">복습 질문<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>OMC의 5가지 실행 모드를 각각 설명하고, 20파일 리팩토링 작업에 가장 적합한 모드를 선택하여 그 이유를 서술하라.</p>
+</li>
+<li>
+<p>ECC의 AgentShield 3-에이전트 적대적 파이프라인(Red Team/Blue Team/Auditor)의 각 에이전트 역할을 설명하라.</p>
+</li>
+<li>
+<p>Superpowers의 "강제적 스킬" 접근법이 기존 CLAUDE.md 방식보다 효과적인 이유를 구조적으로 설명하라.</p>
+</li>
+<li>
+<p>GSD의 "태스크별 깨끗한 컨텍스트" 전략이 해결하는 문제(컨텍스트 부패)를 설명하고, 이것이 품질에 미치는 영향을 논하라.</p>
+</li>
+<li>
+<p>통합 비교 매트릭스를 참고하여, "10명 규모 팀의 마이크로서비스 프로젝트"에 적합한 도구 조합을 설계하고 그 근거를 제시하라.</p>
+</li>
+</ol>
+<hr />
+<p><em>이전 단원: <a href="../07_%EC%98%A4%EB%A5%98_%EC%B2%98%EB%A6%AC_%EB%B0%8F_%EC%95%88%EC%A0%84/">제7단원. 오류 처리 및 안전</a> | 다음 단원: <a href="../09_%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8_%EA%B5%AC%ED%98%84_%EA%B0%80%EC%9D%B4%EB%93%9C/">제9단원. 에이전트 구현 가이드</a></em></p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

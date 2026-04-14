@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 878" width="520" height="878"
+     font-family="Segoe UI, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#868e96"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e7b30"/>
+    </marker>
+  </defs>
+  <rect width="520" height="878" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="260" y="30" text-anchor="middle" font-size="16" font-weight="700"
+        fill="#212529" letter-spacing="0.5">GSD Spec-Based Development Pipeline</text>
+
+  <!-- Start node -->
+  <circle cx="260" cy="60" r="10" fill="#6b6560"/>
+
+  <!-- Arrow: Start → Initialize -->
+  <line x1="260" y1="70" x2="260" y2="88"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 1: Initialize (Gray) -->
+  <rect x="120" y="90" width="280" height="64" rx="6" fill="#f5f0eb"/>
+  <rect x="120" y="90" width="280" height="28" rx="6" fill="#f5f0eb"/>
+  <rect x="120" y="110" width="280" height="8" fill="#f5f0eb"/>
+  <line x1="120" y1="118" x2="400" y2="118" stroke="#6b6560" stroke-width="1"/>
+  <rect x="120" y="90" width="280" height="64" rx="6"
+        fill="none" stroke="#6b6560" stroke-width="1.5"/>
+  <text x="260" y="108" text-anchor="middle" font-size="12"
+        font-weight="600" fill="#212529">Initialize</text>
+  <text x="136" y="138" font-size="11" fill="#495057">REQUIREMENTS.md 생성</text>
+
+  <!-- Arrow: Initialize → Discuss -->
+  <line x1="260" y1="154" x2="260" y2="182"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 2: Discuss (Amber) -->
+  <rect x="120" y="184" width="280" height="64" rx="6" fill="#fff3bf"/>
+  <rect x="120" y="184" width="280" height="28" rx="6" fill="#fff3bf"/>
+  <rect x="120" y="204" width="280" height="8" fill="#fff3bf"/>
+  <line x1="120" y1="212" x2="400" y2="212" stroke="#e67700" stroke-width="1"/>
+  <rect x="120" y="184" width="280" height="64" rx="6"
+        fill="none" stroke="#e67700" stroke-width="1.5"/>
+  <text x="260" y="202" text-anchor="middle" font-size="12"
+        font-weight="600" fill="#212529">Discuss</text>
+  <text x="136" y="232" font-size="11" fill="#495057">Socratic 질문 → 스펙 정제</text>
+
+  <!-- Arrow: Discuss → Plan -->
+  <line x1="260" y1="248" x2="260" y2="276"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 3: Plan (Blue) -->
+  <rect x="120" y="278" width="280" height="64" rx="6" fill="#dbe4ff"/>
+  <rect x="120" y="278" width="280" height="28" rx="6" fill="#dbe4ff"/>
+  <rect x="120" y="298" width="280" height="8" fill="#dbe4ff"/>
+  <line x1="120" y1="306" x2="400" y2="306" stroke="#364fc7" stroke-width="1"/>
+  <rect x="120" y="278" width="280" height="64" rx="6"
+        fill="none" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="260" y="296" text-anchor="middle" font-size="12"
+        font-weight="600" fill="#364fc7">Plan</text>
+  <text x="136" y="326" font-size="11" fill="#495057">Milestone → Slice → Task 분해</text>
+
+  <!-- Arrow: Plan → Execute -->
+  <line x1="260" y1="342" x2="260" y2="370"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 4: Execute (Blue) with DLP badges -->
+  <rect x="120" y="372" width="280" height="148" rx="6" fill="#dbe4ff"/>
+  <rect x="120" y="372" width="280" height="28" rx="6" fill="#dbe4ff"/>
+  <rect x="120" y="392" width="280" height="8" fill="#dbe4ff"/>
+  <line x1="120" y1="400" x2="400" y2="400" stroke="#364fc7" stroke-width="1"/>
+  <rect x="120" y="372" width="280" height="148" rx="6"
+        fill="none" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="260" y="390" text-anchor="middle" font-size="12"
+        font-weight="600" fill="#364fc7">Execute (Auto Mode)</text>
+  <text x="136" y="420" font-size="11" fill="#495057">자동 코드 생성 &amp; 리팩토링</text>
+
+  <!-- DLP Safety badges (Rose) -->
+  <text x="136" y="444" font-size="10" font-weight="600" fill="#c92a2a">DLP 안전 장치 (7)</text>
+  <!-- Badge row 1 -->
+  <rect x="136" y="452" width="110" height="16" rx="4"
+        fill="#ffe3e3" stroke="#c92a2a" stroke-width="0.75"/>
+  <text x="191" y="464" text-anchor="middle" font-size="9"
+        font-weight="600" fill="#c92a2a">Hallucination Guard</text>
+  <rect x="254" y="452" width="100" height="16" rx="4"
+        fill="#ffe3e3" stroke="#c92a2a" stroke-width="0.75"/>
+  <text x="304" y="464" text-anchor="middle" font-size="9"
+        font-weight="600" fill="#c92a2a">Merge Anchor</text>
+  <!-- Badge row 2 -->
+  <rect x="136" y="474" width="90" height="16" rx="4"
+        fill="#ffe3e3" stroke="#c92a2a" stroke-width="0.75"/>
+  <text x="181" y="486" text-anchor="middle" font-size="9"
+        font-weight="600" fill="#c92a2a">Scope Lock</text>
+  <rect x="234" y="474" width="90" height="16" rx="4"
+        fill="#ffe3e3" stroke="#c92a2a" stroke-width="0.75"/>
+  <text x="279" y="486" text-anchor="middle" font-size="9"
+        font-weight="600" fill="#c92a2a">Diff Review</text>
+  <!-- Badge row 3 -->
+  <rect x="136" y="496" width="90" height="16" rx="4"
+        fill="#ffe3e3" stroke="#c92a2a" stroke-width="0.75"/>
+  <text x="181" y="508" text-anchor="middle" font-size="9"
+        font-weight="600" fill="#c92a2a">Test Gate</text>
+  <rect x="234" y="496" width="90" height="16" rx="4"
+        fill="#ffe3e3" stroke="#c92a2a" stroke-width="0.75"/>
+  <text x="279" y="508" text-anchor="middle" font-size="9"
+        font-weight="600" fill="#c92a2a">Rollback</text>
+  <rect x="332" y="496" width="56" height="16" rx="4"
+        fill="#ffe3e3" stroke="#c92a2a" stroke-width="0.75"/>
+  <text x="360" y="508" text-anchor="middle" font-size="9"
+        font-weight="600" fill="#c92a2a">Audit</text>
+
+  <!-- Arrow: Execute → Verify -->
+  <line x1="260" y1="520" x2="260" y2="548"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 5: Verify (Green) -->
+  <rect x="120" y="550" width="280" height="64" rx="6" fill="#d3f9d8"/>
+  <rect x="120" y="550" width="280" height="28" rx="6" fill="#d3f9d8"/>
+  <rect x="120" y="570" width="280" height="8" fill="#d3f9d8"/>
+  <line x1="120" y1="578" x2="400" y2="578" stroke="#1e7b30" stroke-width="1"/>
+  <rect x="120" y="550" width="280" height="64" rx="6"
+        fill="none" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="260" y="568" text-anchor="middle" font-size="12"
+        font-weight="600" fill="#1e7b30">Verify</text>
+  <text x="136" y="598" font-size="11" fill="#495057">테스트 + 품질 검증</text>
+
+  <!-- Loopback arrow: Verify → Execute (green, right side) -->
+  <path d="M 400,582 L 440,582 L 440,440 L 400,440"
+        fill="none" stroke="#1e7b30" stroke-width="1.5"
+        marker-end="url(#arrow-green)"/>
+  <text x="448" y="514" font-size="10" font-weight="400" fill="#1e7b30">Fail → Retry</text>
+
+  <!-- Arrow: Verify → Complete -->
+  <line x1="260" y1="614" x2="260" y2="642"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="268" y="634" font-size="10" fill="#495057">Pass</text>
+
+  <!-- Step 6: Complete (Green) -->
+  <rect x="120" y="644" width="280" height="64" rx="6" fill="#d3f9d8"/>
+  <rect x="120" y="644" width="280" height="28" rx="6" fill="#d3f9d8"/>
+  <rect x="120" y="664" width="280" height="8" fill="#d3f9d8"/>
+  <line x1="120" y1="672" x2="400" y2="672" stroke="#1e7b30" stroke-width="1"/>
+  <rect x="120" y="644" width="280" height="64" rx="6"
+        fill="none" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="260" y="662" text-anchor="middle" font-size="12"
+        font-weight="600" fill="#1e7b30">Complete</text>
+  <text x="136" y="692" font-size="11" fill="#495057">배포 완료</text>
+
+  <!-- Arrow: Complete → End -->
+  <line x1="260" y1="708" x2="260" y2="736"
+        stroke="#868e96" stroke-width="1.5"/>
+
+  <!-- End node (double circle) -->
+  <circle cx="260" cy="748" r="12" fill="none" stroke="#1e7b30" stroke-width="1.5"/>
+  <circle cx="260" cy="748" r="8" fill="#1e7b30"/>
+
+  <!-- Summary box -->
+  <rect x="20" y="786" width="480" height="72" rx="6"
+        fill="#f5f0eb" stroke="#6b6560" stroke-width="1.5"
+        stroke-dasharray="6,3"/>
+  <text x="260" y="812" text-anchor="middle" font-size="12"
+        font-weight="600" fill="#6b6560">GSD Pipeline: Spec → Plan → Auto Execute → Verify → Deploy</text>
+  <text x="260" y="832" text-anchor="middle" font-size="10"
+        fill="#5a6268">Execute ↔ Verify 루프로 품질 확보 후 배포</text>
+  <text x="260" y="848" text-anchor="middle" font-size="10"
+        fill="#c92a2a">DLP 7개 안전 장치가 Auto 모드 전 구간을 감시</text>
+</svg>

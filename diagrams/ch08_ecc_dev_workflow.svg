@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 860" width="520" height="860"
+     font-family="Segoe UI, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#868e96"/>
+    </marker>
+    <marker id="arrow-rose" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c92a2a"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e7b30"/>
+    </marker>
+  </defs>
+  <rect width="520" height="860" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="260" y="30" text-anchor="middle" font-size="16" font-weight="700"
+        fill="#212529" letter-spacing="0.5">ECC 5-Phase Development Workflow</text>
+
+  <!-- ============ Start Node ============ -->
+  <circle cx="220" cy="60" r="10" fill="#6b6560"/>
+  <line x1="220" y1="70" x2="220" y2="88"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ============ Phase 1: planner (Blue) ============ -->
+  <rect x="80" y="90" width="280" height="64" rx="6" fill="#f5f0eb"/>
+  <rect x="80" y="90" width="280" height="28" rx="6" fill="#dbe4ff"/>
+  <rect x="80" y="110" width="280" height="8" fill="#dbe4ff"/>
+  <line x1="80" y1="118" x2="360" y2="118" stroke="#364fc7" stroke-width="1"/>
+  <rect x="80" y="90" width="280" height="64" rx="6"
+        fill="none" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="220" y="108" text-anchor="middle" font-size="12"
+        font-weight="600" fill="#364fc7">Phase 1: planner</text>
+  <text x="96" y="138" font-size="11" fill="#495057">구현 청사진 생성 (아키텍처, 작업 분해)</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="220" y1="154" x2="220" y2="182"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ============ Phase 2: tdd-guide (Amber) ============ -->
+  <rect x="80" y="184" width="280" height="64" rx="6" fill="#f5f0eb"/>
+  <rect x="80" y="184" width="280" height="28" rx="6" fill="#fff3bf"/>
+  <rect x="80" y="204" width="280" height="8" fill="#fff3bf"/>
+  <line x1="80" y1="212" x2="360" y2="212" stroke="#e67700" stroke-width="1"/>
+  <rect x="80" y="184" width="280" height="64" rx="6"
+        fill="none" stroke="#e67700" stroke-width="1.5"/>
+  <text x="220" y="202" text-anchor="middle" font-size="12"
+        font-weight="600" fill="#e67700">Phase 2: tdd-guide</text>
+  <text x="96" y="232" font-size="11" fill="#495057">테스트 우선 작성 (Red-Green-Refactor)</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="220" y1="248" x2="220" y2="276"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ============ Phase 3: Implementation + coding-standards (Gray) ============ -->
+  <rect x="80" y="278" width="280" height="64" rx="6" fill="#f5f0eb"/>
+  <rect x="80" y="278" width="280" height="28" rx="6" fill="#f5f0eb"/>
+  <rect x="80" y="298" width="280" height="8" fill="#f5f0eb"/>
+  <line x1="80" y1="306" x2="360" y2="306" stroke="#6b6560" stroke-width="1"/>
+  <rect x="80" y="278" width="280" height="64" rx="6"
+        fill="none" stroke="#6b6560" stroke-width="1.5"/>
+  <text x="220" y="296" text-anchor="middle" font-size="12"
+        font-weight="600" fill="#6b6560">Phase 3: coding-standards</text>
+  <text x="96" y="326" font-size="11" fill="#495057">구현 + 코딩 표준 준수</text>
+
+  <!-- Arrow 3→4 -->
+  <line x1="220" y1="342" x2="220" y2="370"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ============ Phase 4: code-reviewer (Blue) ============ -->
+  <rect x="80" y="372" width="280" height="64" rx="6" fill="#f5f0eb"/>
+  <rect x="80" y="372" width="280" height="28" rx="6" fill="#dbe4ff"/>
+  <rect x="80" y="392" width="280" height="8" fill="#dbe4ff"/>
+  <line x1="80" y1="400" x2="360" y2="400" stroke="#364fc7" stroke-width="1"/>
+  <rect x="80" y="372" width="280" height="64" rx="6"
+        fill="none" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="220" y="390" text-anchor="middle" font-size="12"
+        font-weight="600" fill="#364fc7">Phase 4: code-reviewer</text>
+  <text x="96" y="420" font-size="11" fill="#495057">코드 리뷰 (품질 게이트)</text>
+
+  <!-- Decision diamond -->
+  <polygon points="220,466 260,496 220,526 180,496"
+           fill="#f5f0eb" stroke="#6b6560" stroke-width="1.5"/>
+  <text x="220" y="500" text-anchor="middle" font-size="10"
+        font-weight="600" fill="#6b6560">결과?</text>
+
+  <!-- Arrow Phase 4 → Diamond -->
+  <line x1="220" y1="436" x2="220" y2="466"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ======= CRITICAL/HIGH: Loopback (Rose) ======= -->
+  <!-- Rose label on the right side of diamond -->
+  <text x="268" y="486" font-size="10" font-weight="600" fill="#c92a2a">CRITICAL/HIGH</text>
+
+  <!-- Loopback path: diamond right → go right → go up → back to Phase 3 top -->
+  <path d="M 260,496 L 420,496 L 420,310 L 360,310"
+        fill="none" stroke="#c92a2a" stroke-width="1.5"
+        marker-end="url(#arrow-rose)"/>
+  <text x="428" y="406" font-size="10" fill="#c92a2a">수정 필요</text>
+
+  <!-- ======= Pass: continue down (Green) ======= -->
+  <text x="168" y="546" text-anchor="end" font-size="10" font-weight="600" fill="#1e7b30">Pass</text>
+
+  <!-- Arrow Diamond → Phase 5 -->
+  <line x1="220" y1="526" x2="220" y2="564"
+        stroke="#1e7b30" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <!-- ============ Phase 5: security-reviewer (Rose) ============ -->
+  <rect x="80" y="566" width="280" height="64" rx="6" fill="#f5f0eb"/>
+  <rect x="80" y="566" width="280" height="28" rx="6" fill="#ffe3e3"/>
+  <rect x="80" y="586" width="280" height="8" fill="#ffe3e3"/>
+  <line x1="80" y1="594" x2="360" y2="594" stroke="#c92a2a" stroke-width="1"/>
+  <rect x="80" y="566" width="280" height="64" rx="6"
+        fill="none" stroke="#c92a2a" stroke-width="1.5"/>
+  <text x="220" y="584" text-anchor="middle" font-size="12"
+        font-weight="600" fill="#c92a2a">Phase 5: security-reviewer</text>
+  <text x="96" y="614" font-size="11" fill="#495057">보안 감사 (취약점 탐지, 시크릿 스캔)</text>
+
+  <!-- Arrow Phase 5 → End -->
+  <line x1="220" y1="630" x2="220" y2="658"
+        stroke="#868e96" stroke-width="1.5"/>
+
+  <!-- ============ End Node (Green double circle) ============ -->
+  <circle cx="220" cy="670" r="12" fill="none" stroke="#1e7b30" stroke-width="1.5"/>
+  <circle cx="220" cy="670" r="8" fill="#1e7b30"/>
+
+  <!-- ============ Legend ============ -->
+  <rect x="20" y="710" width="480" height="130" rx="6"
+        fill="#f5f0eb" stroke="#6b6560" stroke-width="1"
+        stroke-dasharray="6,3"/>
+  <text x="40" y="732" font-size="12" font-weight="600" fill="#6b6560">Phase Legend</text>
+
+  <!-- Blue -->
+  <rect x="40" y="744" width="12" height="12" rx="2" fill="#dbe4ff" stroke="#364fc7" stroke-width="0.75"/>
+  <text x="58" y="755" font-size="10" fill="#495057">Blue: 계획 / 리뷰 (planner, code-reviewer)</text>
+
+  <!-- Amber -->
+  <rect x="40" y="764" width="12" height="12" rx="2" fill="#fff3bf" stroke="#e67700" stroke-width="0.75"/>
+  <text x="58" y="775" font-size="10" fill="#495057">Amber: 테스트 작성 (tdd-guide)</text>
+
+  <!-- Gray -->
+  <rect x="40" y="784" width="12" height="12" rx="2" fill="#f5f0eb" stroke="#6b6560" stroke-width="0.75"/>
+  <text x="58" y="795" font-size="10" fill="#495057">Gray: 구현 (coding-standards)</text>
+
+  <!-- Rose -->
+  <rect x="40" y="804" width="12" height="12" rx="2" fill="#ffe3e3" stroke="#c92a2a" stroke-width="0.75"/>
+  <text x="58" y="815" font-size="10" fill="#495057">Rose: 보안 감사 (security-reviewer) / CRITICAL 루프백</text>
+
+  <!-- Green -->
+  <rect x="40" y="824" width="12" height="12" rx="2" fill="#d3f9d8" stroke="#1e7b30" stroke-width="0.75"/>
+  <text x="58" y="835" font-size="10" fill="#495057">Green: 통과 / 완료</text>
+</svg>

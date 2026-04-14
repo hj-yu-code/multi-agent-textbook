@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 464" width="780" height="464"
+     font-family="Segoe UI, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#868e96"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e7b30"/>
+    </marker>
+    <marker id="arrow-rose" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c92a2a"/>
+    </marker>
+  </defs>
+  <rect width="780" height="464" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="390" y="28" text-anchor="middle" font-size="16" font-weight="700"
+        fill="#212529" letter-spacing="0.5">오류 처리 및 복원 패턴 비교 (섹션 7)</text>
+
+  <!-- ===== 7.1 서킷 브레이커 ===== -->
+  <rect x="20" y="48" width="740" height="110" rx="6"
+        fill="#f5f0eb" stroke="#6b6560" stroke-width="1" stroke-dasharray="6,3"/>
+  <line x1="195" y1="58" x2="195" y2="148" stroke="#6b6560" stroke-width="0.5" stroke-dasharray="3,2"/>
+
+  <!-- States -->
+  <rect x="220" y="80" width="80" height="30" rx="6" fill="#d3f9d8" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="260" y="99" text-anchor="middle" font-size="10" font-weight="600" fill="#1e7b30">Closed</text>
+  <line x1="300" y1="95" x2="358" y2="95" stroke="#c92a2a" stroke-width="1.5" marker-end="url(#arrow-rose)"/>
+  <text x="329" y="88" text-anchor="middle" font-size="8" fill="#c92a2a">장애 누적</text>
+  <rect x="360" y="80" width="80" height="30" rx="6" fill="#ffe3e3" stroke="#c92a2a" stroke-width="1.5"/>
+  <text x="400" y="99" text-anchor="middle" font-size="10" font-weight="600" fill="#c92a2a">Open</text>
+  <line x1="440" y1="95" x2="498" y2="95" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="469" y="88" text-anchor="middle" font-size="8" fill="#495057">대기</text>
+  <rect x="500" y="80" width="90" height="30" rx="6" fill="#fff3bf" stroke="#e67700" stroke-width="1.5"/>
+  <text x="545" y="99" text-anchor="middle" font-size="10" font-weight="600" fill="#e67700">Half-Open</text>
+  <!-- Recovery -->
+  <path d="M 545,110 L 545,132 L 260,132 L 260,112"
+        fill="none" stroke="#1e7b30" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <text x="400" y="144" text-anchor="middle" font-size="9" fill="#1e7b30">복구 확인</text>
+  <!-- Fail back -->
+  <path d="M 520,110 L 520,122 L 420,122 L 420,112"
+        fill="none" stroke="#c92a2a" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arrow-rose)"/>
+
+  <text x="36" y="72" font-size="12" font-weight="600" fill="#212529">7.1 서킷 브레이커</text>
+  <text x="36" y="90" font-size="10" fill="#5a6268">품질 저하에도 트립</text>
+  <text x="36" y="108" font-size="10" font-weight="600" fill="#1e7b30">▲ 가동률 99.87%</text>
+
+  <!-- ===== 7.2 합의 투표 ===== -->
+  <rect x="20" y="174" width="740" height="110" rx="6"
+        fill="#f5f0eb" stroke="#6b6560" stroke-width="1" stroke-dasharray="6,3"/>
+  <line x1="195" y1="184" x2="195" y2="274" stroke="#6b6560" stroke-width="0.5" stroke-dasharray="3,2"/>
+
+  <rect x="210" y="210" width="60" height="22" rx="6" fill="#f5f0eb" stroke="#6b6560" stroke-width="1"/>
+  <text x="240" y="225" text-anchor="middle" font-size="10" fill="#6b6560">Task</text>
+  <line x1="270" y1="221" x2="308" y2="221" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- N executions -->
+  <rect x="310" y="194" width="40" height="16" rx="4" fill="#dbe4ff" stroke="#364fc7" stroke-width="0.75"/>
+  <rect x="310" y="213" width="40" height="16" rx="4" fill="#dbe4ff" stroke="#364fc7" stroke-width="0.75"/>
+  <rect x="310" y="232" width="40" height="16" rx="4" fill="#dbe4ff" stroke="#364fc7" stroke-width="0.75"/>
+  <rect x="310" y="251" width="40" height="16" rx="4" fill="#dbe4ff" stroke="#364fc7" stroke-width="0.75"/>
+  <rect x="310" y="270" width="40" height="16" rx="4" fill="#dbe4ff" stroke="#364fc7" stroke-width="0.75"/>
+  <text x="330" y="206" text-anchor="middle" font-size="7" fill="#364fc7">n=1</text>
+  <text x="330" y="225" text-anchor="middle" font-size="7" fill="#364fc7">n=2</text>
+  <text x="330" y="244" text-anchor="middle" font-size="7" fill="#364fc7">n=3</text>
+  <text x="330" y="263" text-anchor="middle" font-size="7" fill="#364fc7">n=4</text>
+  <text x="330" y="282" text-anchor="middle" font-size="7" fill="#364fc7">n=5</text>
+  <!-- Clustering -->
+  <line x1="350" y1="237" x2="398" y2="237" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="400" y="218" width="100" height="38" rx="6" fill="#fff3bf" stroke="#e67700" stroke-width="1.5"/>
+  <text x="450" y="234" text-anchor="middle" font-size="9" font-weight="600" fill="#e67700">의미 클러스터링</text>
+  <text x="450" y="248" text-anchor="middle" font-size="9" fill="#e67700">+ 다수결 투표</text>
+  <line x1="500" y1="237" x2="548" y2="237" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="550" y="224" width="80" height="26" rx="6" fill="#d3f9d8" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="590" y="241" text-anchor="middle" font-size="10" font-weight="600" fill="#1e7b30">합의 답</text>
+
+  <text x="36" y="198" font-size="12" font-weight="600" fill="#212529">7.2 합의 투표 (Six Sigma)</text>
+  <text x="36" y="216" font-size="10" fill="#5a6268">N회 병렬 → 클러스터 투표</text>
+  <text x="36" y="234" font-size="10" font-weight="600" fill="#1e7b30">▲ 14,700x 신뢰도</text>
+
+  <!-- ===== 7.3 신뢰도 점수 ===== -->
+  <rect x="20" y="300" width="740" height="100" rx="6"
+        fill="#f5f0eb" stroke="#6b6560" stroke-width="1" stroke-dasharray="6,3"/>
+  <line x1="195" y1="310" x2="195" y2="390" stroke="#6b6560" stroke-width="0.5" stroke-dasharray="3,2"/>
+
+  <!-- Agents with scores -->
+  <rect x="220" y="322" width="80" height="36" rx="6" fill="#d3f9d8" stroke="#1e7b30" stroke-width="1"/>
+  <text x="260" y="337" text-anchor="middle" font-size="9" fill="#1e7b30">Agent A</text>
+  <text x="260" y="351" text-anchor="middle" font-size="9" font-weight="600" fill="#1e7b30">CrS: 0.92</text>
+  <rect x="320" y="322" width="80" height="36" rx="6" fill="#ffe3e3" stroke="#c92a2a" stroke-width="1"/>
+  <text x="360" y="337" text-anchor="middle" font-size="9" fill="#c92a2a">Agent B</text>
+  <text x="360" y="351" text-anchor="middle" font-size="9" font-weight="600" fill="#c92a2a">CrS: 0.15</text>
+  <rect x="420" y="322" width="80" height="36" rx="6" fill="#d3f9d8" stroke="#1e7b30" stroke-width="1"/>
+  <text x="460" y="337" text-anchor="middle" font-size="9" fill="#1e7b30">Agent C</text>
+  <text x="460" y="351" text-anchor="middle" font-size="9" font-weight="600" fill="#1e7b30">CrS: 0.88</text>
+  <!-- Weighted aggregation -->
+  <line x1="260" y1="358" x2="380" y2="378" stroke="#868e96" stroke-width="1.5"/>
+  <line x1="360" y1="358" x2="380" y2="378" stroke="#c92a2a" stroke-width="1" stroke-dasharray="4,2"/>
+  <line x1="460" y1="358" x2="380" y2="378" stroke="#868e96" stroke-width="1.5"/>
+  <rect x="340" y="378" width="100" height="20" rx="6" fill="#d3f9d8" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="390" y="392" text-anchor="middle" font-size="9" font-weight="600" fill="#1e7b30">가중 집계 (B 다운웨이트)</text>
+
+  <text x="36" y="324" font-size="12" font-weight="600" fill="#212529">7.3 신뢰도 점수</text>
+  <text x="36" y="342" font-size="10" fill="#5a6268">과거 기여 기반 가중치</text>
+  <text x="36" y="360" font-size="10" font-weight="600" fill="#1e7b30">▲ 적대 과반수도 방어</text>
+
+  <!-- Summary -->
+  <rect x="20" y="416" width="740" height="28" rx="6"
+        fill="#d3f9d8" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="390" y="434" text-anchor="middle" font-size="11"
+        font-weight="600" fill="#1e7b30">핵심: 개별 모델 개선이 아닌 구조적 중복/합의로 신뢰성 달성</text>
+</svg>

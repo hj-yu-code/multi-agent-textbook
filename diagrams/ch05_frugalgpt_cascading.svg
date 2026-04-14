@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 686" width="540" height="686"
+     font-family="Segoe UI, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#868e96"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e7b30"/>
+    </marker>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="540" height="686" fill="#ffffff"/>
+
+  <!-- 제목 -->
+  <text x="270" y="36" text-anchor="middle" font-size="16" font-weight="700"
+        fill="#212529" letter-spacing="0.5">FrugalGPT 캐스케이딩</text>
+  <text x="270" y="54" text-anchor="middle" font-size="10" fill="#868e96">신뢰도 기반 단계적 에스컬레이션 — 비용 최소화</text>
+
+  <!-- 시작 노드 -->
+  <circle cx="270" cy="84" r="14" fill="#495057"/>
+  <circle cx="270" cy="84" r="6" fill="#ffffff"/>
+  <line x1="270" y1="98" x2="270" y2="118" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Query 입력 박스 (y=118, h=52, bottom=170) -->
+  <rect x="110" y="118" width="320" height="52" rx="6"
+        fill="#f5f0eb" stroke="#6b6560" stroke-width="1.5"/>
+  <text x="270" y="140" text-anchor="middle" font-size="13" font-weight="600" fill="#212529">Query 입력</text>
+  <text x="270" y="158" text-anchor="middle" font-size="11" fill="#495057">사용자 요청 수신</text>
+
+  <!-- → Haiku -->
+  <line x1="270" y1="170" x2="270" y2="190" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 비용 사이드 어노테이션 (Haiku) -->
+  <rect x="20" y="198" width="80" height="20" rx="4"
+        fill="#d3f9d8" stroke="#1e7b30" stroke-width="0.75"/>
+  <text x="60" y="212" text-anchor="middle" font-size="9" font-weight="600" fill="#1e7b30">$0.25 / M</text>
+  <line x1="100" y1="208" x2="110" y2="226" stroke="#1e7b30" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <!-- Haiku 박스 (y=190, h=72, bottom=262) -->
+  <rect x="110" y="190" width="320" height="72" rx="6" fill="#d3f9d8"/>
+  <rect x="110" y="190" width="320" height="28" rx="6" fill="#1e7b30"/>
+  <rect x="110" y="210" width="320" height="8" fill="#1e7b30"/>
+  <line x1="110" y1="218" x2="430" y2="218" stroke="#1e7b30" stroke-width="1"/>
+  <rect x="110" y="190" width="320" height="72" rx="6" fill="none" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="220" y="209" text-anchor="middle" font-size="13" font-weight="600" fill="#ffffff">Haiku  ($)</text>
+  <text x="270" y="240" text-anchor="middle" font-size="11" fill="#495057">경량 모델 — 빠르고 저렴</text>
+  <text x="270" y="256" text-anchor="middle" font-size="10" fill="#868e96">단순 쿼리의 70-80% 처리 가능</text>
+
+  <!-- Haiku → 게이트 1 -->
+  <line x1="270" y1="262" x2="270" y2="284" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 신뢰도 게이트 1 다이아몬드 (꼭짓점: top=284, w=120, h=56) -->
+  <polygon points="270,284 330,312 270,340 210,312"
+           fill="#fff3bf" stroke="#e67700" stroke-width="1.5"/>
+  <text x="270" y="307" text-anchor="middle" font-size="10" font-weight="600" fill="#e67700">신뢰도</text>
+  <text x="270" y="321" text-anchor="middle" font-size="10" font-weight="600" fill="#e67700">충분?</text>
+
+  <!-- Yes (오른쪽) → 응답 반환 -->
+  <line x1="330" y1="312" x2="440" y2="312" stroke="#1e7b30" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <text x="378" y="304" text-anchor="middle" font-size="10" fill="#1e7b30">Yes</text>
+
+  <!-- 응답 반환 박스 우측 1 (y=296, h=32) -->
+  <rect x="440" y="296" width="80" height="32" rx="6"
+        fill="#d3f9d8" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="480" y="316" text-anchor="middle" font-size="11" font-weight="600" fill="#1e7b30">응답 반환</text>
+
+  <!-- No (아래) → Sonnet -->
+  <line x1="270" y1="340" x2="270" y2="360" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="280" y="354" font-size="10" fill="#c92a2a">No</text>
+
+  <!-- 비용 사이드 어노테이션 (Sonnet) -->
+  <rect x="20" y="372" width="80" height="20" rx="4"
+        fill="#dbe4ff" stroke="#364fc7" stroke-width="0.75"/>
+  <text x="60" y="386" text-anchor="middle" font-size="9" font-weight="600" fill="#364fc7">$3 / M</text>
+  <line x1="100" y1="382" x2="110" y2="400" stroke="#364fc7" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <!-- Sonnet 박스 (y=360, h=72, bottom=432) -->
+  <rect x="110" y="360" width="320" height="72" rx="6" fill="#dbe4ff"/>
+  <rect x="110" y="360" width="320" height="28" rx="6" fill="#364fc7"/>
+  <rect x="110" y="380" width="320" height="8" fill="#364fc7"/>
+  <line x1="110" y1="388" x2="430" y2="388" stroke="#364fc7" stroke-width="1"/>
+  <rect x="110" y="360" width="320" height="72" rx="6" fill="none" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="220" y="379" text-anchor="middle" font-size="13" font-weight="600" fill="#ffffff">Sonnet  ($$)</text>
+  <text x="270" y="410" text-anchor="middle" font-size="11" fill="#495057">중간 모델 — 균형 잡힌 성능</text>
+  <text x="270" y="426" text-anchor="middle" font-size="10" fill="#868e96">복잡한 추론 처리 가능</text>
+
+  <!-- Sonnet → 게이트 2 -->
+  <line x1="270" y1="432" x2="270" y2="454" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 신뢰도 게이트 2 다이아몬드 (top=454) -->
+  <polygon points="270,454 330,482 270,510 210,482"
+           fill="#fff3bf" stroke="#e67700" stroke-width="1.5"/>
+  <text x="270" y="477" text-anchor="middle" font-size="10" font-weight="600" fill="#e67700">신뢰도</text>
+  <text x="270" y="491" text-anchor="middle" font-size="10" font-weight="600" fill="#e67700">충분?</text>
+
+  <!-- Yes (오른쪽) → 응답 반환 -->
+  <line x1="330" y1="482" x2="440" y2="482" stroke="#1e7b30" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <text x="378" y="474" text-anchor="middle" font-size="10" fill="#1e7b30">Yes</text>
+
+  <!-- 응답 반환 박스 우측 2 (y=466, h=32) -->
+  <rect x="440" y="466" width="80" height="32" rx="6"
+        fill="#d3f9d8" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="480" y="486" text-anchor="middle" font-size="11" font-weight="600" fill="#1e7b30">응답 반환</text>
+
+  <!-- No (아래) → Opus -->
+  <line x1="270" y1="510" x2="270" y2="530" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="280" y="524" font-size="10" fill="#c92a2a">No</text>
+
+  <!-- 비용 사이드 어노테이션 (Opus) -->
+  <rect x="20" y="542" width="80" height="20" rx="4"
+        fill="#ffe3e3" stroke="#c92a2a" stroke-width="0.75"/>
+  <text x="60" y="556" text-anchor="middle" font-size="9" font-weight="600" fill="#c92a2a">$15 / M</text>
+  <line x1="100" y1="552" x2="110" y2="556" stroke="#c92a2a" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <!-- Opus 박스 (y=530, h=64, bottom=594) -->
+  <rect x="110" y="530" width="320" height="64" rx="6" fill="#ffe3e3"/>
+  <rect x="110" y="530" width="320" height="28" rx="6" fill="#c92a2a"/>
+  <rect x="110" y="550" width="320" height="8" fill="#c92a2a"/>
+  <line x1="110" y1="558" x2="430" y2="558" stroke="#c92a2a" stroke-width="1"/>
+  <rect x="110" y="530" width="320" height="64" rx="6" fill="none" stroke="#c92a2a" stroke-width="1.5"/>
+  <text x="220" y="549" text-anchor="middle" font-size="13" font-weight="600" fill="#ffffff">Opus  ($$$$)</text>
+  <text x="270" y="578" text-anchor="middle" font-size="11" fill="#495057">최강 모델 — 최후 수단</text>
+  <text x="270" y="586" text-anchor="middle" font-size="9" fill="#868e96">모든 쿼리 처리 가능</text>
+
+  <!-- Opus → 응답 반환 (아래) -->
+  <line x1="270" y1="594" x2="270" y2="614" stroke="#1e7b30" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <!-- 최종 응답 반환 박스 (y=614, h=32, bottom=646) -->
+  <rect x="110" y="614" width="320" height="32" rx="6"
+        fill="#d3f9d8" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="270" y="634" text-anchor="middle" font-size="13" font-weight="600" fill="#1e7b30">응답 반환</text>
+
+  <!-- 종료 노드 (cy=656+10=666 → bottom=666) -->
+  <!-- y=646 → 화살표 → cy=656 -->
+  <line x1="270" y1="646" x2="270" y2="649" stroke="#1e7b30" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <circle cx="270" cy="656" r="10" fill="#ffffff" stroke="#495057" stroke-width="2"/>
+  <circle cx="270" cy="656" r="6" fill="#495057"/>
+
+  <!-- 최하단: 656+10=666 → viewBox=660 약간 부족 → 이미 660으로 설정됨. 조정 불필요 (666-660=6px, 허용 범위) -->
+  <!-- viewBox를 680으로 조정: 666+20=686 → 680으로 수정 -->
+
+</svg>

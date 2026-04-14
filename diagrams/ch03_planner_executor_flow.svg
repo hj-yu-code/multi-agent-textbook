@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 800" width="680" height="800"
+     font-family="Segoe UI, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#868e96"/>
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#364fc7"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e7b30"/>
+    </marker>
+    <marker id="arrow-rose" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c92a2a"/>
+    </marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#e67700"/>
+    </marker>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="680" height="800" fill="#ffffff"/>
+
+  <!-- 제목 -->
+  <text x="340" y="32" text-anchor="middle" font-size="16" font-weight="700"
+        fill="#212529" letter-spacing="0.5">Planner → Executor 계획-실행 분리 흐름</text>
+
+  <!-- ===== 시작 노드 ===== -->
+  <circle cx="340" cy="62" r="20" fill="#212529" stroke="#212529" stroke-width="1.5"/>
+  <text x="340" y="67" text-anchor="middle" font-size="10" font-weight="600" fill="#ffffff">시작</text>
+
+  <!-- 시작 → Planner -->
+  <line x1="340" y1="82" x2="340" y2="104" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ===== Planner (Opus) 박스 (Blue) ===== -->
+  <rect x="200" y="104" width="280" height="72" rx="6" fill="#f5f0eb"/>
+  <rect x="200" y="104" width="280" height="28" rx="6" fill="#dbe4ff"/>
+  <rect x="200" y="124" width="280" height="8" fill="#dbe4ff"/>
+  <line x1="200" y1="132" x2="480" y2="132" stroke="#364fc7" stroke-width="1"/>
+  <rect x="200" y="104" width="280" height="72" rx="6" fill="none" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="340" y="124" text-anchor="middle" font-size="13" font-weight="600" fill="#364fc7">Planner (Opus)</text>
+  <text x="340" y="150" text-anchor="middle" font-size="11" fill="#495057">작업 분석 · 단계 분해</text>
+  <text x="340" y="166" text-anchor="middle" font-size="11" fill="#495057">전략적 계획 수립</text>
+
+  <!-- Planner → 계획 생성 -->
+  <line x1="340" y1="176" x2="340" y2="204" stroke="#364fc7" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- ===== 구조화된 계획 생성 박스 (Blue) ===== -->
+  <rect x="200" y="204" width="280" height="72" rx="6" fill="#f5f0eb"/>
+  <rect x="200" y="204" width="280" height="28" rx="6" fill="#dbe4ff"/>
+  <rect x="200" y="224" width="280" height="8" fill="#dbe4ff"/>
+  <line x1="200" y1="232" x2="480" y2="232" stroke="#364fc7" stroke-width="1"/>
+  <rect x="200" y="204" width="280" height="72" rx="6" fill="none" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="340" y="224" text-anchor="middle" font-size="13" font-weight="600" fill="#364fc7">구조화된 계획 생성</text>
+  <text x="340" y="250" text-anchor="middle" font-size="11" fill="#495057">단계별 실행 계획 수립</text>
+  <text x="340" y="266" text-anchor="middle" font-size="11" fill="#495057">JSON/구조화 형식 출력</text>
+
+  <!-- 계획 생성 → Plan Approval Gate -->
+  <line x1="340" y1="276" x2="340" y2="304" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ===== Plan Approval Gate 다이아몬드 (Amber) ===== -->
+  <!-- 다이아몬드: 중심 (340, 332), w=200, h=56 -->
+  <polygon points="340,304 440,332 340,360 240,332"
+           fill="#fff3bf" stroke="#e67700" stroke-width="1.5"/>
+  <text x="340" y="327" text-anchor="middle" font-size="11" font-weight="600" fill="#e67700">Plan Approval</text>
+  <text x="340" y="343" text-anchor="middle" font-size="11" font-weight="600" fill="#e67700">Gate</text>
+
+  <!-- 거절 경로: 다이아몬드 왼쪽 → 위로 → Planner로 루프백 -->
+  <path d="M 240,332 L 120,332 L 120,140 L 200,140"
+        fill="none" stroke="#c92a2a" stroke-width="1.5" marker-end="url(#arrow-rose)"/>
+  <!-- 거절 레이블 -->
+  <text x="115" y="265" text-anchor="end" font-size="10" fill="#c92a2a">거절</text>
+  <text x="115" y="279" text-anchor="end" font-size="10" fill="#c92a2a">(최대</text>
+  <text x="115" y="293" text-anchor="end" font-size="10" fill="#c92a2a">3회)</text>
+  <!-- 수정 요청 라벨 -->
+  <rect x="20" y="288" width="84" height="36" rx="4"
+        fill="#ffe3e3" stroke="#c92a2a" stroke-width="0.75"/>
+  <text x="62" y="305" text-anchor="middle" font-size="9" font-weight="600" fill="#c92a2a">계획 수정</text>
+  <text x="62" y="317" text-anchor="middle" font-size="9" fill="#c92a2a">재제출 요청</text>
+
+  <!-- 승인 경로: 다이아몬드 아래 → Executor -->
+  <line x1="340" y1="360" x2="340" y2="388" stroke="#1e7b30" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <text x="350" y="378" font-size="10" fill="#1e7b30">승인</text>
+
+  <!-- ===== Executor (Sonnet) 박스 (Green) ===== -->
+  <rect x="200" y="388" width="280" height="72" rx="6" fill="#f5f0eb"/>
+  <rect x="200" y="388" width="280" height="28" rx="6" fill="#d3f9d8"/>
+  <rect x="200" y="408" width="280" height="8" fill="#d3f9d8"/>
+  <line x1="200" y1="416" x2="480" y2="416" stroke="#1e7b30" stroke-width="1"/>
+  <rect x="200" y="388" width="280" height="72" rx="6" fill="none" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="340" y="408" text-anchor="middle" font-size="13" font-weight="600" fill="#1e7b30">Executor (Sonnet)</text>
+  <text x="340" y="434" text-anchor="middle" font-size="11" fill="#495057">계획 수신 · 도구 호출</text>
+  <text x="340" y="450" text-anchor="middle" font-size="11" fill="#495057">단계별 순차 실행</text>
+
+  <!-- Executor → 단계 N 실행 -->
+  <line x1="340" y1="460" x2="340" y2="488" stroke="#1e7b30" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <!-- ===== 단계 N 실행 박스 (Green) ===== -->
+  <rect x="200" y="488" width="280" height="72" rx="6" fill="#f5f0eb"/>
+  <rect x="200" y="488" width="280" height="28" rx="6" fill="#d3f9d8"/>
+  <rect x="200" y="508" width="280" height="8" fill="#d3f9d8"/>
+  <line x1="200" y1="516" x2="480" y2="516" stroke="#1e7b30" stroke-width="1"/>
+  <rect x="200" y="488" width="280" height="72" rx="6" fill="none" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="340" y="508" text-anchor="middle" font-size="13" font-weight="600" fill="#1e7b30">단계 N 실행</text>
+  <text x="340" y="534" text-anchor="middle" font-size="11" fill="#495057">코드 실행 · 파일 처리</text>
+  <text x="340" y="550" text-anchor="middle" font-size="11" fill="#495057">외부 API 호출</text>
+
+  <!-- 단계 실행 → 결과/오류 -->
+  <line x1="340" y1="560" x2="340" y2="588" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ===== 결과/오류 박스 (Gray) ===== -->
+  <rect x="200" y="588" width="280" height="56" rx="6"
+        fill="#f5f0eb" stroke="#6b6560" stroke-width="1.5"/>
+  <text x="340" y="612" text-anchor="middle" font-size="13" font-weight="600" fill="#6b6560">결과 / 오류</text>
+  <text x="340" y="634" text-anchor="middle" font-size="11" fill="#6b6560">실행 결과 수집 · 오류 감지</text>
+
+  <!-- 결과 → 피드백 필요? -->
+  <line x1="340" y1="644" x2="340" y2="672" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ===== 피드백 필요? 다이아몬드 (Amber) ===== -->
+  <polygon points="340,672 440,700 340,728 240,700"
+           fill="#fff3bf" stroke="#e67700" stroke-width="1.5"/>
+  <text x="340" y="695" text-anchor="middle" font-size="11" font-weight="600" fill="#e67700">피드백</text>
+  <text x="340" y="711" text-anchor="middle" font-size="11" font-weight="600" fill="#e67700">필요?</text>
+
+  <!-- Yes (피드백 필요): 오른쪽으로 → 재계획 → Planner 루프백 -->
+  <path d="M 440,700 L 560,700 L 560,140 L 480,140"
+        fill="none" stroke="#364fc7" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <text x="570" y="540" font-size="10" fill="#364fc7">Yes</text>
+  <text x="570" y="554" font-size="10" fill="#364fc7">(재계획)</text>
+  <!-- 재계획 라벨 -->
+  <rect x="576" y="480" width="84" height="36" rx="4"
+        fill="#dbe4ff" stroke="#364fc7" stroke-width="0.75"/>
+  <text x="618" y="497" text-anchor="middle" font-size="9" font-weight="600" fill="#364fc7">재계획</text>
+  <text x="618" y="509" text-anchor="middle" font-size="9" fill="#364fc7">Planner 재호출</text>
+
+  <!-- No (완료): 아래로 -->
+  <line x1="340" y1="728" x2="340" y2="756" stroke="#1e7b30" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <text x="350" y="746" font-size="10" fill="#1e7b30">No</text>
+
+  <!-- ===== 완료 노드 ===== -->
+  <circle cx="340" cy="768" r="12" fill="none" stroke="#212529" stroke-width="3"/>
+  <circle cx="340" cy="768" r="8" fill="#212529"/>
+
+  <!-- 완료 텍스트 -->
+  <text x="360" y="772" font-size="11" fill="#495057">실행 완료</text>
+
+</svg>

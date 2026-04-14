@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 596" width="780" height="596"
+     font-family="Segoe UI, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#868e96"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e7b30"/>
+    </marker>
+  </defs>
+  <rect width="780" height="596" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="390" y="28" text-anchor="middle" font-size="16" font-weight="700"
+        fill="#212529" letter-spacing="0.5">모델 라우팅 / 에스컬레이션 패턴 비교</text>
+
+  <!-- ===== Section 1: FrugalGPT 캐스케이딩 ===== -->
+  <rect x="20" y="48" width="740" height="110" rx="6"
+        fill="#f5f0eb" stroke="#6b6560" stroke-width="1" stroke-dasharray="6,3"/>
+  <line x1="195" y1="58" x2="195" y2="148" stroke="#6b6560" stroke-width="0.5" stroke-dasharray="3,2"/>
+
+  <!-- S1 Lines: main flow -->
+  <line x1="270" y1="80" x2="298" y2="80"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="370" y1="80" x2="418" y2="80"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="500" y1="80" x2="548" y2="80"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="620" y1="80" x2="648" y2="80"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- S1 Lines: early exit -->
+  <line x1="334" y1="92" x2="334" y2="118"
+        stroke="#1e7b30" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <line x1="459" y1="92" x2="459" y2="118"
+        stroke="#1e7b30" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <!-- S1 Boxes -->
+  <rect x="210" y="68" width="60" height="24" rx="6" fill="#dbe4ff" stroke="#364fc7" stroke-width="1"/>
+  <rect x="300" y="68" width="70" height="24" rx="6" fill="#f5f0eb" stroke="#6b6560" stroke-width="1.5"/>
+  <rect x="420" y="68" width="80" height="24" rx="6" fill="#fff3bf" stroke="#e67700" stroke-width="1.5"/>
+  <rect x="550" y="68" width="70" height="24" rx="6" fill="#dbe4ff" stroke="#364fc7" stroke-width="1.5"/>
+  <rect x="650" y="68" width="56" height="24" rx="6" fill="#d3f9d8" stroke="#1e7b30" stroke-width="1.5"/>
+  <!-- Early exit badges -->
+  <rect x="310" y="120" width="48" height="16" rx="4" fill="#d3f9d8" stroke="#1e7b30" stroke-width="0.75"/>
+  <rect x="435" y="120" width="48" height="16" rx="4" fill="#d3f9d8" stroke="#1e7b30" stroke-width="0.75"/>
+
+  <!-- S1 Text -->
+  <text x="36" y="72" font-size="12" font-weight="600" fill="#212529">2.1 FrugalGPT 캐스케이딩</text>
+  <text x="36" y="90" font-size="10" fill="#5a6268">싼 모델 먼저 → 불충분 시 에스컬레이션</text>
+  <text x="36" y="108" font-size="10" font-weight="600" fill="#1e7b30">▲ 최대 98% 비용 절감</text>
+  <text x="240" y="84" text-anchor="middle" font-size="10" font-weight="600" fill="#364fc7">Query</text>
+  <text x="335" y="84" text-anchor="middle" font-size="10" font-weight="600" fill="#6b6560">Haiku</text>
+  <text x="460" y="84" text-anchor="middle" font-size="10" font-weight="600" fill="#e67700">Sonnet</text>
+  <text x="585" y="84" text-anchor="middle" font-size="10" font-weight="600" fill="#364fc7">Opus</text>
+  <text x="678" y="84" text-anchor="middle" font-size="10" font-weight="600" fill="#1e7b30">반환</text>
+  <text x="334" y="132" text-anchor="middle" font-size="9" font-weight="600" fill="#1e7b30">OK</text>
+  <text x="459" y="132" text-anchor="middle" font-size="9" font-weight="600" fill="#1e7b30">OK</text>
+  <text x="394" y="66" text-anchor="middle" font-size="9" fill="#495057">미달</text>
+  <text x="524" y="66" text-anchor="middle" font-size="9" fill="#495057">미달</text>
+
+  <!-- ===== Section 2: 의미적 라우팅 ===== -->
+  <rect x="20" y="174" width="740" height="110" rx="6"
+        fill="#f5f0eb" stroke="#6b6560" stroke-width="1" stroke-dasharray="6,3"/>
+  <line x1="195" y1="184" x2="195" y2="274" stroke="#6b6560" stroke-width="0.5" stroke-dasharray="3,2"/>
+
+  <!-- S2 Lines -->
+  <line x1="270" y1="226" x2="308" y2="226"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="400" y1="226" x2="438" y2="226"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- Fan-out -->
+  <line x1="540" y1="226" x2="580" y2="226" stroke="#868e96" stroke-width="1.5"/>
+  <line x1="580" y1="204" x2="580" y2="248" stroke="#868e96" stroke-width="1.5"/>
+  <line x1="580" y1="204" x2="618" y2="204"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="580" y1="226" x2="618" y2="226"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="580" y1="248" x2="618" y2="248"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- S2 Boxes -->
+  <rect x="210" y="214" width="60" height="24" rx="6" fill="#dbe4ff" stroke="#364fc7" stroke-width="1"/>
+  <rect x="310" y="214" width="90" height="24" rx="6" fill="#fff3bf" stroke="#e67700" stroke-width="1.5"/>
+  <rect x="440" y="214" width="100" height="24" rx="6" fill="#f5f0eb" stroke="#6b6560" stroke-width="1.5"/>
+  <rect x="620" y="192" width="70" height="24" rx="6" fill="#f5f0eb" stroke="#6b6560" stroke-width="1"/>
+  <rect x="620" y="214" width="70" height="24" rx="6" fill="#fff3bf" stroke="#e67700" stroke-width="1"/>
+  <rect x="620" y="236" width="70" height="24" rx="6" fill="#dbe4ff" stroke="#364fc7" stroke-width="1"/>
+
+  <!-- S2 Text -->
+  <text x="36" y="198" font-size="12" font-weight="600" fill="#212529">2.2 의미적 라우팅</text>
+  <text x="36" y="216" font-size="10" fill="#5a6268">임베딩 기반 카테고리 분류</text>
+  <text x="36" y="234" font-size="10" font-weight="600" fill="#1e7b30">▲ 3~10개 카테고리 최적</text>
+  <text x="240" y="230" text-anchor="middle" font-size="10" font-weight="600" fill="#364fc7">Query</text>
+  <text x="355" y="230" text-anchor="middle" font-size="10" font-weight="600" fill="#e67700">Embedding</text>
+  <text x="490" y="230" text-anchor="middle" font-size="10" font-weight="600" fill="#6b6560">카테고리 분류</text>
+  <text x="655" y="208" text-anchor="middle" font-size="10" fill="#6b6560">Haiku</text>
+  <text x="655" y="230" text-anchor="middle" font-size="10" fill="#e67700">Sonnet</text>
+  <text x="655" y="252" text-anchor="middle" font-size="10" fill="#364fc7">Opus</text>
+
+  <!-- ===== Section 3: 비용 인식 라우팅 ===== -->
+  <rect x="20" y="300" width="740" height="110" rx="6"
+        fill="#f5f0eb" stroke="#6b6560" stroke-width="1" stroke-dasharray="6,3"/>
+  <line x1="195" y1="310" x2="195" y2="400" stroke="#6b6560" stroke-width="0.5" stroke-dasharray="3,2"/>
+
+  <!-- S3 Lines -->
+  <line x1="270" y1="346" x2="318" y2="346"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="450" y1="346" x2="490" y2="346" stroke="#868e96" stroke-width="1.5"/>
+  <line x1="490" y1="326" x2="490" y2="366" stroke="#868e96" stroke-width="1.5"/>
+  <line x1="490" y1="326" x2="538" y2="326"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="490" y1="366" x2="538" y2="366"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- S3 Boxes -->
+  <rect x="210" y="334" width="60" height="24" rx="6" fill="#dbe4ff" stroke="#364fc7" stroke-width="1"/>
+  <rect x="320" y="334" width="130" height="24" rx="6" fill="#fff3bf" stroke="#e67700" stroke-width="1.5"/>
+  <rect x="540" y="314" width="100" height="24" rx="6" fill="#d3f9d8" stroke="#1e7b30" stroke-width="1"/>
+  <rect x="540" y="354" width="100" height="24" rx="6" fill="#dbe4ff" stroke="#364fc7" stroke-width="1"/>
+
+  <!-- S3 Text -->
+  <text x="36" y="324" font-size="12" font-weight="600" fill="#212529">2.3 비용 인식 라우팅</text>
+  <text x="36" y="342" font-size="10" fill="#5a6268">쿼리 난이도 사전 예측</text>
+  <text x="36" y="360" font-size="10" font-weight="600" fill="#1e7b30">▲ 비용 85%+ 절감</text>
+  <text x="240" y="350" text-anchor="middle" font-size="10" font-weight="600" fill="#364fc7">Query</text>
+  <text x="385" y="350" text-anchor="middle" font-size="10" font-weight="600" fill="#e67700">난이도 예측기</text>
+  <text x="590" y="330" text-anchor="middle" font-size="10" font-weight="600" fill="#1e7b30">저가 (75~90%)</text>
+  <text x="590" y="370" text-anchor="middle" font-size="10" font-weight="600" fill="#364fc7">고가 (8~12%)</text>
+
+  <!-- ===== Section 4: 섀도 라우터 ===== -->
+  <rect x="20" y="426" width="740" height="110" rx="6"
+        fill="#f5f0eb" stroke="#6b6560" stroke-width="1" stroke-dasharray="6,3"/>
+  <line x1="195" y1="436" x2="195" y2="526" stroke="#6b6560" stroke-width="0.5" stroke-dasharray="3,2"/>
+
+  <!-- S4 Lines -->
+  <line x1="270" y1="472" x2="308" y2="472"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="430" y1="472" x2="470" y2="472" stroke="#868e96" stroke-width="1.5"/>
+  <line x1="470" y1="448" x2="470" y2="496" stroke="#868e96" stroke-width="1.5"/>
+  <line x1="470" y1="448" x2="518" y2="448"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="470" y1="472" x2="518" y2="472"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="470" y1="496" x2="518" y2="496"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- S4 Boxes -->
+  <rect x="210" y="460" width="60" height="24" rx="6" fill="#dbe4ff" stroke="#364fc7" stroke-width="1"/>
+  <rect x="310" y="460" width="120" height="24" rx="6" fill="#f5f0eb" stroke="#6b6560" stroke-width="1.5"/>
+  <rect x="520" y="436" width="90" height="24" rx="6" fill="#dbe4ff" stroke="#364fc7" stroke-width="1"/>
+  <rect x="520" y="460" width="90" height="24" rx="6" fill="#fff3bf" stroke="#e67700" stroke-width="1"/>
+  <rect x="520" y="484" width="90" height="24" rx="6" fill="#f5f0eb" stroke="#6b6560" stroke-width="1"/>
+  <!-- <200ms badge -->
+  <rect x="348" y="488" width="56" height="16" rx="4" fill="#d3f9d8" stroke="#1e7b30" stroke-width="0.75"/>
+
+  <!-- S4 Text -->
+  <text x="36" y="450" font-size="12" font-weight="600" fill="#212529">2.4 섀도 라우터</text>
+  <text x="36" y="468" font-size="10" fill="#5a6268">저비용 모델로 200ms 내 분류</text>
+  <text x="36" y="486" font-size="10" font-weight="600" fill="#1e7b30">▲ 라우팅 오버헤드 최소</text>
+  <text x="240" y="476" text-anchor="middle" font-size="10" font-weight="600" fill="#364fc7">Query</text>
+  <text x="370" y="476" text-anchor="middle" font-size="10" font-weight="600" fill="#6b6560">Haiku 분류기</text>
+  <text x="376" y="500" text-anchor="middle" font-size="8" font-weight="600" fill="#1e7b30">&lt;200ms</text>
+  <text x="565" y="452" text-anchor="middle" font-size="10" fill="#364fc7">Opus</text>
+  <text x="565" y="476" text-anchor="middle" font-size="10" fill="#e67700">Sonnet</text>
+  <text x="565" y="500" text-anchor="middle" font-size="10" fill="#6b6560">Self-hosted</text>
+
+  <!-- Summary -->
+  <rect x="20" y="548" width="740" height="28" rx="6"
+        fill="#d3f9d8" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="390" y="566" text-anchor="middle" font-size="11"
+        font-weight="600" fill="#1e7b30">핵심: 작업 난이도에 따라 최적 모델 자동 선택 — 비용 85~98% 절감 가능</text>
+</svg>
