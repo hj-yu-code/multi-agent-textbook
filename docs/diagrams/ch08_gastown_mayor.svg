@@ -1,0 +1,247 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 762" width="780" height="762"
+     font-family="Segoe UI, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#868e96"/>
+    </marker>
+    <marker id="arrow-rose" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c92a2a"/>
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#364fc7"/>
+    </marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#e67700"/>
+    </marker>
+  </defs>
+  <rect width="780" height="762" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="390" y="30" text-anchor="middle" font-size="16" font-weight="700"
+        fill="#212529" letter-spacing="0.5">Gas Town Mayor Pattern Architecture</text>
+
+  <!-- ===== CONNECTIONS (drawn first per painter's model) ===== -->
+
+  <!-- Overseer → Mayor (command) -->
+  <line x1="390" y1="122" x2="390" y2="168"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Mayor → Task Ledger (horizontal) -->
+  <line x1="530" y1="206" x2="578" y2="206"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Mayor → Polecat 1 -->
+  <line x1="310" y1="240" x2="170" y2="358"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Mayor → Polecat 2 -->
+  <line x1="390" y1="240" x2="390" y2="358"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Mayor → Polecat 3 -->
+  <line x1="470" y1="240" x2="610" y2="358"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Polecat 1 → Refinery -->
+  <line x1="170" y1="490" x2="330" y2="568"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Polecat 2 → Refinery -->
+  <line x1="390" y1="490" x2="390" y2="568"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Polecat 3 → Refinery -->
+  <line x1="610" y1="490" x2="450" y2="568"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Witness → Mayor (monitoring, dashed) -->
+  <line x1="100" y1="206" x2="250" y2="206"
+        stroke="#1e7b30" stroke-width="1.5" stroke-dasharray="6,3"
+        marker-end="url(#arrow)"/>
+
+  <!-- Witness → Polecats (monitoring arc, dashed) -->
+  <path d="M 60,260 L 60,420 L 100,420"
+        fill="none" stroke="#1e7b30" stroke-width="1.5" stroke-dasharray="6,3"/>
+
+  <!-- Deacon → Polecat 2 (code quality patrol, dashed) -->
+  <line x1="720" y1="420" x2="680" y2="420"
+        stroke="#e67700" stroke-width="1.5" stroke-dasharray="6,3"
+        marker-end="url(#arrow-amber)"/>
+
+  <!-- Deacon → Refinery (dashed) -->
+  <path d="M 720,440 L 720,590 L 530,590"
+        fill="none" stroke="#e67700" stroke-width="1.5" stroke-dasharray="6,3"
+        marker-end="url(#arrow-amber)"/>
+
+  <!-- === ESCALATION ARROWS === -->
+  <!-- CRITICAL → Overseer (Rose, from left side going up) -->
+  <path d="M 100,360 L 40,360 L 40,94 L 250,94"
+        fill="none" stroke="#c92a2a" stroke-width="1.5"
+        marker-end="url(#arrow-rose)"/>
+  <text x="48" y="230" font-size="10" font-weight="600" fill="#c92a2a">CRITICAL</text>
+
+  <!-- HIGH → Mayor (Blue, from Polecat 2 going up) -->
+  <path d="M 440,380 L 480,380 L 480,300 L 480,230 L 530,230"
+        fill="none" stroke="#364fc7" stroke-width="1.5"
+        marker-end="url(#arrow-blue)"/>
+  <text x="488" y="310" font-size="10" font-weight="600" fill="#364fc7">HIGH</text>
+
+  <!-- MEDIUM → handled by Polecat (self, amber badge) -->
+
+  <!-- ===== BOXES (drawn after connections) ===== -->
+
+  <!-- Overseer (Rose) - Top -->
+  <rect x="250" y="50" width="280" height="72" rx="6" fill="#ffe3e3"/>
+  <rect x="250" y="50" width="280" height="28" rx="6" fill="#ffe3e3"/>
+  <rect x="250" y="70" width="280" height="8" fill="#ffe3e3"/>
+  <line x1="250" y1="78" x2="530" y2="78" stroke="#c92a2a" stroke-width="1"/>
+  <rect x="250" y="50" width="280" height="72" rx="6"
+        fill="none" stroke="#c92a2a" stroke-width="1.5"/>
+  <text x="390" y="68" text-anchor="middle" font-size="13"
+        font-weight="600" fill="#c92a2a">Overseer</text>
+  <text x="266" y="100" font-size="11" fill="#495057">전체 감독 &amp; 최종 의사 결정</text>
+
+  <!-- Mayor (Blue) - Middle -->
+  <rect x="250" y="170" width="280" height="72" rx="6" fill="#dbe4ff"/>
+  <rect x="250" y="170" width="280" height="28" rx="6" fill="#dbe4ff"/>
+  <rect x="250" y="190" width="280" height="8" fill="#dbe4ff"/>
+  <line x1="250" y1="198" x2="530" y2="198" stroke="#364fc7" stroke-width="1"/>
+  <rect x="250" y="170" width="280" height="72" rx="6"
+        fill="none" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="390" y="188" text-anchor="middle" font-size="13"
+        font-weight="600" fill="#364fc7">Mayor</text>
+  <text x="266" y="220" font-size="11" fill="#495057">작업 분배 &amp; 스케줄링</text>
+
+  <!-- Task Ledger / Beads DB (Amber) - Right of Mayor -->
+  <rect x="580" y="170" width="160" height="72" rx="6" fill="#fff3bf"/>
+  <rect x="580" y="170" width="160" height="28" rx="6" fill="#fff3bf"/>
+  <rect x="580" y="190" width="160" height="8" fill="#fff3bf"/>
+  <line x1="580" y1="198" x2="740" y2="198" stroke="#e67700" stroke-width="1"/>
+  <rect x="580" y="170" width="160" height="72" rx="6"
+        fill="none" stroke="#e67700" stroke-width="1.5"/>
+  <text x="660" y="188" text-anchor="middle" font-size="13"
+        font-weight="600" fill="#e67700">Task Ledger</text>
+  <text x="596" y="220" font-size="11" fill="#495057">Beads DB</text>
+
+  <!-- Witness (Green) - Left side -->
+  <rect x="20" y="170" width="80" height="92" rx="6" fill="#d3f9d8"/>
+  <rect x="20" y="170" width="80" height="28" rx="6" fill="#d3f9d8"/>
+  <rect x="20" y="190" width="80" height="8" fill="#d3f9d8"/>
+  <line x1="20" y1="198" x2="100" y2="198" stroke="#1e7b30" stroke-width="1"/>
+  <rect x="20" y="170" width="80" height="92" rx="6"
+        fill="none" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="60" y="188" text-anchor="middle" font-size="12"
+        font-weight="600" fill="#1e7b30">Witness</text>
+  <text x="60" y="218" text-anchor="middle" font-size="10" fill="#495057">품질</text>
+  <text x="60" y="234" text-anchor="middle" font-size="10" fill="#495057">감시</text>
+
+  <!-- Polecat 1 (Gray) with Rig -->
+  <rect x="80" y="360" width="180" height="130" rx="6"
+        fill="#f5f0eb" stroke="#6b6560" stroke-width="1"
+        stroke-dasharray="6,3"/>
+  <text x="96" y="380" font-size="10" font-weight="600" fill="#6b6560">Rig (git worktree #1)</text>
+  <rect x="96" y="390" width="148" height="64" rx="6" fill="#f5f0eb"/>
+  <rect x="96" y="390" width="148" height="28" rx="6" fill="#f5f0eb"/>
+  <rect x="96" y="410" width="148" height="8" fill="#f5f0eb"/>
+  <line x1="96" y1="418" x2="244" y2="418" stroke="#6b6560" stroke-width="1"/>
+  <rect x="96" y="390" width="148" height="64" rx="6"
+        fill="none" stroke="#6b6560" stroke-width="1.5"/>
+  <text x="170" y="408" text-anchor="middle" font-size="12"
+        font-weight="600" fill="#212529">Polecat #1</text>
+  <text x="112" y="438" font-size="10" fill="#495057">Worker</text>
+  <!-- MEDIUM badge -->
+  <rect x="152" y="438" width="64" height="14" rx="4"
+        fill="#fff3bf" stroke="#e67700" stroke-width="0.75"/>
+  <text x="184" y="448" text-anchor="middle" font-size="8"
+        font-weight="600" fill="#e67700">MEDIUM</text>
+
+  <!-- Polecat 2 (Gray) with Rig -->
+  <rect x="300" y="360" width="180" height="130" rx="6"
+        fill="#f5f0eb" stroke="#6b6560" stroke-width="1"
+        stroke-dasharray="6,3"/>
+  <text x="316" y="380" font-size="10" font-weight="600" fill="#6b6560">Rig (git worktree #2)</text>
+  <rect x="316" y="390" width="148" height="64" rx="6" fill="#f5f0eb"/>
+  <rect x="316" y="390" width="148" height="28" rx="6" fill="#f5f0eb"/>
+  <rect x="316" y="410" width="148" height="8" fill="#f5f0eb"/>
+  <line x1="316" y1="418" x2="464" y2="418" stroke="#6b6560" stroke-width="1"/>
+  <rect x="316" y="390" width="148" height="64" rx="6"
+        fill="none" stroke="#6b6560" stroke-width="1.5"/>
+  <text x="390" y="408" text-anchor="middle" font-size="12"
+        font-weight="600" fill="#212529">Polecat #2</text>
+  <text x="332" y="438" font-size="10" fill="#495057">Worker</text>
+  <rect x="372" y="438" width="64" height="14" rx="4"
+        fill="#fff3bf" stroke="#e67700" stroke-width="0.75"/>
+  <text x="404" y="448" text-anchor="middle" font-size="8"
+        font-weight="600" fill="#e67700">MEDIUM</text>
+
+  <!-- Polecat 3 (Gray) with Rig -->
+  <rect x="520" y="360" width="180" height="130" rx="6"
+        fill="#f5f0eb" stroke="#6b6560" stroke-width="1"
+        stroke-dasharray="6,3"/>
+  <text x="536" y="380" font-size="10" font-weight="600" fill="#6b6560">Rig (git worktree #3)</text>
+  <rect x="536" y="390" width="148" height="64" rx="6" fill="#f5f0eb"/>
+  <rect x="536" y="390" width="148" height="28" rx="6" fill="#f5f0eb"/>
+  <rect x="536" y="410" width="148" height="8" fill="#f5f0eb"/>
+  <line x1="536" y1="418" x2="684" y2="418" stroke="#6b6560" stroke-width="1"/>
+  <rect x="536" y="390" width="148" height="64" rx="6"
+        fill="none" stroke="#6b6560" stroke-width="1.5"/>
+  <text x="610" y="408" text-anchor="middle" font-size="12"
+        font-weight="600" fill="#212529">Polecat #3</text>
+  <text x="552" y="438" font-size="10" fill="#495057">Worker</text>
+  <rect x="592" y="438" width="64" height="14" rx="4"
+        fill="#fff3bf" stroke="#e67700" stroke-width="0.75"/>
+  <text x="624" y="448" text-anchor="middle" font-size="8"
+        font-weight="600" fill="#e67700">MEDIUM</text>
+
+  <!-- Deacon (Amber) - Right side -->
+  <rect x="710" y="370" width="50" height="92" rx="6" fill="#fff3bf"/>
+  <rect x="710" y="370" width="50" height="28" rx="6" fill="#fff3bf"/>
+  <rect x="710" y="390" width="50" height="8" fill="#fff3bf"/>
+  <line x1="710" y1="398" x2="760" y2="398" stroke="#e67700" stroke-width="1"/>
+  <rect x="710" y="370" width="50" height="92" rx="6"
+        fill="none" stroke="#e67700" stroke-width="1.5"/>
+  <text x="735" y="388" text-anchor="middle" font-size="10"
+        font-weight="600" fill="#e67700">Deacon</text>
+  <text x="735" y="418" text-anchor="middle" font-size="9" fill="#495057">코드</text>
+  <text x="735" y="432" text-anchor="middle" font-size="9" fill="#495057">품질</text>
+  <text x="735" y="446" text-anchor="middle" font-size="9" fill="#495057">순찰</text>
+
+  <!-- Refinery (Green) - Bottom -->
+  <rect x="250" y="570" width="280" height="72" rx="6" fill="#d3f9d8"/>
+  <rect x="250" y="570" width="280" height="28" rx="6" fill="#d3f9d8"/>
+  <rect x="250" y="590" width="280" height="8" fill="#d3f9d8"/>
+  <line x1="250" y1="598" x2="530" y2="598" stroke="#1e7b30" stroke-width="1"/>
+  <rect x="250" y="570" width="280" height="72" rx="6"
+        fill="none" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="390" y="588" text-anchor="middle" font-size="13"
+        font-weight="600" fill="#1e7b30">Refinery</text>
+  <text x="266" y="620" font-size="11" fill="#495057">머지 큐 &amp; 통합</text>
+
+  <!-- Escalation Legend -->
+  <rect x="20" y="670" width="740" height="72" rx="6"
+        fill="#f5f0eb" stroke="#6b6560" stroke-width="1.5"
+        stroke-dasharray="6,3"/>
+  <text x="40" y="694" font-size="12" font-weight="600" fill="#6b6560">Escalation Policy</text>
+  <!-- CRITICAL -->
+  <rect x="40" y="704" width="70" height="16" rx="4"
+        fill="#ffe3e3" stroke="#c92a2a" stroke-width="0.75"/>
+  <text x="75" y="716" text-anchor="middle" font-size="10"
+        font-weight="600" fill="#c92a2a">CRITICAL</text>
+  <text x="118" y="716" font-size="10" fill="#495057">→ Overseer</text>
+  <!-- HIGH -->
+  <rect x="240" y="704" width="50" height="16" rx="4"
+        fill="#dbe4ff" stroke="#364fc7" stroke-width="0.75"/>
+  <text x="265" y="716" text-anchor="middle" font-size="10"
+        font-weight="600" fill="#364fc7">HIGH</text>
+  <text x="298" y="716" font-size="10" fill="#495057">→ Mayor</text>
+  <!-- MEDIUM -->
+  <rect x="420" y="704" width="64" height="16" rx="4"
+        fill="#fff3bf" stroke="#e67700" stroke-width="0.75"/>
+  <text x="452" y="716" text-anchor="middle" font-size="10"
+        font-weight="600" fill="#e67700">MEDIUM</text>
+  <text x="492" y="716" font-size="10" fill="#495057">→ Polecat (자체 처리)</text>
+</svg>

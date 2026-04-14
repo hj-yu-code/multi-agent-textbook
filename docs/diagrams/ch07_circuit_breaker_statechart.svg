@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560" width="720" height="560"
+     font-family="Segoe UI, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#868e96"/>
+    </marker>
+    <marker id="arrow-rose" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c92a2a"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e7b30"/>
+    </marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#e67700"/>
+    </marker>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="720" height="560" fill="#ffffff"/>
+
+  <!-- 제목 -->
+  <text x="360" y="36" text-anchor="middle" font-size="16" font-weight="700"
+        fill="#212529" letter-spacing="0.5">서킷 브레이커 상태 전이도</text>
+  <text x="360" y="54" text-anchor="middle" font-size="10" font-weight="400"
+        fill="#868e96">Circuit Breaker Statechart — 에이전트 장애 격리 패턴</text>
+
+  <!-- ===== 시작 노드 ===== -->
+  <circle cx="360" cy="84" r="10" fill="#495057"/>
+  <!-- 시작 → Closed -->
+  <line x1="360" y1="94" x2="360" y2="117"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ========================================
+       STATE 1: Closed  (x=200, y=120, w=320, h=96)
+       ======================================== -->
+  <rect x="200" y="120" width="320" height="96" rx="6" fill="#d3f9d8"/>
+  <rect x="200" y="120" width="320" height="28" rx="6" fill="#1e7b30"/>
+  <rect x="200" y="140" width="320" height="8" fill="#1e7b30"/>
+  <line x1="200" y1="148" x2="520" y2="148" stroke="#1e7b30" stroke-width="1"/>
+  <rect x="200" y="120" width="320" height="96" rx="6" fill="none" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="360" y="139" text-anchor="middle" font-size="13" font-weight="600" fill="#ffffff">Closed</text>
+  <text x="360" y="163" text-anchor="middle" font-size="11" font-weight="400" fill="#1e7b30">정상 운영 — 요청 정상 통과</text>
+  <text x="360" y="179" text-anchor="middle" font-size="10" font-weight="400" fill="#2b6729">failure_count 추적 중</text>
+  <!-- 뱃지 -->
+  <rect x="322" y="196" width="76" height="16" rx="4" fill="#d3f9d8" stroke="#1e7b30" stroke-width="0.75"/>
+  <text x="360" y="208" text-anchor="middle" font-size="10" font-weight="600" fill="#1e7b30">NORMAL</text>
+
+  <!-- ========================================
+       Closed → Open 전이 (Rose, 우측 루프)
+       Closed 우측 중앙 (520, 168) → 우회 → Open 우측 중앙 (520, 348)
+       ======================================== -->
+  <path d="M 520,168 L 600,168 L 600,348 L 520,348"
+        fill="none" stroke="#c92a2a" stroke-width="1.5"
+        marker-end="url(#arrow-rose)"/>
+  <!-- 레이블 박스 -->
+  <rect x="606" y="224" width="96" height="68" rx="4" fill="#fff5f5" stroke="#c92a2a" stroke-width="0.75"/>
+  <text x="654" y="240" text-anchor="middle" font-size="9" font-weight="600" fill="#c92a2a">실패 5회 누적</text>
+  <text x="654" y="255" text-anchor="middle" font-size="9" fill="#c92a2a">OR 품질 &lt; 0.6</text>
+  <text x="654" y="270" text-anchor="middle" font-size="9" fill="#c92a2a">OR 환각 감지</text>
+  <line x1="606" y1="258" x2="600" y2="258" stroke="#c92a2a" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <!-- ========================================
+       STATE 2: Open  (x=200, y=300, w=320, h=96)
+       ======================================== -->
+  <rect x="200" y="300" width="320" height="96" rx="6" fill="#ffe3e3"/>
+  <rect x="200" y="300" width="320" height="28" rx="6" fill="#c92a2a"/>
+  <rect x="200" y="320" width="320" height="8" fill="#c92a2a"/>
+  <line x1="200" y1="328" x2="520" y2="328" stroke="#c92a2a" stroke-width="1"/>
+  <rect x="200" y="300" width="320" height="96" rx="6" fill="none" stroke="#c92a2a" stroke-width="1.5"/>
+  <text x="360" y="319" text-anchor="middle" font-size="13" font-weight="600" fill="#ffffff">Open</text>
+  <text x="360" y="343" text-anchor="middle" font-size="11" font-weight="400" fill="#c92a2a">장애 차단 — 폴백 실행</text>
+  <text x="360" y="359" text-anchor="middle" font-size="10" font-weight="400" fill="#9b2226">타임아웃 대기 (60초)</text>
+  <!-- 뱃지 -->
+  <rect x="322" y="376" width="76" height="16" rx="4" fill="#ffe3e3" stroke="#c92a2a" stroke-width="0.75"/>
+  <text x="360" y="388" text-anchor="middle" font-size="10" font-weight="600" fill="#c92a2a">BLOCKED</text>
+
+  <!-- ========================================
+       Open → Half-Open 전이 (Amber, 하단 경유)
+       Open 하단 중앙 (360, 396) → 하단 우회 → Half-Open 우측 중앙
+       Half-Open: x=60, y=430, w=320, h=96 → 우측 (380, 478)
+       ======================================== -->
+  <path d="M 360,396 L 360,420 L 440,420 L 440,478 L 380,478"
+        fill="none" stroke="#e67700" stroke-width="1.5"
+        marker-end="url(#arrow-amber)"/>
+  <!-- 레이블 -->
+  <text x="450" y="436" text-anchor="start" font-size="10" font-weight="400" fill="#e67700">타임아웃 경과 (60초)</text>
+
+  <!-- ========================================
+       STATE 3: Half-Open  (x=60, y=430, w=320, h=96)
+       ======================================== -->
+  <rect x="60" y="430" width="320" height="96" rx="6" fill="#fff3bf"/>
+  <rect x="60" y="430" width="320" height="28" rx="6" fill="#e67700"/>
+  <rect x="60" y="450" width="320" height="8" fill="#e67700"/>
+  <line x1="60" y1="458" x2="380" y2="458" stroke="#e67700" stroke-width="1"/>
+  <rect x="60" y="430" width="320" height="96" rx="6" fill="none" stroke="#e67700" stroke-width="1.5"/>
+  <text x="220" y="449" text-anchor="middle" font-size="13" font-weight="600" fill="#ffffff">Half-Open</text>
+  <text x="220" y="473" text-anchor="middle" font-size="11" font-weight="400" fill="#e67700">복구 테스트 중</text>
+  <text x="220" y="489" text-anchor="middle" font-size="10" font-weight="400" fill="#b35900">success_count 추적 중</text>
+  <!-- 뱃지 -->
+  <rect x="182" y="506" width="76" height="16" rx="4" fill="#fff3bf" stroke="#e67700" stroke-width="0.75"/>
+  <text x="220" y="518" text-anchor="middle" font-size="10" font-weight="600" fill="#e67700">TESTING</text>
+
+  <!-- ========================================
+       Half-Open → Open 전이 (Rose)
+       Half-Open 우측 상단 → Open 하단 방향
+       경로: (380, 450) → 우측 → (520, 396)
+       ======================================== -->
+  <path d="M 380,450 L 440,450 L 440,420 L 520,420 L 520,396"
+        fill="none" stroke="#c92a2a" stroke-width="1.5"
+        stroke-dasharray="6,3"
+        marker-end="url(#arrow-rose)"/>
+  <!-- 레이블 -->
+  <text x="458" y="415" text-anchor="start" font-size="10" font-weight="400" fill="#c92a2a">테스트 실패</text>
+
+  <!-- ========================================
+       Half-Open → Closed 전이 (Green, 좌측 루프)
+       Half-Open 좌측 중앙 (60, 478) → 좌측 위 → Closed 좌측 중앙 (200, 168)
+       ======================================== -->
+  <path d="M 60,478 L 20,478 L 20,168 L 200,168"
+        fill="none" stroke="#1e7b30" stroke-width="1.5"
+        marker-end="url(#arrow-green)"/>
+  <!-- 레이블 회전 -->
+  <text x="40" y="330" text-anchor="middle" font-size="10" font-weight="400"
+        fill="#1e7b30" transform="rotate(-90,40,330)">성공 3회 연속</text>
+
+  <!-- ========================================
+       범례
+       ======================================== -->
+  <rect x="440" y="460" width="256" height="80" rx="6"
+        fill="#f5f0eb" stroke="#6b6560" stroke-width="1"/>
+  <text x="456" y="476" font-size="11" font-weight="600" fill="#495057">상태 범례</text>
+  <!-- Green -->
+  <rect x="456" y="482" width="12" height="12" rx="2" fill="#d3f9d8" stroke="#1e7b30" stroke-width="1"/>
+  <text x="474" y="493" font-size="10" fill="#495057">Closed — 정상 운영 (Green)</text>
+  <!-- Rose -->
+  <rect x="456" y="499" width="12" height="12" rx="2" fill="#ffe3e3" stroke="#c92a2a" stroke-width="1"/>
+  <text x="474" y="510" font-size="10" fill="#495057">Open — 장애 차단 (Rose)</text>
+  <!-- Amber -->
+  <rect x="456" y="516" width="12" height="12" rx="2" fill="#fff3bf" stroke="#e67700" stroke-width="1"/>
+  <text x="474" y="527" font-size="10" fill="#495057">Half-Open — 복구 테스트 (Amber)</text>
+</svg>

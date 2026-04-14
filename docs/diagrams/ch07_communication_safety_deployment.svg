@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 796" width="780" height="796"
+     font-family="Segoe UI, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#868e96"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e7b30"/>
+    </marker>
+  </defs>
+  <rect width="780" height="796" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="390" y="28" text-anchor="middle" font-size="16" font-weight="700"
+        fill="#212529" letter-spacing="0.5">통신 / 안전 / 배포 패턴 비교 (섹션 8~10)</text>
+
+  <!-- ===== 8.1 Pub-Sub ===== -->
+  <rect x="20" y="48" width="740" height="100" rx="6"
+        fill="#f5f0eb" stroke="#6b6560" stroke-width="1" stroke-dasharray="6,3"/>
+  <line x1="195" y1="58" x2="195" y2="138" stroke="#6b6560" stroke-width="0.5" stroke-dasharray="3,2"/>
+
+  <!-- Publishers -->
+  <rect x="210" y="70" width="60" height="20" rx="6" fill="#dbe4ff" stroke="#364fc7" stroke-width="1"/>
+  <rect x="210" y="96" width="60" height="20" rx="6" fill="#dbe4ff" stroke="#364fc7" stroke-width="1"/>
+  <text x="240" y="84" text-anchor="middle" font-size="9" fill="#364fc7">Agent A</text>
+  <text x="240" y="110" text-anchor="middle" font-size="9" fill="#364fc7">Agent B</text>
+  <!-- Topic broker -->
+  <line x1="270" y1="80" x2="328" y2="90" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="270" y1="106" x2="328" y2="96" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="330" y="76" width="100" height="30" rx="6" fill="#fff3bf" stroke="#e67700" stroke-width="1.5"/>
+  <text x="380" y="95" text-anchor="middle" font-size="10" font-weight="600" fill="#e67700">Topic Broker</text>
+  <!-- Subscribers -->
+  <line x1="430" y1="84" x2="478" y2="74" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="430" y1="98" x2="478" y2="108" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="480" y="64" width="70" height="20" rx="6" fill="#d3f9d8" stroke="#1e7b30" stroke-width="1"/>
+  <rect x="480" y="100" width="70" height="20" rx="6" fill="#d3f9d8" stroke="#1e7b30" stroke-width="1"/>
+  <text x="515" y="78" text-anchor="middle" font-size="9" fill="#1e7b30">Fraud</text>
+  <text x="515" y="114" text-anchor="middle" font-size="9" fill="#1e7b30">Compliance</text>
+  <text x="575" y="92" font-size="9" fill="#5a6268" font-style="italic">구독</text>
+
+  <text x="36" y="72" font-size="12" font-weight="600" fill="#212529">8.1 Pub-Sub 통신</text>
+  <text x="36" y="90" font-size="10" fill="#5a6268">비동기 이벤트 기반</text>
+  <text x="36" y="108" font-size="10" font-weight="600" fill="#1e7b30">▲ 수평 확장</text>
+
+  <!-- ===== 8.2 A2A 프로토콜 ===== -->
+  <rect x="20" y="164" width="740" height="100" rx="6"
+        fill="#f5f0eb" stroke="#6b6560" stroke-width="1" stroke-dasharray="6,3"/>
+  <line x1="195" y1="174" x2="195" y2="254" stroke="#6b6560" stroke-width="0.5" stroke-dasharray="3,2"/>
+
+  <rect x="220" y="200" width="100" height="28" rx="6" fill="#dbe4ff" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="270" y="218" text-anchor="middle" font-size="10" font-weight="600" fill="#364fc7">Agent (Vendor A)</text>
+  <line x1="320" y1="214" x2="378" y2="214" stroke="#868e96" stroke-width="1.5"
+        marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <rect x="380" y="200" width="80" height="28" rx="6" fill="#fff3bf" stroke="#e67700" stroke-width="1.5"/>
+  <text x="420" y="212" text-anchor="middle" font-size="9" font-weight="600" fill="#e67700">A2A</text>
+  <text x="420" y="224" text-anchor="middle" font-size="8" fill="#e67700">JSON-RPC/SSE</text>
+  <line x1="460" y1="214" x2="518" y2="214" stroke="#868e96" stroke-width="1.5"
+        marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <rect x="520" y="200" width="100" height="28" rx="6" fill="#dbe4ff" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="570" y="218" text-anchor="middle" font-size="10" font-weight="600" fill="#364fc7">Agent (Vendor B)</text>
+  <!-- Agent Card badge -->
+  <rect x="340" y="238" width="90" height="16" rx="4" fill="#d3f9d8" stroke="#1e7b30" stroke-width="0.75"/>
+  <text x="385" y="250" text-anchor="middle" font-size="8" font-weight="600" fill="#1e7b30">Agent Card 발견</text>
+
+  <text x="36" y="188" font-size="12" font-weight="600" fill="#212529">8.2 A2A 프로토콜</text>
+  <text x="36" y="206" font-size="10" fill="#5a6268">벤더 무관 표준 통신</text>
+  <text x="36" y="224" font-size="10" font-weight="600" fill="#1e7b30">▲ 50+ 파트너</text>
+
+  <!-- ===== 8.3 협업 메모리 ===== -->
+  <rect x="20" y="280" width="740" height="100" rx="6"
+        fill="#f5f0eb" stroke="#6b6560" stroke-width="1" stroke-dasharray="6,3"/>
+  <line x1="195" y1="290" x2="195" y2="370" stroke="#6b6560" stroke-width="0.5" stroke-dasharray="3,2"/>
+
+  <rect x="220" y="306" width="80" height="44" rx="6" fill="#dbe4ff" stroke="#364fc7" stroke-width="1"/>
+  <text x="260" y="322" text-anchor="middle" font-size="9" font-weight="600" fill="#364fc7">Agent A</text>
+  <rect x="232" y="332" width="56" height="14" rx="4" fill="#fff3bf" stroke="#e67700" stroke-width="0.75"/>
+  <text x="260" y="342" text-anchor="middle" font-size="7" fill="#e67700">사적 메모리</text>
+  <!-- Shared memory -->
+  <rect x="350" y="298" width="130" height="60" rx="6" fill="#d3f9d8" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="415" y="318" text-anchor="middle" font-size="10" font-weight="600" fill="#1e7b30">공유 메모리</text>
+  <text x="415" y="334" text-anchor="middle" font-size="9" fill="#1e7b30">(역할 기반 접근 제어)</text>
+  <text x="415" y="350" text-anchor="middle" font-size="8" fill="#5a6268">MaaS 서비스화</text>
+  <line x1="300" y1="320" x2="348" y2="320" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="480" y1="320" x2="518" y2="320" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="520" y="306" width="80" height="44" rx="6" fill="#dbe4ff" stroke="#364fc7" stroke-width="1"/>
+  <text x="560" y="322" text-anchor="middle" font-size="9" font-weight="600" fill="#364fc7">Agent B</text>
+  <rect x="532" y="332" width="56" height="14" rx="4" fill="#fff3bf" stroke="#e67700" stroke-width="0.75"/>
+  <text x="560" y="342" text-anchor="middle" font-size="7" fill="#e67700">사적 메모리</text>
+
+  <text x="36" y="304" font-size="12" font-weight="600" fill="#212529">8.3 협업 메모리</text>
+  <text x="36" y="322" font-size="10" fill="#5a6268">사적 + 공유 (접근 제어)</text>
+  <text x="36" y="340" font-size="10" font-weight="600" fill="#1e7b30">▲ 정보 구획화</text>
+
+  <!-- ===== 9.1 가디언 에이전트 ===== -->
+  <rect x="20" y="396" width="740" height="110" rx="6"
+        fill="#f5f0eb" stroke="#6b6560" stroke-width="1" stroke-dasharray="6,3"/>
+  <line x1="195" y1="406" x2="195" y2="496" stroke="#6b6560" stroke-width="0.5" stroke-dasharray="3,2"/>
+
+  <rect x="220" y="430" width="80" height="24" rx="6" fill="#dbe4ff" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="260" y="446" text-anchor="middle" font-size="10" font-weight="600" fill="#364fc7">Agent A</text>
+  <line x1="300" y1="442" x2="338" y2="442" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- Guardian -->
+  <rect x="340" y="416" width="100" height="52" rx="6" fill="#ffe3e3" stroke="#c92a2a" stroke-width="1.5"/>
+  <text x="390" y="436" text-anchor="middle" font-size="10" font-weight="600" fill="#c92a2a">Guardian</text>
+  <text x="390" y="452" text-anchor="middle" font-size="8" fill="#c92a2a">안전/공정/보안</text>
+  <text x="390" y="462" text-anchor="middle" font-size="8" fill="#c92a2a">정책 준수</text>
+  <line x1="440" y1="442" x2="478" y2="442" stroke="#1e7b30" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <rect x="480" y="430" width="80" height="24" rx="6" fill="#dbe4ff" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="520" y="446" text-anchor="middle" font-size="10" font-weight="600" fill="#364fc7">Agent B</text>
+  <!-- Classification badges -->
+  <rect x="350" y="474" width="56" height="14" rx="4" fill="#d3f9d8" stroke="#1e7b30" stroke-width="0.75"/>
+  <rect x="414" y="474" width="56" height="14" rx="4" fill="#ffe3e3" stroke="#c92a2a" stroke-width="0.75"/>
+  <rect x="478" y="474" width="62" height="14" rx="4" fill="#fff3bf" stroke="#e67700" stroke-width="0.75"/>
+  <text x="378" y="484" text-anchor="middle" font-size="7" font-weight="600" fill="#1e7b30">승인 65%</text>
+  <text x="442" y="484" text-anchor="middle" font-size="7" font-weight="600" fill="#c92a2a">거부 15%</text>
+  <text x="509" y="484" text-anchor="middle" font-size="7" font-weight="600" fill="#e67700">에스컬 20%</text>
+
+  <text x="36" y="420" font-size="12" font-weight="600" fill="#212529">9.1 가디언 에이전트</text>
+  <text x="36" y="438" font-size="10" fill="#5a6268">통신 경로 감시</text>
+  <text x="36" y="456" font-size="10" font-weight="600" fill="#1e7b30">▲ 환각 전파 감지</text>
+
+  <!-- ===== 10.1 섀도 모드 ===== -->
+  <rect x="20" y="522" width="740" height="100" rx="6"
+        fill="#f5f0eb" stroke="#6b6560" stroke-width="1" stroke-dasharray="6,3"/>
+  <line x1="195" y1="532" x2="195" y2="612" stroke="#6b6560" stroke-width="0.5" stroke-dasharray="3,2"/>
+
+  <rect x="210" y="556" width="60" height="22" rx="6" fill="#f5f0eb" stroke="#6b6560" stroke-width="1"/>
+  <text x="240" y="571" text-anchor="middle" font-size="10" fill="#6b6560">Traffic</text>
+  <line x1="270" y1="560" x2="318" y2="550" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="270" y1="574" x2="318" y2="584" stroke="#868e96" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrow)"/>
+  <rect x="320" y="538" width="100" height="24" rx="6" fill="#d3f9d8" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="370" y="554" text-anchor="middle" font-size="10" font-weight="600" fill="#1e7b30">Production</text>
+  <rect x="320" y="572" width="100" height="24" rx="6" fill="#fff3bf" stroke="#e67700" stroke-width="1.5"/>
+  <text x="370" y="588" text-anchor="middle" font-size="10" font-weight="600" fill="#e67700">Shadow (dry-run)</text>
+  <!-- Judge -->
+  <line x1="420" y1="550" x2="468" y2="564" stroke="#868e96" stroke-width="1.5"/>
+  <line x1="420" y1="584" x2="468" y2="570" stroke="#868e96" stroke-width="1.5"/>
+  <rect x="470" y="556" width="80" height="24" rx="6" fill="#dbe4ff" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="510" y="572" text-anchor="middle" font-size="10" font-weight="600" fill="#364fc7">Judge LLM</text>
+  <text x="288" y="540" font-size="9" fill="#1e7b30">사용자에게 전달</text>
+  <text x="288" y="600" font-size="9" fill="#e67700">dry-run (부작용 없음)</text>
+
+  <text x="36" y="546" font-size="12" font-weight="600" fill="#212529">10.1 섀도 모드 테스트</text>
+  <text x="36" y="564" font-size="10" fill="#5a6268">실제 트래픽, 부작용 없음</text>
+  <text x="36" y="582" font-size="10" font-weight="600" fill="#1e7b30">▲ 안전한 검증</text>
+
+  <!-- ===== 10.2 카나리/블루-그린 ===== -->
+  <rect x="20" y="638" width="740" height="100" rx="6"
+        fill="#f5f0eb" stroke="#6b6560" stroke-width="1" stroke-dasharray="6,3"/>
+  <line x1="195" y1="648" x2="195" y2="728" stroke="#6b6560" stroke-width="0.5" stroke-dasharray="3,2"/>
+
+  <!-- Progressive rollout bars -->
+  <rect x="220" y="666" width="30" height="20" rx="4" fill="#dbe4ff" stroke="#364fc7" stroke-width="1"/>
+  <text x="235" y="680" text-anchor="middle" font-size="8" font-weight="600" fill="#364fc7">2%</text>
+  <line x1="250" y1="676" x2="268" y2="676" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="270" y="666" width="60" height="20" rx="4" fill="#dbe4ff" stroke="#364fc7" stroke-width="1"/>
+  <text x="300" y="680" text-anchor="middle" font-size="8" font-weight="600" fill="#364fc7">25%</text>
+  <line x1="330" y1="676" x2="348" y2="676" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="350" y="666" width="90" height="20" rx="4" fill="#fff3bf" stroke="#e67700" stroke-width="1"/>
+  <text x="395" y="680" text-anchor="middle" font-size="8" font-weight="600" fill="#e67700">75%</text>
+  <line x1="440" y1="676" x2="458" y2="676" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="460" y="666" width="120" height="20" rx="4" fill="#d3f9d8" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="520" y="680" text-anchor="middle" font-size="8" font-weight="600" fill="#1e7b30">100%</text>
+  <!-- Gate badges -->
+  <rect x="255" y="692" width="42" height="12" rx="3" fill="#d3f9d8" stroke="#1e7b30" stroke-width="0.5"/>
+  <rect x="336" y="692" width="42" height="12" rx="3" fill="#d3f9d8" stroke="#1e7b30" stroke-width="0.5"/>
+  <rect x="445" y="692" width="42" height="12" rx="3" fill="#d3f9d8" stroke="#1e7b30" stroke-width="0.5"/>
+  <text x="276" y="700" text-anchor="middle" font-size="6" fill="#1e7b30">메트릭 OK</text>
+  <text x="357" y="700" text-anchor="middle" font-size="6" fill="#1e7b30">메트릭 OK</text>
+  <text x="466" y="700" text-anchor="middle" font-size="6" fill="#1e7b30">메트릭 OK</text>
+
+  <text x="36" y="662" font-size="12" font-weight="600" fill="#212529">10.2 카나리/블루-그린</text>
+  <text x="36" y="680" font-size="10" fill="#5a6268">점진적 트래픽 증가</text>
+  <text x="36" y="698" font-size="10" font-weight="600" fill="#1e7b30">▲ 무중단 + 즉시 롤백</text>
+
+  <!-- Summary -->
+  <rect x="20" y="748" width="740" height="28" rx="6"
+        fill="#d3f9d8" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="390" y="766" text-anchor="middle" font-size="11"
+        font-weight="600" fill="#1e7b30">핵심: 비동기 통신 + 런타임 안전 감시 + 점진적 배포로 프로덕션 안정성 확보</text>
+</svg>

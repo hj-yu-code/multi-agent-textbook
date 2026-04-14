@@ -1,0 +1,66 @@
+site_name: 멀티에이전트 오케스트레이션
+site_description: AI 코딩 에이전트의 멀티에이전트 오케스트레이션 교재
+site_author: 유혜정
+site_url: https://hj-yu-code.github.io/multi-agent-textbook/
+
+repo_name: multi-agent-textbook
+repo_url: https://github.com/hj-yu-code/multi-agent-textbook
+
+theme:
+  name: material
+  language: ko
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: 다크 모드로 전환
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: 라이트 모드로 전환
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+
+plugins:
+  - search:
+      lang: ko
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - tables
+  - toc:
+      permalink: true
+  - attr_list
+  - md_in_html
+
+nav:
+  - 홈: index.md
+  - 목차: 00_목차.md
+  - 1장 서론: 01_서론.md
+  - 2장 기본 패턴: 02_기본_패턴.md
+  - 3장 오케스트레이션: 03_오케스트레이션_패턴.md
+  - 4장 작업 분해: 04_작업_분해_패턴.md
+  - 5장 모델 라우팅: 05_모델_라우팅_패턴.md
+  - 6장 품질 보증: 06_품질_보증_패턴.md
+  - 7장 오류 처리: 07_오류_처리_및_안전.md
+  - 8장 실전 도구: 08_실전_도구_분석.md
+  - 9장 구현 가이드: 09_에이전트_구현_가이드.md
+  - 10장 프로덕션: 10_프로덕션_배포.md
+  - 부록: 11_부록.md

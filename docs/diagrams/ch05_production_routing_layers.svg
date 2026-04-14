@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 800" width="560" height="800"
+     font-family="Segoe UI, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#868e96"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e7b30"/>
+    </marker>
+    <marker id="arrow-rose" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c92a2a"/>
+    </marker>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="560" height="800" fill="#ffffff"/>
+
+  <!-- 제목 -->
+  <text x="280" y="36" text-anchor="middle" font-size="16" font-weight="700"
+        fill="#212529" letter-spacing="0.5">프로덕션 라우팅 레이어 구성</text>
+  <text x="280" y="54" text-anchor="middle" font-size="10" fill="#868e96">5개 레이어 순차 통과 — 요청 처리 파이프라인</text>
+
+  <!-- 시작 노드 (채워진 원) -->
+  <circle cx="280" cy="84" r="14" fill="#495057"/>
+  <circle cx="280" cy="84" r="6" fill="#ffffff"/>
+
+  <!-- → 요청 입력 -->
+  <line x1="280" y1="98" x2="280" y2="118" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 요청 입력 박스 -->
+  <rect x="120" y="118" width="320" height="52" rx="6"
+        fill="#f5f0eb" stroke="#6b6560" stroke-width="1.5"/>
+  <text x="280" y="140" text-anchor="middle" font-size="13" font-weight="600" fill="#212529">요청 입력</text>
+  <text x="280" y="158" text-anchor="middle" font-size="11" fill="#495057">외부 클라이언트 요청 수신</text>
+
+  <!-- → Layer 1 -->
+  <line x1="280" y1="170" x2="280" y2="190" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Layer 1: Load Balancing (y=190, h=84, bottom=274) -->
+  <rect x="60" y="190" width="440" height="84" rx="6" fill="#f5f0eb"/>
+  <rect x="60" y="190" width="440" height="28" rx="6" fill="#6b6560"/>
+  <rect x="60" y="210" width="440" height="8" fill="#6b6560"/>
+  <line x1="60" y1="218" x2="500" y2="218" stroke="#6b6560" stroke-width="1"/>
+  <rect x="60" y="190" width="440" height="84" rx="6" fill="none" stroke="#6b6560" stroke-width="1.5"/>
+  <text x="200" y="209" text-anchor="middle" font-size="13" font-weight="600" fill="#ffffff">Layer 1  :  Load Balancing</text>
+  <rect x="422" y="196" width="70" height="18" rx="4" fill="#ffffff" stroke="#6b6560" stroke-width="0.75"/>
+  <text x="457" y="209" text-anchor="middle" font-size="10" font-weight="600" fill="#6b6560">인프라</text>
+  <text x="280" y="244" text-anchor="middle" font-size="11" fill="#495057">가용 인스턴스 분배 — 트래픽 부하 균등화</text>
+  <text x="280" y="262" text-anchor="middle" font-size="10" fill="#868e96">Round-robin, Least-connection, Health check</text>
+
+  <!-- → Layer 2 -->
+  <line x1="280" y1="274" x2="280" y2="294" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Layer 2: Cost-Aware Routing (y=294, h=84, bottom=378) -->
+  <rect x="60" y="294" width="440" height="84" rx="6" fill="#dbe4ff"/>
+  <rect x="60" y="294" width="440" height="28" rx="6" fill="#364fc7"/>
+  <rect x="60" y="314" width="440" height="8" fill="#364fc7"/>
+  <line x1="60" y1="322" x2="500" y2="322" stroke="#364fc7" stroke-width="1"/>
+  <rect x="60" y="294" width="440" height="84" rx="6" fill="none" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="215" y="313" text-anchor="middle" font-size="13" font-weight="600" fill="#ffffff">Layer 2  :  Cost-Aware Routing</text>
+  <rect x="422" y="300" width="70" height="18" rx="4" fill="#ffffff" stroke="#364fc7" stroke-width="0.75"/>
+  <text x="457" y="313" text-anchor="middle" font-size="10" font-weight="600" fill="#364fc7">핵심</text>
+  <text x="280" y="348" text-anchor="middle" font-size="11" fill="#495057">난이도 예측, 1차 모델 선택</text>
+  <text x="280" y="366" text-anchor="middle" font-size="10" fill="#5a6268">비용 70-80% 절감 — 단순 요청 → 경량 모델 자동 배정</text>
+
+  <!-- → Layer 3 -->
+  <line x1="280" y1="378" x2="280" y2="398" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Layer 3: Semantic Routing (y=398, h=84, bottom=482) -->
+  <rect x="60" y="398" width="440" height="84" rx="6" fill="#dbe4ff"/>
+  <rect x="60" y="398" width="440" height="28" rx="6" fill="#364fc7"/>
+  <rect x="60" y="418" width="440" height="8" fill="#364fc7"/>
+  <line x1="60" y1="426" x2="500" y2="426" stroke="#364fc7" stroke-width="1"/>
+  <rect x="60" y="398" width="440" height="84" rx="6" fill="none" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="210" y="417" text-anchor="middle" font-size="13" font-weight="600" fill="#ffffff">Layer 3  :  Semantic Routing</text>
+  <rect x="422" y="404" width="70" height="18" rx="4" fill="#ffffff" stroke="#364fc7" stroke-width="0.75"/>
+  <text x="457" y="417" text-anchor="middle" font-size="10" font-weight="600" fill="#364fc7">전문화</text>
+  <text x="280" y="452" text-anchor="middle" font-size="11" fill="#495057">카테고리별 전문 에이전트 배정</text>
+  <text x="280" y="470" text-anchor="middle" font-size="10" fill="#5a6268">의미 유사도 기반 — 코드/법률/의료 도메인 분리</text>
+
+  <!-- → Layer 4 -->
+  <line x1="280" y1="482" x2="280" y2="502" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Layer 4: Cascading (y=502, h=84, bottom=586) -->
+  <rect x="60" y="502" width="440" height="84" rx="6" fill="#fff3bf"/>
+  <rect x="60" y="502" width="440" height="28" rx="6" fill="#e67700"/>
+  <rect x="60" y="522" width="440" height="8" fill="#e67700"/>
+  <line x1="60" y1="530" x2="500" y2="530" stroke="#e67700" stroke-width="1"/>
+  <rect x="60" y="502" width="440" height="84" rx="6" fill="none" stroke="#e67700" stroke-width="1.5"/>
+  <text x="195" y="521" text-anchor="middle" font-size="13" font-weight="600" fill="#ffffff">Layer 4  :  Cascading</text>
+  <rect x="422" y="508" width="70" height="18" rx="4" fill="#ffffff" stroke="#e67700" stroke-width="0.75"/>
+  <text x="457" y="521" text-anchor="middle" font-size="10" font-weight="600" fill="#e67700">안전망</text>
+  <text x="280" y="556" text-anchor="middle" font-size="11" fill="#495057">신뢰도 기반 에스컬레이션</text>
+  <text x="280" y="574" text-anchor="middle" font-size="10" fill="#5a6268">Haiku → Sonnet → Opus 단계적 상위 모델 전환</text>
+
+  <!-- → Layer 5 -->
+  <line x1="280" y1="586" x2="280" y2="606" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Layer 5: Circuit Breaker (y=606, h=84, bottom=690) -->
+  <rect x="60" y="606" width="440" height="84" rx="6" fill="#ffe3e3"/>
+  <rect x="60" y="606" width="440" height="28" rx="6" fill="#c92a2a"/>
+  <rect x="60" y="626" width="440" height="8" fill="#c92a2a"/>
+  <line x1="60" y1="634" x2="500" y2="634" stroke="#c92a2a" stroke-width="1"/>
+  <rect x="60" y="606" width="440" height="84" rx="6" fill="none" stroke="#c92a2a" stroke-width="1.5"/>
+  <text x="215" y="625" text-anchor="middle" font-size="13" font-weight="600" fill="#ffffff">Layer 5  :  Circuit Breaker</text>
+  <rect x="422" y="612" width="70" height="18" rx="4" fill="#ffffff" stroke="#c92a2a" stroke-width="0.75"/>
+  <text x="457" y="625" text-anchor="middle" font-size="10" font-weight="600" fill="#c92a2a">장애 대응</text>
+  <text x="280" y="660" text-anchor="middle" font-size="11" fill="#495057">장애 감지 시 폴백 전환 (자동 복구)</text>
+  <text x="280" y="678" text-anchor="middle" font-size="10" fill="#5a6268">Closed → Open → Half-Open 상태 관리</text>
+
+  <!-- 폴백 점선 경로 (Layer5 우측 → 응답 반환으로) -->
+  <path d="M 500,648 L 530,648 L 530,746 L 360,746"
+        fill="none" stroke="#c92a2a" stroke-width="1.5" stroke-dasharray="6,3"
+        marker-end="url(#arrow-rose)"/>
+  <text x="536" y="700" font-size="10" fill="#c92a2a">폴백</text>
+
+  <!-- → 응답 반환 -->
+  <line x1="280" y1="690" x2="280" y2="710" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 응답 반환 박스 (y=710, h=52, bottom=762) -->
+  <rect x="120" y="710" width="320" height="52" rx="6"
+        fill="#d3f9d8" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="280" y="732" text-anchor="middle" font-size="13" font-weight="600" fill="#1e7b30">응답 반환</text>
+  <text x="280" y="750" text-anchor="middle" font-size="11" fill="#495057">처리 완료 — 클라이언트에 전달</text>
+
+  <!-- 종료 노드 (y=762+8=770, circle cy=775) -->
+  <line x1="280" y1="762" x2="280" y2="775" stroke="#1e7b30" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <circle cx="280" cy="790" r="10" fill="#ffffff" stroke="#495057" stroke-width="2"/>
+  <circle cx="280" cy="790" r="6" fill="#495057"/>
+
+  <!-- 최하단 y=800: 790+10=800 ✓ -->
+
+</svg>

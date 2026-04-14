@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 760" width="720" height="760"
+     font-family="Segoe UI, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#868e96"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e7b30"/>
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#364fc7"/>
+    </marker>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="720" height="760" fill="#ffffff"/>
+
+  <!-- 제목 -->
+  <text x="360" y="36" text-anchor="middle" font-size="16" font-weight="700"
+        fill="#212529" letter-spacing="0.5">Opus 코디네이터 패턴 종합 아키텍처</text>
+  <text x="360" y="54" text-anchor="middle" font-size="10" fill="#868e96">
+    Component Diagram — FrugalGPT + MoA + Six Sigma 조합
+  </text>
+
+  <!-- ── Opus 코디네이터 (중앙 상단) ── -->
+  <rect x="220" y="70" width="280" height="72" rx="6" fill="#f5f0eb"/>
+  <rect x="220" y="70" width="280" height="28" rx="6" fill="#dbe4ff"/>
+  <rect x="220" y="90" width="280" height="8" fill="#dbe4ff"/>
+  <line x1="220" y1="98" x2="500" y2="98" stroke="#364fc7" stroke-width="1"/>
+  <rect x="220" y="70" width="280" height="72" rx="6" fill="none" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="360" y="90" text-anchor="middle" font-size="13" font-weight="600" fill="#212529">Opus 코디네이터</text>
+  <text x="360" y="114" text-anchor="middle" font-size="11" fill="#495057">작업 수신 · 전략 결정 · 결과 통합</text>
+  <text x="360" y="130" text-anchor="middle" font-size="10" fill="#868e96">claude-opus-4</text>
+
+  <!-- 화살표: 코디네이터 → FrugalGPT 영역 -->
+  <line x1="360" y1="142" x2="360" y2="176"
+        stroke="#364fc7" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- ── FrugalGPT 라우팅 컨테이너 ── -->
+  <rect x="60" y="176" width="600" height="148" rx="6"
+        fill="#fff9db" stroke="#e67700" stroke-width="1" stroke-dasharray="6,3"/>
+  <text x="76" y="196" font-size="12" font-weight="600" fill="#e67700">FrugalGPT 라우팅 — 복잡도 기반 모델 선택</text>
+
+  <!-- 복잡도 다이아몬드 -->
+  <polygon points="360,208 430,234 360,260 290,234" fill="#fff3bf" stroke="#e67700" stroke-width="1.5"/>
+  <text x="360" y="230" text-anchor="middle" font-size="11" font-weight="600" fill="#212529">복잡도 평가?</text>
+  <text x="360" y="244" text-anchor="middle" font-size="10" fill="#e67700">신뢰도 임계값</text>
+
+  <!-- 복잡 분기 → Sonnet (왼쪽) -->
+  <line x1="290" y1="234" x2="200" y2="234"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="245" y="227" text-anchor="middle" font-size="10" fill="#495057">복잡</text>
+
+  <!-- Sonnet 워커 박스 (좌) -->
+  <rect x="100" y="210" width="100" height="48" rx="6" fill="#d3f9d8"/>
+  <rect x="100" y="210" width="100" height="28" rx="6" fill="#d3f9d8"/>
+  <rect x="100" y="230" width="100" height="8" fill="#d3f9d8"/>
+  <line x1="100" y1="238" x2="200" y2="238" stroke="#1e7b30" stroke-width="1"/>
+  <rect x="100" y="210" width="100" height="48" rx="6" fill="none" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="150" y="229" text-anchor="middle" font-size="11" font-weight="600" fill="#212529">Sonnet 워커</text>
+  <text x="150" y="248" text-anchor="middle" font-size="10" fill="#495057">복잡 작업</text>
+
+  <!-- 단순 분기 → Haiku (오른쪽) -->
+  <line x1="430" y1="234" x2="520" y2="234"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="475" y="227" text-anchor="middle" font-size="10" fill="#495057">단순</text>
+
+  <!-- Haiku 워커 박스 (우) -->
+  <rect x="520" y="210" width="100" height="48" rx="6" fill="#f5f0eb"/>
+  <rect x="520" y="210" width="100" height="28" rx="6" fill="#f5f0eb"/>
+  <rect x="520" y="230" width="100" height="8" fill="#f5f0eb"/>
+  <line x1="520" y1="238" x2="620" y2="238" stroke="#6b6560" stroke-width="1"/>
+  <rect x="520" y="210" width="100" height="48" rx="6" fill="none" stroke="#6b6560" stroke-width="1.5"/>
+  <text x="570" y="229" text-anchor="middle" font-size="11" font-weight="600" fill="#212529">Haiku 워커</text>
+  <text x="570" y="248" text-anchor="middle" font-size="10" fill="#495057">단순 작업</text>
+
+  <!-- 화살표: Sonnet/Haiku → 아래 MoA로 수렴 -->
+  <path d="M 150,258 L 150,296 L 360,296"
+        fill="none" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M 570,258 L 570,296 L 360,296"
+        fill="none" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ── MoA Layer 컨테이너 ── -->
+  <rect x="60" y="344" width="600" height="200" rx="6"
+        fill="#edf2ff" stroke="#364fc7" stroke-width="1" stroke-dasharray="6,3"/>
+  <text x="76" y="364" font-size="12" font-weight="600" fill="#364fc7">MoA Layer — 다관점 병렬 워커</text>
+
+  <!-- 화살표: FrugalGPT 수렴점 → MoA fan-out -->
+  <line x1="280" y1="296" x2="200" y2="376"
+        stroke="#364fc7" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <line x1="360" y1="296" x2="360" y2="376"
+        stroke="#364fc7" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <line x1="440" y1="296" x2="520" y2="376"
+        stroke="#364fc7" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- MoA 워커 A (기술) -->
+  <rect x="100" y="376" width="140" height="64" rx="6" fill="#d3f9d8"/>
+  <rect x="100" y="376" width="140" height="28" rx="6" fill="#d3f9d8"/>
+  <rect x="100" y="396" width="140" height="8" fill="#d3f9d8"/>
+  <line x1="100" y1="404" x2="240" y2="404" stroke="#1e7b30" stroke-width="1"/>
+  <rect x="100" y="376" width="140" height="64" rx="6" fill="none" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="170" y="396" text-anchor="middle" font-size="11" font-weight="600" fill="#212529">Sonnet 워커 A</text>
+  <text x="170" y="416" text-anchor="middle" font-size="10" fill="#495057">기술적 관점</text>
+  <text x="170" y="430" text-anchor="middle" font-size="10" fill="#868e96">claude-sonnet-4</text>
+
+  <!-- MoA 워커 B (비즈니스) -->
+  <rect x="290" y="376" width="140" height="64" rx="6" fill="#d3f9d8"/>
+  <rect x="290" y="376" width="140" height="28" rx="6" fill="#d3f9d8"/>
+  <rect x="290" y="396" width="140" height="8" fill="#d3f9d8"/>
+  <line x1="290" y1="404" x2="430" y2="404" stroke="#1e7b30" stroke-width="1"/>
+  <rect x="290" y="376" width="140" height="64" rx="6" fill="none" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="360" y="396" text-anchor="middle" font-size="11" font-weight="600" fill="#212529">Sonnet 워커 B</text>
+  <text x="360" y="416" text-anchor="middle" font-size="10" fill="#495057">비즈니스 관점</text>
+  <text x="360" y="430" text-anchor="middle" font-size="10" fill="#868e96">claude-sonnet-4</text>
+
+  <!-- MoA 워커 C (사용자) -->
+  <rect x="480" y="376" width="140" height="64" rx="6" fill="#d3f9d8"/>
+  <rect x="480" y="376" width="140" height="28" rx="6" fill="#d3f9d8"/>
+  <rect x="480" y="396" width="140" height="8" fill="#d3f9d8"/>
+  <line x1="480" y1="404" x2="620" y2="404" stroke="#1e7b30" stroke-width="1"/>
+  <rect x="480" y="376" width="140" height="64" rx="6" fill="none" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="550" y="396" text-anchor="middle" font-size="11" font-weight="600" fill="#212529">Sonnet 워커 C</text>
+  <text x="550" y="416" text-anchor="middle" font-size="10" fill="#495057">사용자 관점</text>
+  <text x="550" y="430" text-anchor="middle" font-size="10" fill="#868e96">claude-sonnet-4</text>
+
+  <!-- 화살표: 워커 → 2단계 병합 (fan-in) -->
+  <path d="M 170,440 L 170,480 L 360,480"
+        fill="none" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M 360,440 L 360,480"
+        fill="none" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M 550,440 L 550,480 L 360,480"
+        fill="none" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ── 2단계 병합 ── -->
+  <rect x="180" y="480" width="360" height="72" rx="6" fill="#f5f0eb"/>
+  <rect x="180" y="480" width="360" height="28" rx="6" fill="#dbe4ff"/>
+  <rect x="180" y="500" width="360" height="8" fill="#dbe4ff"/>
+  <line x1="180" y1="508" x2="540" y2="508" stroke="#364fc7" stroke-width="1"/>
+  <rect x="180" y="480" width="360" height="72" rx="6" fill="none" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="360" y="500" text-anchor="middle" font-size="13" font-weight="600" fill="#212529">2단계 병합</text>
+  <text x="360" y="524" text-anchor="middle" font-size="11" fill="#495057">Sonnet 정규화 → Opus 최종 합성</text>
+  <text x="360" y="540" text-anchor="middle" font-size="11" fill="#495057">다관점 통합 응답 생성</text>
+
+  <!-- 화살표: 병합 → Six Sigma -->
+  <line x1="360" y1="552" x2="360" y2="576"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ── Six Sigma 검증 ── -->
+  <rect x="180" y="576" width="360" height="72" rx="6" fill="#f5f0eb"/>
+  <rect x="180" y="576" width="360" height="28" rx="6" fill="#fff3bf"/>
+  <rect x="180" y="596" width="360" height="8" fill="#fff3bf"/>
+  <line x1="180" y1="604" x2="540" y2="604" stroke="#e67700" stroke-width="1"/>
+  <rect x="180" y="576" width="360" height="72" rx="6" fill="none" stroke="#e67700" stroke-width="1.5"/>
+  <text x="360" y="596" text-anchor="middle" font-size="13" font-weight="600" fill="#212529">Six Sigma 검증</text>
+  <text x="360" y="620" text-anchor="middle" font-size="11" fill="#495057">n=13 합의 투표 — 임베딩 클러스터링</text>
+  <text x="360" y="636" text-anchor="middle" font-size="11" fill="#495057">다수결 선택 · 품질 보증</text>
+
+  <!-- 화살표: Six Sigma → 최종 결과 -->
+  <line x1="360" y1="648" x2="360" y2="672"
+        stroke="#1e7b30" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <!-- ── 최종 결과 ── -->
+  <rect x="180" y="672" width="360" height="56" rx="6" fill="#d3f9d8" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="360" y="700" text-anchor="middle" font-size="13" font-weight="600" fill="#1e7b30">최종 결과</text>
+  <text x="360" y="716" text-anchor="middle" font-size="11" fill="#495057">검증 완료 · 고품질 통합 응답</text>
+
+  <!-- 비용 라벨 박스 -->
+  <rect x="60" y="728" width="600" height="24" rx="4"
+        fill="#edf2ff" stroke="#364fc7" stroke-width="0.75"/>
+  <text x="360" y="744" text-anchor="middle" font-size="11" font-weight="600" fill="#364fc7">
+    Opus ×2 + Sonnet ×3 = ~45% 비용 (단순 Opus 전체 대비)
+  </text>
+</svg>

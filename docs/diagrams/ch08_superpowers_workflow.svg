@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 932" width="540" height="932"
+     font-family="Segoe UI, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#868e96"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e7b30"/>
+    </marker>
+  </defs>
+  <rect width="540" height="932" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="270" y="30" text-anchor="middle" font-size="16" font-weight="700"
+        fill="#212529" letter-spacing="0.5">Superpowers 7-Step Workflow</text>
+
+  <!-- Start node -->
+  <circle cx="270" cy="60" r="10" fill="#6b6560"/>
+
+  <!-- Arrow: Start → Step 1 -->
+  <line x1="270" y1="70" x2="270" y2="88"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 1: Brainstorm (Amber) -->
+  <rect x="130" y="90" width="280" height="64" rx="6" fill="#fff3bf"/>
+  <rect x="130" y="90" width="280" height="28" rx="6" fill="#fff3bf"/>
+  <rect x="130" y="110" width="280" height="8" fill="#fff3bf"/>
+  <line x1="130" y1="118" x2="410" y2="118" stroke="#e67700" stroke-width="1"/>
+  <rect x="130" y="90" width="280" height="64" rx="6"
+        fill="none" stroke="#e67700" stroke-width="1.5"/>
+  <text x="270" y="108" text-anchor="middle" font-size="12"
+        font-weight="600" fill="#e67700">1. Brainstorm</text>
+  <text x="146" y="138" font-size="11" fill="#495057">사용자 의도 탐색 &amp; 아이디어 발산</text>
+
+  <!-- Gate 1 (diamond) -->
+  <line x1="270" y1="154" x2="270" y2="170"
+        stroke="#868e96" stroke-width="1.5"/>
+  <polygon points="270,170 282,182 270,194 258,182" fill="#ffffff" stroke="#868e96" stroke-width="1.5"/>
+  <text x="288" y="186" font-size="10" fill="#495057">Gate</text>
+
+  <!-- Arrow: Gate 1 → Step 2 -->
+  <line x1="270" y1="194" x2="270" y2="208"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 2: Isolation (Amber) -->
+  <rect x="130" y="210" width="280" height="64" rx="6" fill="#fff3bf"/>
+  <rect x="130" y="210" width="280" height="28" rx="6" fill="#fff3bf"/>
+  <rect x="130" y="230" width="280" height="8" fill="#fff3bf"/>
+  <line x1="130" y1="238" x2="410" y2="238" stroke="#e67700" stroke-width="1"/>
+  <rect x="130" y="210" width="280" height="64" rx="6"
+        fill="none" stroke="#e67700" stroke-width="1.5"/>
+  <text x="270" y="228" text-anchor="middle" font-size="12"
+        font-weight="600" fill="#e67700">2. Isolation</text>
+  <text x="146" y="258" font-size="11" fill="#495057">설계 문서 작성 &amp; 승인</text>
+
+  <!-- Gate 2 -->
+  <line x1="270" y1="274" x2="270" y2="290"
+        stroke="#868e96" stroke-width="1.5"/>
+  <polygon points="270,290 282,302 270,314 258,302" fill="#ffffff" stroke="#868e96" stroke-width="1.5"/>
+  <text x="288" y="306" font-size="10" fill="#495057">Gate</text>
+
+  <!-- Arrow: Gate 2 → Step 3 -->
+  <line x1="270" y1="314" x2="270" y2="328"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 3: Planning (Blue) -->
+  <rect x="130" y="330" width="280" height="64" rx="6" fill="#dbe4ff"/>
+  <rect x="130" y="330" width="280" height="28" rx="6" fill="#dbe4ff"/>
+  <rect x="130" y="350" width="280" height="8" fill="#dbe4ff"/>
+  <line x1="130" y1="358" x2="410" y2="358" stroke="#364fc7" stroke-width="1"/>
+  <rect x="130" y="330" width="280" height="64" rx="6"
+        fill="none" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="270" y="348" text-anchor="middle" font-size="12"
+        font-weight="600" fill="#364fc7">3. Planning</text>
+  <text x="146" y="378" font-size="11" fill="#495057">구현 계획 수립 &amp; 태스크 분해</text>
+
+  <!-- Gate 3 -->
+  <line x1="270" y1="394" x2="270" y2="410"
+        stroke="#868e96" stroke-width="1.5"/>
+  <polygon points="270,410 282,422 270,434 258,422" fill="#ffffff" stroke="#868e96" stroke-width="1.5"/>
+  <text x="288" y="426" font-size="10" fill="#495057">Gate</text>
+
+  <!-- Arrow: Gate 3 → Step 4 -->
+  <line x1="270" y1="434" x2="270" y2="448"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 4: Implementation (Blue) -->
+  <rect x="130" y="450" width="280" height="64" rx="6" fill="#dbe4ff"/>
+  <rect x="130" y="450" width="280" height="28" rx="6" fill="#dbe4ff"/>
+  <rect x="130" y="470" width="280" height="8" fill="#dbe4ff"/>
+  <line x1="130" y1="478" x2="410" y2="478" stroke="#364fc7" stroke-width="1"/>
+  <rect x="130" y="450" width="280" height="64" rx="6"
+        fill="none" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="270" y="468" text-anchor="middle" font-size="12"
+        font-weight="600" fill="#364fc7">4. Implementation</text>
+  <text x="146" y="498" font-size="11" fill="#495057">구현 + TDD (테스트 주도 개발)</text>
+
+  <!-- Gate 4 -->
+  <line x1="270" y1="514" x2="270" y2="530"
+        stroke="#868e96" stroke-width="1.5"/>
+  <polygon points="270,530 282,542 270,554 258,542" fill="#ffffff" stroke="#868e96" stroke-width="1.5"/>
+  <text x="288" y="546" font-size="10" fill="#495057">Gate</text>
+
+  <!-- Arrow: Gate 4 → Step 5 -->
+  <line x1="270" y1="554" x2="270" y2="568"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 5: Review (Blue) -->
+  <rect x="130" y="570" width="280" height="64" rx="6" fill="#dbe4ff"/>
+  <rect x="130" y="570" width="280" height="28" rx="6" fill="#dbe4ff"/>
+  <rect x="130" y="590" width="280" height="8" fill="#dbe4ff"/>
+  <line x1="130" y1="598" x2="410" y2="598" stroke="#364fc7" stroke-width="1"/>
+  <rect x="130" y="570" width="280" height="64" rx="6"
+        fill="none" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="270" y="588" text-anchor="middle" font-size="12"
+        font-weight="600" fill="#364fc7">5. Review</text>
+  <text x="146" y="618" font-size="11" fill="#495057">코드 리뷰 + 푸시백 반영</text>
+
+  <!-- Gate 5 -->
+  <line x1="270" y1="634" x2="270" y2="650"
+        stroke="#868e96" stroke-width="1.5"/>
+  <polygon points="270,650 282,662 270,674 258,662" fill="#ffffff" stroke="#868e96" stroke-width="1.5"/>
+  <text x="288" y="666" font-size="10" fill="#495057">Gate</text>
+
+  <!-- Arrow: Gate 5 → Step 6 -->
+  <line x1="270" y1="674" x2="270" y2="688"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 6: Verification (Green) -->
+  <rect x="130" y="690" width="280" height="64" rx="6" fill="#d3f9d8"/>
+  <rect x="130" y="690" width="280" height="28" rx="6" fill="#d3f9d8"/>
+  <rect x="130" y="710" width="280" height="8" fill="#d3f9d8"/>
+  <line x1="130" y1="718" x2="410" y2="718" stroke="#1e7b30" stroke-width="1"/>
+  <rect x="130" y="690" width="280" height="64" rx="6"
+        fill="none" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="270" y="708" text-anchor="middle" font-size="12"
+        font-weight="600" fill="#1e7b30">6. Verification</text>
+  <text x="146" y="738" font-size="11" fill="#495057">테스트 검증 &amp; 품질 확인</text>
+
+  <!-- Gate 6 -->
+  <line x1="270" y1="754" x2="270" y2="770"
+        stroke="#868e96" stroke-width="1.5"/>
+  <polygon points="270,770 282,782 270,794 258,782" fill="#ffffff" stroke="#868e96" stroke-width="1.5"/>
+  <text x="288" y="786" font-size="10" fill="#495057">Gate</text>
+
+  <!-- Arrow: Gate 6 → Step 7 -->
+  <line x1="270" y1="794" x2="270" y2="808"
+        stroke="#1e7b30" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <!-- Step 7: Finish (Green) -->
+  <rect x="130" y="810" width="280" height="64" rx="6" fill="#d3f9d8"/>
+  <rect x="130" y="810" width="280" height="28" rx="6" fill="#d3f9d8"/>
+  <rect x="130" y="830" width="280" height="8" fill="#d3f9d8"/>
+  <line x1="130" y1="838" x2="410" y2="838" stroke="#1e7b30" stroke-width="1"/>
+  <rect x="130" y="810" width="280" height="64" rx="6"
+        fill="none" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="270" y="828" text-anchor="middle" font-size="12"
+        font-weight="600" fill="#1e7b30">7. Finish</text>
+  <text x="146" y="858" font-size="11" fill="#495057">완료 &amp; 결과 보고</text>
+
+  <!-- Arrow to end -->
+  <line x1="270" y1="874" x2="270" y2="888"
+        stroke="#1e7b30" stroke-width="1.5"/>
+
+  <!-- End node (double circle) -->
+  <circle cx="270" cy="900" r="12" fill="none" stroke="#1e7b30" stroke-width="1.5"/>
+  <circle cx="270" cy="900" r="8" fill="#1e7b30"/>
+</svg>

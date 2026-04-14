@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 620" width="760" height="620"
+     font-family="Segoe UI, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#868e96"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e7b30"/>
+    </marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#e67700"/>
+    </marker>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="760" height="620" fill="#ffffff"/>
+
+  <!-- 제목 -->
+  <text x="380" y="36" text-anchor="middle" font-size="16" font-weight="700"
+        fill="#212529" letter-spacing="0.5">16 병렬 에이전트 동기화 아키텍처</text>
+  <text x="380" y="54" text-anchor="middle" font-size="10" fill="#868e96">
+    Component Diagram — Docker 컨테이너 + bare git repo + 잠금 파일
+  </text>
+
+  <!-- ── 무한 생성 루프 (좌측) ── -->
+  <rect x="20" y="80" width="130" height="72" rx="6" fill="#f5f0eb"/>
+  <rect x="20" y="80" width="130" height="28" rx="6" fill="#f5f0eb"/>
+  <rect x="20" y="100" width="130" height="8" fill="#f5f0eb"/>
+  <line x1="20" y1="108" x2="150" y2="108" stroke="#6b6560" stroke-width="1"/>
+  <rect x="20" y="80" width="130" height="72" rx="6" fill="none" stroke="#6b6560" stroke-width="1.5"/>
+  <text x="85" y="100" text-anchor="middle" font-size="11" font-weight="600" fill="#212529">무한 생성 루프</text>
+  <text x="85" y="120" text-anchor="middle" font-size="10" fill="#495057">세션 완료 시</text>
+  <text x="85" y="136" text-anchor="middle" font-size="10" fill="#495057">컨테이너 재시작</text>
+
+  <!-- ── Docker 에이전트 컨테이너 그룹 ── -->
+  <rect x="200" y="68" width="480" height="316" rx="6"
+        fill="#edf2ff" stroke="#364fc7" stroke-width="1" stroke-dasharray="6,3"/>
+  <text x="216" y="88" font-size="12" font-weight="600" fill="#364fc7">Docker 컨테이너 — 16개 병렬 에이전트</text>
+
+  <!-- Docker #1 -->
+  <rect x="220" y="96" width="130" height="64" rx="6" fill="#dbe4ff"/>
+  <rect x="220" y="96" width="130" height="28" rx="6" fill="#dbe4ff"/>
+  <rect x="220" y="116" width="130" height="8" fill="#dbe4ff"/>
+  <line x1="220" y1="124" x2="350" y2="124" stroke="#364fc7" stroke-width="1"/>
+  <rect x="220" y="96" width="130" height="64" rx="6" fill="none" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="285" y="116" text-anchor="middle" font-size="11" font-weight="600" fill="#212529">Docker #1</text>
+  <text x="285" y="136" text-anchor="middle" font-size="10" fill="#364fc7">/workspace</text>
+  <text x="285" y="150" text-anchor="middle" font-size="10" fill="#495057">Claude Agent</text>
+
+  <!-- Docker #2 -->
+  <rect x="370" y="96" width="130" height="64" rx="6" fill="#dbe4ff"/>
+  <rect x="370" y="96" width="130" height="28" rx="6" fill="#dbe4ff"/>
+  <rect x="370" y="116" width="130" height="8" fill="#dbe4ff"/>
+  <line x1="370" y1="124" x2="500" y2="124" stroke="#364fc7" stroke-width="1"/>
+  <rect x="370" y="96" width="130" height="64" rx="6" fill="none" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="435" y="116" text-anchor="middle" font-size="11" font-weight="600" fill="#212529">Docker #2</text>
+  <text x="435" y="136" text-anchor="middle" font-size="10" fill="#364fc7">/workspace</text>
+  <text x="435" y="150" text-anchor="middle" font-size="10" fill="#495057">Claude Agent</text>
+
+  <!-- Docker #3 -->
+  <rect x="220" y="180" width="130" height="64" rx="6" fill="#dbe4ff"/>
+  <rect x="220" y="180" width="130" height="28" rx="6" fill="#dbe4ff"/>
+  <rect x="220" y="200" width="130" height="8" fill="#dbe4ff"/>
+  <line x1="220" y1="208" x2="350" y2="208" stroke="#364fc7" stroke-width="1"/>
+  <rect x="220" y="180" width="130" height="64" rx="6" fill="none" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="285" y="200" text-anchor="middle" font-size="11" font-weight="600" fill="#212529">Docker #3</text>
+  <text x="285" y="220" text-anchor="middle" font-size="10" fill="#364fc7">/workspace</text>
+  <text x="285" y="234" text-anchor="middle" font-size="10" fill="#495057">Claude Agent</text>
+
+  <!-- Docker #4 -->
+  <rect x="370" y="180" width="130" height="64" rx="6" fill="#dbe4ff"/>
+  <rect x="370" y="180" width="130" height="28" rx="6" fill="#dbe4ff"/>
+  <rect x="370" y="200" width="130" height="8" fill="#dbe4ff"/>
+  <line x1="370" y1="208" x2="500" y2="208" stroke="#364fc7" stroke-width="1"/>
+  <rect x="370" y="180" width="130" height="64" rx="6" fill="none" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="435" y="200" text-anchor="middle" font-size="11" font-weight="600" fill="#212529">Docker #4</text>
+  <text x="435" y="220" text-anchor="middle" font-size="10" fill="#364fc7">/workspace</text>
+  <text x="435" y="234" text-anchor="middle" font-size="10" fill="#495057">Claude Agent</text>
+
+  <!-- ... 생략 표시 -->
+  <text x="550" y="155" font-size="22" font-weight="700" fill="#364fc7">···</text>
+  <text x="550" y="220" font-size="22" font-weight="700" fill="#364fc7">···</text>
+  <text x="340" y="280" text-anchor="middle" font-size="11" fill="#868e96" font-style="italic">Docker #5 ~ #16 (동일 구성)</text>
+
+  <!-- 수평 구분선 -->
+  <line x1="216" y1="300" x2="664" y2="300" stroke="#364fc7" stroke-width="0.75" stroke-dasharray="4,2"/>
+
+  <!-- current_tasks 잠금 디렉터리 (컨테이너 내부) -->
+  <rect x="250" y="312" width="200" height="56" rx="6" fill="#fff3bf"/>
+  <rect x="250" y="312" width="200" height="28" rx="6" fill="#fff3bf"/>
+  <rect x="250" y="332" width="200" height="8" fill="#fff3bf"/>
+  <line x1="250" y1="340" x2="450" y2="340" stroke="#e67700" stroke-width="1"/>
+  <rect x="250" y="312" width="200" height="56" rx="6" fill="none" stroke="#e67700" stroke-width="1.5"/>
+  <text x="350" y="332" text-anchor="middle" font-size="11" font-weight="600" fill="#212529">current_tasks/</text>
+  <text x="350" y="352" text-anchor="middle" font-size="10" fill="#495057">잠금 파일 디렉터리</text>
+  <text x="350" y="364" text-anchor="middle" font-size="10" fill="#868e96">task_001.lock ··· task_N.lock</text>
+
+  <!-- 무한 루프 → Docker 그룹 화살표 -->
+  <line x1="150" y1="116" x2="200" y2="116"
+        stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Docker → bare git repo 화살표들 (push/pull) -->
+  <!-- Docker #1 → bare repo -->
+  <path d="M 285,160 L 285,430"
+        fill="none" stroke="#1e7b30" stroke-width="1.5" stroke-dasharray="6,3"
+        marker-end="url(#arrow-green)"/>
+  <!-- Docker #2 → bare repo -->
+  <path d="M 435,160 L 435,430"
+        fill="none" stroke="#1e7b30" stroke-width="1.5" stroke-dasharray="6,3"
+        marker-end="url(#arrow-green)"/>
+  <!-- Docker #3 → bare repo -->
+  <path d="M 285,244 L 285,430"
+        fill="none" stroke="#1e7b30" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <!-- Docker #4 → bare repo -->
+  <path d="M 435,244 L 435,430"
+        fill="none" stroke="#1e7b30" stroke-width="1.5" stroke-dasharray="6,3"/>
+
+  <!-- push/pull 레이블 -->
+  <text x="262" y="380" font-size="10" fill="#1e7b30">push/pull</text>
+  <text x="438" y="380" font-size="10" fill="#1e7b30">push/pull</text>
+
+  <!-- current_tasks → bare repo 화살표 -->
+  <line x1="350" y1="368" x2="350" y2="430"
+        stroke="#e67700" stroke-width="1.5" marker-end="url(#arrow-amber)"/>
+  <text x="358" y="405" font-size="10" fill="#e67700">잠금 커밋</text>
+
+  <!-- ── bare git repo ── -->
+  <rect x="210" y="430" width="280" height="80" rx="6" fill="#d3f9d8"/>
+  <rect x="210" y="430" width="280" height="28" rx="6" fill="#d3f9d8"/>
+  <rect x="210" y="450" width="280" height="8" fill="#d3f9d8"/>
+  <line x1="210" y1="458" x2="490" y2="458" stroke="#1e7b30" stroke-width="1"/>
+  <rect x="210" y="430" width="280" height="80" rx="6" fill="none" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="350" y="450" text-anchor="middle" font-size="13" font-weight="600" fill="#212529">bare git repo</text>
+  <text x="350" y="472" text-anchor="middle" font-size="10" fill="#364fc7">/upstream (공유 저장소)</text>
+  <text x="350" y="488" text-anchor="middle" font-size="11" fill="#495057">브랜치 충돌 없이 병렬 커밋 허용</text>
+  <text x="350" y="502" text-anchor="middle" font-size="10" fill="#868e96">git bare init → working tree 없음</text>
+
+  <!-- ── 통계 요약 박스 ── -->
+  <rect x="20" y="540" width="720" height="60" rx="6"
+        fill="#f5f0eb" stroke="#6b6560" stroke-width="1.5"/>
+  <text x="380" y="564" text-anchor="middle" font-size="12" font-weight="600" fill="#212529">실제 성과 (Carlini 사례)</text>
+  <text x="180" y="584" text-anchor="middle" font-size="11" fill="#495057">~2,000 에이전트 세션</text>
+  <text x="380" y="584" text-anchor="middle" font-size="11" fill="#495057">총 비용 $20K</text>
+  <text x="580" y="584" text-anchor="middle" font-size="11" fill="#495057">100K 줄 C 컴파일러 구현</text>
+  <!-- 구분 선 -->
+  <line x1="280" y1="548" x2="280" y2="592" stroke="#6b6560" stroke-width="0.75"/>
+  <line x1="480" y1="548" x2="480" y2="592" stroke="#6b6560" stroke-width="0.75"/>
+</svg>

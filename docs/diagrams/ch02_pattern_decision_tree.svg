@@ -1,0 +1,181 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 860" width="860" height="860"
+     font-family="Segoe UI, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#868e96"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e7b30"/>
+    </marker>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="860" height="860" fill="#ffffff"/>
+
+  <!-- 제목 -->
+  <text x="430" y="32" text-anchor="middle" font-size="16" font-weight="700"
+        fill="#212529" letter-spacing="0.5">7가지 패턴 선택 의사결정 흐름도</text>
+
+  <!-- ===== 시작 노드 (원형, Black) ===== -->
+  <circle cx="430" cy="62" r="22" fill="#212529" stroke="#212529" stroke-width="1.5"/>
+  <text x="430" y="67" text-anchor="middle" font-size="10" font-weight="600" fill="#ffffff">시작</text>
+
+  <!-- 시작 → 다이아몬드 1 -->
+  <line x1="430" y1="84" x2="430" y2="108" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ===== 다이아몬드 1: 단일 LLM 호출로 충분? ===== -->
+  <!-- 다이아몬드: x=340, y=108, w=180, h=56 → 중심 (430,136) -->
+  <polygon points="430,108 520,136 430,164 340,136"
+           fill="#dbe4ff" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="430" y="131" text-anchor="middle" font-size="11" font-weight="600" fill="#364fc7">단일 LLM 호출로</text>
+  <text x="430" y="147" text-anchor="middle" font-size="11" font-weight="600" fill="#364fc7">충분한가?</text>
+
+  <!-- Yes → 결과 1 (오른쪽) -->
+  <line x1="520" y1="136" x2="620" y2="136" stroke="#1e7b30" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <text x="570" y="129" text-anchor="middle" font-size="10" fill="#1e7b30">Yes</text>
+  <!-- 결과 1: 증강된 LLM -->
+  <rect x="620" y="112" width="140" height="48" rx="6"
+        fill="#d3f9d8" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="690" y="132" text-anchor="middle" font-size="12" font-weight="600" fill="#1e7b30">증강된 LLM</text>
+  <text x="690" y="150" text-anchor="middle" font-size="10" fill="#1e7b30">도구 추가 단일 호출</text>
+
+  <!-- No ↓ → 다이아몬드 2 -->
+  <line x1="430" y1="164" x2="430" y2="192" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="440" y="182" font-size="10" fill="#495057">No</text>
+
+  <!-- ===== 다이아몬드 2: 고정된 단계로 분해 가능? ===== -->
+  <polygon points="430,192 520,220 430,248 340,220"
+           fill="#dbe4ff" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="430" y="215" text-anchor="middle" font-size="11" font-weight="600" fill="#364fc7">고정된 단계로</text>
+  <text x="430" y="231" text-anchor="middle" font-size="11" font-weight="600" fill="#364fc7">분해 가능한가?</text>
+
+  <!-- Yes → 결과 2 (오른쪽) -->
+  <line x1="520" y1="220" x2="620" y2="220" stroke="#1e7b30" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <text x="570" y="213" text-anchor="middle" font-size="10" fill="#1e7b30">Yes</text>
+  <!-- 결과 2: 프롬프트 체이닝 -->
+  <rect x="620" y="196" width="140" height="48" rx="6"
+        fill="#d3f9d8" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="690" y="216" text-anchor="middle" font-size="12" font-weight="600" fill="#1e7b30">프롬프트 체이닝</text>
+  <text x="690" y="234" text-anchor="middle" font-size="10" fill="#1e7b30">순서 고정 파이프라인</text>
+
+  <!-- No ↓ → 다이아몬드 3 -->
+  <line x1="430" y1="248" x2="430" y2="276" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="440" y="266" font-size="10" fill="#495057">No</text>
+
+  <!-- ===== 다이아몬드 3: 입력 유형별 다른 처리? ===== -->
+  <polygon points="430,276 520,304 430,332 340,304"
+           fill="#dbe4ff" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="430" y="299" text-anchor="middle" font-size="11" font-weight="600" fill="#364fc7">입력 유형별</text>
+  <text x="430" y="315" text-anchor="middle" font-size="11" font-weight="600" fill="#364fc7">다른 처리 필요한가?</text>
+
+  <!-- Yes → 결과 3 (오른쪽) -->
+  <line x1="520" y1="304" x2="620" y2="304" stroke="#1e7b30" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <text x="570" y="297" text-anchor="middle" font-size="10" fill="#1e7b30">Yes</text>
+  <!-- 결과 3: 라우팅 -->
+  <rect x="620" y="280" width="140" height="48" rx="6"
+        fill="#d3f9d8" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="690" y="300" text-anchor="middle" font-size="12" font-weight="600" fill="#1e7b30">라우팅</text>
+  <text x="690" y="318" text-anchor="middle" font-size="10" fill="#1e7b30">분류 기반 경로 선택</text>
+
+  <!-- No ↓ → 다이아몬드 4 -->
+  <line x1="430" y1="332" x2="430" y2="360" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="440" y="350" font-size="10" fill="#495057">No</text>
+
+  <!-- ===== 다이아몬드 4: 독립적 하위 작업 존재? ===== -->
+  <polygon points="430,360 520,388 430,416 340,388"
+           fill="#dbe4ff" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="430" y="383" text-anchor="middle" font-size="11" font-weight="600" fill="#364fc7">독립적 하위 작업이</text>
+  <text x="430" y="399" text-anchor="middle" font-size="11" font-weight="600" fill="#364fc7">존재하는가?</text>
+
+  <!-- Yes → 결과 4 (오른쪽) -->
+  <line x1="520" y1="388" x2="620" y2="388" stroke="#1e7b30" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <text x="570" y="381" text-anchor="middle" font-size="10" fill="#1e7b30">Yes</text>
+  <!-- 결과 4: 병렬화 -->
+  <rect x="620" y="364" width="140" height="48" rx="6"
+        fill="#d3f9d8" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="690" y="384" text-anchor="middle" font-size="12" font-weight="600" fill="#1e7b30">병렬화</text>
+  <text x="690" y="402" text-anchor="middle" font-size="10" fill="#1e7b30">동시 병렬 처리</text>
+
+  <!-- No ↓ → 다이아몬드 5 -->
+  <line x1="430" y1="416" x2="430" y2="444" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="440" y="434" font-size="10" fill="#495057">No</text>
+
+  <!-- ===== 다이아몬드 5: 하위 작업 사전 예측 불가? ===== -->
+  <polygon points="430,444 520,472 430,500 340,472"
+           fill="#dbe4ff" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="430" y="467" text-anchor="middle" font-size="11" font-weight="600" fill="#364fc7">하위 작업을</text>
+  <text x="430" y="483" text-anchor="middle" font-size="11" font-weight="600" fill="#364fc7">사전 예측 불가한가?</text>
+
+  <!-- Yes → 결과 5 (오른쪽) -->
+  <line x1="520" y1="472" x2="620" y2="472" stroke="#1e7b30" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <text x="570" y="465" text-anchor="middle" font-size="10" fill="#1e7b30">Yes</text>
+  <!-- 결과 5: 오케스트레이터-워커 -->
+  <rect x="620" y="448" width="140" height="48" rx="6"
+        fill="#d3f9d8" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="690" y="466" text-anchor="middle" font-size="12" font-weight="600" fill="#1e7b30">오케스트레이터-워커</text>
+  <text x="690" y="484" text-anchor="middle" font-size="10" fill="#1e7b30">동적 워커 분배</text>
+
+  <!-- No ↓ → 다이아몬드 6 -->
+  <line x1="430" y1="500" x2="430" y2="528" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="440" y="518" font-size="10" fill="#495057">No</text>
+
+  <!-- ===== 다이아몬드 6: 반복 개선이 측정 가능? ===== -->
+  <polygon points="430,528 520,556 430,584 340,556"
+           fill="#dbe4ff" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="430" y="551" text-anchor="middle" font-size="11" font-weight="600" fill="#364fc7">반복 개선이</text>
+  <text x="430" y="567" text-anchor="middle" font-size="11" font-weight="600" fill="#364fc7">측정 가능한가?</text>
+
+  <!-- Yes → 결과 6 (오른쪽) -->
+  <line x1="520" y1="556" x2="620" y2="556" stroke="#1e7b30" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <text x="570" y="549" text-anchor="middle" font-size="10" fill="#1e7b30">Yes</text>
+  <!-- 결과 6: 평가자-최적화자 -->
+  <rect x="620" y="532" width="140" height="48" rx="6"
+        fill="#d3f9d8" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="690" y="552" text-anchor="middle" font-size="12" font-weight="600" fill="#1e7b30">평가자-최적화자</text>
+  <text x="690" y="570" text-anchor="middle" font-size="10" fill="#1e7b30">반복 품질 개선</text>
+
+  <!-- No ↓ → 다이아몬드 7 -->
+  <line x1="430" y1="584" x2="430" y2="612" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="440" y="602" font-size="10" fill="#495057">No</text>
+
+  <!-- ===== 다이아몬드 7: 개방형 자율 탐색 필요? ===== -->
+  <polygon points="430,612 520,640 430,668 340,640"
+           fill="#dbe4ff" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="430" y="635" text-anchor="middle" font-size="11" font-weight="600" fill="#364fc7">개방형 자율 탐색이</text>
+  <text x="430" y="651" text-anchor="middle" font-size="11" font-weight="600" fill="#364fc7">필요한가?</text>
+
+  <!-- Yes → 결과 7 (오른쪽) -->
+  <line x1="520" y1="640" x2="620" y2="640" stroke="#1e7b30" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <text x="570" y="633" text-anchor="middle" font-size="10" fill="#1e7b30">Yes</text>
+  <!-- 결과 7: 자율 에이전트 -->
+  <rect x="620" y="616" width="140" height="48" rx="6"
+        fill="#d3f9d8" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="690" y="636" text-anchor="middle" font-size="12" font-weight="600" fill="#1e7b30">자율 에이전트</text>
+  <text x="690" y="654" text-anchor="middle" font-size="10" fill="#1e7b30">완전 자율 루프</text>
+
+  <!-- No → 재검토 -->
+  <line x1="430" y1="668" x2="430" y2="700" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="440" y="688" font-size="10" fill="#495057">No</text>
+  <!-- 재검토 박스 -->
+  <rect x="330" y="700" width="200" height="44" rx="6"
+        fill="#fff3bf" stroke="#e67700" stroke-width="1.5"/>
+  <text x="430" y="720" text-anchor="middle" font-size="11" font-weight="600" fill="#e67700">요구사항 재검토</text>
+  <text x="430" y="736" text-anchor="middle" font-size="10" fill="#e67700">복잡도 재평가 필요</text>
+
+  <!-- 범례 -->
+  <rect x="20" y="760" width="820" height="80" rx="6"
+        fill="#f5f0eb" stroke="#6b6560" stroke-width="1" stroke-dasharray="6,3"/>
+  <text x="40" y="782" font-size="12" font-weight="600" fill="#6b6560">범례</text>
+  <polygon points="100,798 130,810 100,822 70,810" fill="#dbe4ff" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="150" y="814" font-size="10" fill="#495057">판단 질문 (다이아몬드)</text>
+  <rect x="300" y="799" width="80" height="22" rx="6" fill="#d3f9d8" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="340" y="814" text-anchor="middle" font-size="10" fill="#1e7b30">Yes → 선택 패턴</text>
+  <line x1="440" y1="810" x2="500" y2="810" stroke="#1e7b30" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <text x="520" y="814" font-size="10" fill="#1e7b30">Yes 경로</text>
+  <line x1="580" y1="810" x2="640" y2="810" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="660" y="814" font-size="10" fill="#495057">No 경로 (계속)</text>
+  <circle cx="80" cy="836" r="10" fill="#212529"/>
+  <text x="96" y="840" font-size="10" fill="#495057">시작 노드</text>
+</svg>

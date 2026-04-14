@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 796" width="780" height="796"
+     font-family="Segoe UI, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#868e96"/>
+    </marker>
+  </defs>
+  <rect width="780" height="796" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="390" y="28" text-anchor="middle" font-size="16" font-weight="700"
+        fill="#212529" letter-spacing="0.5">오케스트레이션 패턴 비교 (섹션 5)</text>
+
+  <!-- ===== 5.1 블랙보드 ===== -->
+  <rect x="20" y="48" width="740" height="100" rx="6"
+        fill="#f5f0eb" stroke="#6b6560" stroke-width="1" stroke-dasharray="6,3"/>
+  <line x1="195" y1="58" x2="195" y2="138" stroke="#6b6560" stroke-width="0.5" stroke-dasharray="3,2"/>
+
+  <!-- Blackboard box -->
+  <rect x="280" y="58" width="200" height="28" rx="6" fill="#fff3bf" stroke="#e67700" stroke-width="1.5"/>
+  <text x="380" y="76" text-anchor="middle" font-size="11" font-weight="600" fill="#e67700">블랙보드 (공유 공간)</text>
+  <!-- Agents -->
+  <rect x="240" y="104" width="70" height="22" rx="6" fill="#dbe4ff" stroke="#364fc7" stroke-width="1"/>
+  <rect x="345" y="104" width="70" height="22" rx="6" fill="#dbe4ff" stroke="#364fc7" stroke-width="1"/>
+  <rect x="450" y="104" width="70" height="22" rx="6" fill="#dbe4ff" stroke="#364fc7" stroke-width="1"/>
+  <text x="275" y="119" text-anchor="middle" font-size="10" fill="#364fc7">Agent 1</text>
+  <text x="380" y="119" text-anchor="middle" font-size="10" fill="#364fc7">Agent 2</text>
+  <text x="485" y="119" text-anchor="middle" font-size="10" fill="#364fc7">Agent 3</text>
+  <!-- Bidirectional arrows -->
+  <line x1="275" y1="86" x2="275" y2="102" stroke="#868e96" stroke-width="1.5"
+        marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <line x1="380" y1="86" x2="380" y2="102" stroke="#868e96" stroke-width="1.5"
+        marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <line x1="485" y1="86" x2="485" y2="102" stroke="#868e96" stroke-width="1.5"
+        marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+
+  <text x="36" y="72" font-size="12" font-weight="600" fill="#212529">5.1 블랙보드</text>
+  <text x="36" y="90" font-size="10" fill="#5a6268">자율적 참여 결정</text>
+  <text x="36" y="108" font-size="10" font-weight="600" fill="#1e7b30">▲ 13~57% 향상</text>
+  <text x="548" y="119" font-size="9" fill="#5a6268" font-style="italic">자율 참여</text>
+
+  <!-- ===== 5.2 멀티에이전트 토론 ===== -->
+  <rect x="20" y="164" width="740" height="100" rx="6"
+        fill="#f5f0eb" stroke="#6b6560" stroke-width="1" stroke-dasharray="6,3"/>
+  <line x1="195" y1="174" x2="195" y2="254" stroke="#6b6560" stroke-width="0.5" stroke-dasharray="3,2"/>
+
+  <rect x="230" y="180" width="60" height="22" rx="6" fill="#dbe4ff" stroke="#364fc7" stroke-width="1"/>
+  <rect x="360" y="180" width="60" height="22" rx="6" fill="#dbe4ff" stroke="#364fc7" stroke-width="1"/>
+  <rect x="490" y="180" width="60" height="22" rx="6" fill="#dbe4ff" stroke="#364fc7" stroke-width="1"/>
+  <text x="260" y="195" text-anchor="middle" font-size="10" fill="#364fc7">A</text>
+  <text x="390" y="195" text-anchor="middle" font-size="10" fill="#364fc7">B</text>
+  <text x="520" y="195" text-anchor="middle" font-size="10" fill="#364fc7">C</text>
+  <!-- Debate arrows -->
+  <line x1="290" y1="191" x2="358" y2="191" stroke="#868e96" stroke-width="1.5"
+        marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <line x1="420" y1="191" x2="488" y2="191" stroke="#868e96" stroke-width="1.5"
+        marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <text x="325" y="184" text-anchor="middle" font-size="9" fill="#495057">비판</text>
+  <text x="454" y="184" text-anchor="middle" font-size="9" fill="#495057">반론</text>
+  <!-- Convergence -->
+  <line x1="260" y1="202" x2="380" y2="230" stroke="#868e96" stroke-width="1.5"/>
+  <line x1="520" y1="202" x2="400" y2="230" stroke="#868e96" stroke-width="1.5"/>
+  <line x1="390" y1="202" x2="390" y2="228" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="350" y="230" width="80" height="22" rx="6" fill="#d3f9d8" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="390" y="245" text-anchor="middle" font-size="10" font-weight="600" fill="#1e7b30">합의</text>
+
+  <text x="36" y="188" font-size="12" font-weight="600" fill="#212529">5.2 멀티에이전트 토론</text>
+  <text x="36" y="206" font-size="10" fill="#5a6268">비판/반론 → 합의 수렴</text>
+  <text x="36" y="224" font-size="10" font-weight="600" fill="#1e7b30">▲ 환각 감소</text>
+
+  <!-- ===== 5.3 다중 에이전트 리플렉션 ===== -->
+  <rect x="20" y="280" width="740" height="100" rx="6"
+        fill="#f5f0eb" stroke="#6b6560" stroke-width="1" stroke-dasharray="6,3"/>
+  <line x1="195" y1="290" x2="195" y2="370" stroke="#6b6560" stroke-width="0.5" stroke-dasharray="3,2"/>
+
+  <rect x="210" y="298" width="60" height="22" rx="6" fill="#dbe4ff" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="240" y="313" text-anchor="middle" font-size="10" font-weight="600" fill="#364fc7">Actor</text>
+  <line x1="270" y1="309" x2="308" y2="309" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="289" y="302" font-size="9" fill="#495057">실패</text>
+  <!-- Personas -->
+  <rect x="310" y="290" width="80" height="16" rx="4" fill="#ffe3e3" stroke="#c92a2a" stroke-width="0.75"/>
+  <rect x="310" y="308" width="80" height="16" rx="4" fill="#ffe3e3" stroke="#c92a2a" stroke-width="0.75"/>
+  <rect x="310" y="326" width="80" height="16" rx="4" fill="#ffe3e3" stroke="#c92a2a" stroke-width="0.75"/>
+  <text x="350" y="301" text-anchor="middle" font-size="8" fill="#c92a2a">검증자</text>
+  <text x="350" y="319" text-anchor="middle" font-size="8" fill="#c92a2a">회의론자</text>
+  <text x="350" y="337" text-anchor="middle" font-size="8" fill="#c92a2a">논리학자</text>
+  <line x1="390" y1="313" x2="418" y2="313" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="420" y="302" width="70" height="22" rx="6" fill="#fff3bf" stroke="#e67700" stroke-width="1.5"/>
+  <text x="455" y="317" text-anchor="middle" font-size="10" font-weight="600" fill="#e67700">Judge</text>
+  <line x1="490" y1="313" x2="528" y2="313" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="530" y="302" width="80" height="22" rx="6" fill="#d3f9d8" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="570" y="317" text-anchor="middle" font-size="10" font-weight="600" fill="#1e7b30">통합 피드백</text>
+  <!-- Loop back -->
+  <path d="M 570,324 L 570,354 L 240,354 L 240,322"
+        fill="none" stroke="#868e96" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrow)"/>
+  <text x="405" y="366" text-anchor="middle" font-size="9" fill="#5a6268" font-style="italic">재시도 (최대 2회)</text>
+
+  <text x="36" y="304" font-size="12" font-weight="600" fill="#212529">5.3 다중 리플렉션</text>
+  <text x="36" y="322" font-size="10" fill="#5a6268">페르소나 비평 → 통합 피드백</text>
+  <text x="36" y="340" font-size="10" font-weight="600" fill="#1e7b30">▲ HumanEval 82.6%</text>
+
+  <!-- ===== 5.4 계획-실행 분리 ===== -->
+  <rect x="20" y="396" width="740" height="100" rx="6"
+        fill="#f5f0eb" stroke="#6b6560" stroke-width="1" stroke-dasharray="6,3"/>
+  <line x1="195" y1="406" x2="195" y2="486" stroke="#6b6560" stroke-width="0.5" stroke-dasharray="3,2"/>
+
+  <rect x="220" y="426" width="90" height="26" rx="6" fill="#dbe4ff" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="265" y="443" text-anchor="middle" font-size="10" font-weight="600" fill="#364fc7">Planner</text>
+  <line x1="310" y1="439" x2="348" y2="439" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="350" y="426" width="90" height="26" rx="6" fill="#f5f0eb" stroke="#6b6560" stroke-width="1.5"/>
+  <text x="395" y="443" text-anchor="middle" font-size="10" fill="#6b6560">[계획 DAG]</text>
+  <line x1="440" y1="439" x2="478" y2="439" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="480" y="426" width="90" height="26" rx="6" fill="#fff3bf" stroke="#e67700" stroke-width="1.5"/>
+  <text x="525" y="443" text-anchor="middle" font-size="10" font-weight="600" fill="#e67700">Executor</text>
+  <line x1="570" y1="439" x2="608" y2="439" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="610" y="426" width="60" height="26" rx="6" fill="#d3f9d8" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="640" y="443" text-anchor="middle" font-size="10" font-weight="600" fill="#1e7b30">결과</text>
+  <!-- Feedback loop -->
+  <path d="M 525,452 L 525,474 L 265,474 L 265,454"
+        fill="none" stroke="#868e96" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrow)"/>
+  <text x="395" y="486" text-anchor="middle" font-size="9" fill="#5a6268" font-style="italic">피드백 → 재계획</text>
+
+  <text x="36" y="420" font-size="12" font-weight="600" fill="#212529">5.4 계획-실행 분리</text>
+  <text x="36" y="438" font-size="10" fill="#5a6268">Planner → DAG → Executor</text>
+  <text x="36" y="456" font-size="10" font-weight="600" fill="#1e7b30">▲ WebArena 57.58%</text>
+
+  <!-- ===== 5.5 핸드오프 ===== -->
+  <rect x="20" y="512" width="740" height="100" rx="6"
+        fill="#f5f0eb" stroke="#6b6560" stroke-width="1" stroke-dasharray="6,3"/>
+  <line x1="195" y1="522" x2="195" y2="602" stroke="#6b6560" stroke-width="0.5" stroke-dasharray="3,2"/>
+
+  <rect x="220" y="548" width="80" height="24" rx="6" fill="#dbe4ff" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="260" y="564" text-anchor="middle" font-size="10" font-weight="600" fill="#364fc7">Triage</text>
+  <line x1="300" y1="548" x2="348" y2="530" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="300" y1="560" x2="348" y2="560" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="300" y1="572" x2="348" y2="590" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="350" y="518" width="80" height="22" rx="6" fill="#fff3bf" stroke="#e67700" stroke-width="1"/>
+  <rect x="350" y="548" width="80" height="22" rx="6" fill="#fff3bf" stroke="#e67700" stroke-width="1"/>
+  <rect x="350" y="578" width="80" height="22" rx="6" fill="#fff3bf" stroke="#e67700" stroke-width="1"/>
+  <text x="390" y="533" text-anchor="middle" font-size="9" fill="#e67700">기술 지원</text>
+  <text x="390" y="563" text-anchor="middle" font-size="9" fill="#e67700">결제 담당</text>
+  <text x="390" y="593" text-anchor="middle" font-size="9" fill="#e67700">계정 관리</text>
+  <text x="456" y="541" font-size="9" fill="#5a6268" font-style="italic">transfer_to()</text>
+
+  <text x="36" y="536" font-size="12" font-weight="600" fill="#212529">5.5 핸드오프</text>
+  <text x="36" y="554" font-size="10" fill="#5a6268">동적 제어권 이전</text>
+  <text x="36" y="572" font-size="10" font-weight="600" fill="#1e7b30">▲ Swarm/Agents SDK</text>
+
+  <!-- ===== 5.6 매그네틱원 ===== -->
+  <rect x="20" y="628" width="740" height="100" rx="6"
+        fill="#f5f0eb" stroke="#6b6560" stroke-width="1" stroke-dasharray="6,3"/>
+  <line x1="195" y1="638" x2="195" y2="718" stroke="#6b6560" stroke-width="0.5" stroke-dasharray="3,2"/>
+
+  <rect x="325" y="640" width="110" height="26" rx="6" fill="#dbe4ff" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="380" y="657" text-anchor="middle" font-size="10" font-weight="600" fill="#364fc7">Manager (Ledger)</text>
+  <!-- Dynamic selection arrows -->
+  <line x1="325" y1="666" x2="260" y2="690" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="380" y1="666" x2="380" y2="688" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="435" y1="666" x2="500" y2="690" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="220" y="690" width="70" height="20" rx="6" fill="#fff3bf" stroke="#e67700" stroke-width="1"/>
+  <rect x="346" y="690" width="70" height="20" rx="6" fill="#fff3bf" stroke="#e67700" stroke-width="1"/>
+  <rect x="470" y="690" width="70" height="20" rx="6" fill="#fff3bf" stroke="#e67700" stroke-width="1"/>
+  <text x="255" y="704" text-anchor="middle" font-size="9" fill="#e67700">WebSurfer</text>
+  <text x="381" y="704" text-anchor="middle" font-size="9" fill="#e67700">Coder</text>
+  <text x="505" y="704" text-anchor="middle" font-size="9" fill="#e67700">FileSurfer</text>
+  <text x="560" y="670" font-size="9" fill="#5a6268" font-style="italic">동적 선택</text>
+
+  <text x="36" y="652" font-size="12" font-weight="600" fill="#212529">5.6 매그네틱원</text>
+  <text x="36" y="670" font-size="10" fill="#5a6268">Ledger 기반 동적 조율</text>
+  <text x="36" y="688" font-size="10" font-weight="600" fill="#1e7b30">▲ GAIA 38%</text>
+
+  <!-- Summary -->
+  <rect x="20" y="748" width="740" height="28" rx="6"
+        fill="#d3f9d8" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="390" y="766" text-anchor="middle" font-size="11"
+        font-weight="600" fill="#1e7b30">핵심: 정적 할당 → 자율 참여/토론/동적 조율로 진화</text>
+</svg>

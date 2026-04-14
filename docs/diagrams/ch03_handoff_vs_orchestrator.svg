@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 500" width="780" height="500"
+     font-family="Segoe UI, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#868e96"/>
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#364fc7"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e7b30"/>
+    </marker>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="780" height="500" fill="#ffffff"/>
+
+  <!-- 제목 -->
+  <text x="390" y="36" text-anchor="middle" font-size="16" font-weight="700"
+        fill="#212529" letter-spacing="0.5">핸드오프 vs 오케스트레이터-워커 패턴 비교</text>
+  <text x="390" y="54" text-anchor="middle" font-size="10" fill="#868e96">제어권 흐름의 근본적 차이</text>
+
+  <!-- 중앙 구분선 -->
+  <line x1="390" y1="64" x2="390" y2="472" stroke="#dee2e6" stroke-width="1.5" stroke-dasharray="5,4"/>
+
+  <!-- ════════════════ 왼쪽: 핸드오프 영역 ════════════════ -->
+  <rect x="20" y="64" width="358" height="408" rx="6"
+        fill="#fafafa" stroke="#6b6560" stroke-width="1" stroke-dasharray="6,3"/>
+  <text x="199" y="86" text-anchor="middle" font-size="13" font-weight="600" fill="#6b6560">핸드오프 패턴</text>
+  <text x="199" y="102" text-anchor="middle" font-size="10" fill="#868e96">제어권이 이전됨</text>
+
+  <!-- 접수 에이전트 (y=112, h=68) -->
+  <rect x="50" y="112" width="298" height="68" rx="6" fill="#dbe4ff"/>
+  <rect x="50" y="112" width="298" height="28" rx="6" fill="#364fc7"/>
+  <rect x="50" y="132" width="298" height="8" fill="#364fc7"/>
+  <line x1="50" y1="140" x2="348" y2="140" stroke="#364fc7" stroke-width="1"/>
+  <rect x="50" y="112" width="298" height="68" rx="6" fill="none" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="199" y="131" text-anchor="middle" font-size="13" font-weight="600" fill="#ffffff">접수 에이전트</text>
+  <text x="199" y="157" text-anchor="middle" font-size="11" fill="#495057">고객 요청 접수 및 분류</text>
+  <text x="199" y="173" text-anchor="middle" font-size="10" fill="#5a6268">제어권 보유 → 이전 예정</text>
+
+  <!-- ↓ 핸드오프 화살표 1 + 라벨 -->
+  <line x1="199" y1="180" x2="199" y2="212" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="149" y="188" width="100" height="18" rx="4"
+        fill="#fff3bf" stroke="#e67700" stroke-width="0.75"/>
+  <text x="199" y="201" text-anchor="middle" font-size="9" font-weight="600" fill="#e67700">제어권 이전 →</text>
+
+  <!-- 기술지원 에이전트 (y=212, h=68) -->
+  <rect x="50" y="212" width="298" height="68" rx="6" fill="#f5f0eb"/>
+  <rect x="50" y="212" width="298" height="28" rx="6" fill="#6b6560"/>
+  <rect x="50" y="232" width="298" height="8" fill="#6b6560"/>
+  <line x1="50" y1="240" x2="348" y2="240" stroke="#6b6560" stroke-width="1"/>
+  <rect x="50" y="212" width="298" height="68" rx="6" fill="none" stroke="#6b6560" stroke-width="1.5"/>
+  <text x="199" y="231" text-anchor="middle" font-size="13" font-weight="600" fill="#ffffff">기술지원 에이전트</text>
+  <text x="199" y="257" text-anchor="middle" font-size="11" fill="#495057">기술 문제 해결 처리</text>
+  <text x="199" y="273" text-anchor="middle" font-size="10" fill="#868e96">이전 에이전트와 연결 끊김</text>
+
+  <!-- ↓ 핸드오프 화살표 2 + 라벨 -->
+  <line x1="199" y1="280" x2="199" y2="312" stroke="#868e96" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="149" y="288" width="100" height="18" rx="4"
+        fill="#fff3bf" stroke="#e67700" stroke-width="0.75"/>
+  <text x="199" y="301" text-anchor="middle" font-size="9" font-weight="600" fill="#e67700">제어권 이전 →</text>
+
+  <!-- 결제 에이전트 (y=312, h=68) -->
+  <rect x="50" y="312" width="298" height="68" rx="6" fill="#f5f0eb"/>
+  <rect x="50" y="312" width="298" height="28" rx="6" fill="#6b6560"/>
+  <rect x="50" y="332" width="298" height="8" fill="#6b6560"/>
+  <line x1="50" y1="340" x2="348" y2="340" stroke="#6b6560" stroke-width="1"/>
+  <rect x="50" y="312" width="298" height="68" rx="6" fill="none" stroke="#6b6560" stroke-width="1.5"/>
+  <text x="199" y="331" text-anchor="middle" font-size="13" font-weight="600" fill="#ffffff">결제 에이전트</text>
+  <text x="199" y="357" text-anchor="middle" font-size="11" fill="#495057">결제 처리 및 완료</text>
+  <text x="199" y="373" text-anchor="middle" font-size="10" fill="#868e96">최종 수신자 (제어권 종착)</text>
+
+  <!-- 왼쪽 요약 뱃지 -->
+  <rect x="38" y="400" width="322" height="56" rx="6"
+        fill="#ffe3e3" stroke="#c92a2a" stroke-width="1"/>
+  <text x="199" y="422" text-anchor="middle" font-size="11" font-weight="600" fill="#c92a2a">발신자가 제어권을 잃음</text>
+  <text x="199" y="440" text-anchor="middle" font-size="10" fill="#c92a2a">전체 흐름 추적 불가 — 오류 발생 시 책임 불명확</text>
+
+  <!-- ════════════════ 오른쪽: 오케스트레이터-워커 영역 ════════════════ -->
+  <rect x="402" y="64" width="358" height="408" rx="6"
+        fill="#fafafa" stroke="#6b6560" stroke-width="1" stroke-dasharray="6,3"/>
+  <text x="581" y="86" text-anchor="middle" font-size="13" font-weight="600" fill="#6b6560">오케스트레이터-워커 패턴</text>
+  <text x="581" y="102" text-anchor="middle" font-size="10" fill="#868e96">제어권이 유지됨</text>
+
+  <!-- 오케스트레이터 (y=112, h=68) -->
+  <rect x="432" y="112" width="298" height="68" rx="6" fill="#dbe4ff"/>
+  <rect x="432" y="112" width="298" height="28" rx="6" fill="#364fc7"/>
+  <rect x="432" y="132" width="298" height="8" fill="#364fc7"/>
+  <line x1="432" y1="140" x2="730" y2="140" stroke="#364fc7" stroke-width="1"/>
+  <rect x="432" y="112" width="298" height="68" rx="6" fill="none" stroke="#364fc7" stroke-width="1.5"/>
+  <text x="581" y="131" text-anchor="middle" font-size="13" font-weight="600" fill="#ffffff">오케스트레이터</text>
+  <text x="581" y="157" text-anchor="middle" font-size="11" fill="#495057">전체 흐름 조율 및 관리</text>
+  <text x="581" y="173" text-anchor="middle" font-size="10" fill="#5a6268">항상 제어권 보유</text>
+
+  <!-- 오케스트레이터 → 워커 3개: 위임 화살표 (아래방향) -->
+  <!-- 워커 A: cx=491, 워커 B: cx=581, 워커 C: cx=671 -->
+  <line x1="491" y1="180" x2="491" y2="240" stroke="#364fc7" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <line x1="581" y1="180" x2="581" y2="240" stroke="#364fc7" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <line x1="671" y1="180" x2="671" y2="240" stroke="#364fc7" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- 위임 라벨 -->
+  <text x="598" y="215" font-size="10" fill="#364fc7">위임</text>
+
+  <!-- 워커 A (y=240, w=80, h=80): x=451 -->
+  <rect x="451" y="240" width="80" height="80" rx="6" fill="#d3f9d8"/>
+  <rect x="451" y="240" width="80" height="28" rx="6" fill="#1e7b30"/>
+  <rect x="451" y="260" width="80" height="8" fill="#1e7b30"/>
+  <line x1="451" y1="268" x2="531" y2="268" stroke="#1e7b30" stroke-width="1"/>
+  <rect x="451" y="240" width="80" height="80" rx="6" fill="none" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="491" y="259" text-anchor="middle" font-size="11" font-weight="600" fill="#ffffff">워커 A</text>
+  <text x="491" y="286" text-anchor="middle" font-size="10" fill="#495057">접수</text>
+  <text x="491" y="302" text-anchor="middle" font-size="10" fill="#495057">처리</text>
+
+  <!-- 워커 B (y=240, w=80): x=541 -->
+  <rect x="541" y="240" width="80" height="80" rx="6" fill="#d3f9d8"/>
+  <rect x="541" y="240" width="80" height="28" rx="6" fill="#1e7b30"/>
+  <rect x="541" y="260" width="80" height="8" fill="#1e7b30"/>
+  <line x1="541" y1="268" x2="621" y2="268" stroke="#1e7b30" stroke-width="1"/>
+  <rect x="541" y="240" width="80" height="80" rx="6" fill="none" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="581" y="259" text-anchor="middle" font-size="11" font-weight="600" fill="#ffffff">워커 B</text>
+  <text x="581" y="286" text-anchor="middle" font-size="10" fill="#495057">기술</text>
+  <text x="581" y="302" text-anchor="middle" font-size="10" fill="#495057">지원</text>
+
+  <!-- 워커 C (y=240, w=80): x=631 -->
+  <rect x="631" y="240" width="80" height="80" rx="6" fill="#d3f9d8"/>
+  <rect x="631" y="240" width="80" height="28" rx="6" fill="#1e7b30"/>
+  <rect x="631" y="260" width="80" height="8" fill="#1e7b30"/>
+  <line x1="631" y1="268" x2="711" y2="268" stroke="#1e7b30" stroke-width="1"/>
+  <rect x="631" y="240" width="80" height="80" rx="6" fill="none" stroke="#1e7b30" stroke-width="1.5"/>
+  <text x="671" y="259" text-anchor="middle" font-size="11" font-weight="600" fill="#ffffff">워커 C</text>
+  <text x="671" y="286" text-anchor="middle" font-size="10" fill="#495057">결제</text>
+  <text x="671" y="302" text-anchor="middle" font-size="10" fill="#495057">처리</text>
+
+  <!-- 워커 → 오케스트레이터: 결과 반환 화살표 (위방향, 경유점 사용) -->
+  <!-- 워커 A 결과: 오른쪽 경유 -->
+  <path d="M 531,280 L 542,280 L 542,192 L 491,192"
+        fill="none" stroke="#1e7b30" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <!-- 워커 B 결과: 오른쪽 경유 -->
+  <path d="M 621,280 L 634,280 L 634,192 L 581,192"
+        fill="none" stroke="#1e7b30" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <!-- 워커 C 결과: 오른쪽 경유 (x=711 경유 후 오케스트레이터 오른쪽 끝으로) -->
+  <path d="M 711,280 L 724,280 L 724,156 L 671,156"
+        fill="none" stroke="#1e7b30" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <!-- 결과 라벨 -->
+  <text x="448" y="242" font-size="10" fill="#1e7b30">결과</text>
+
+  <!-- 오른쪽 설명 박스 -->
+  <rect x="432" y="336" width="298" height="48" rx="6"
+        fill="#f5f0eb" stroke="#6b6560" stroke-width="1"/>
+  <text x="581" y="357" text-anchor="middle" font-size="11" fill="#495057">오케스트레이터가 모든 워커에게</text>
+  <text x="581" y="373" text-anchor="middle" font-size="11" fill="#495057">작업 위임 후 결과 수집</text>
+
+  <!-- 오른쪽 요약 뱃지 -->
+  <rect x="420" y="400" width="322" height="56" rx="6"
+        fill="#d3f9d8" stroke="#1e7b30" stroke-width="1"/>
+  <text x="581" y="422" text-anchor="middle" font-size="11" font-weight="600" fill="#1e7b30">오케스트레이터가 항상 제어</text>
+  <text x="581" y="440" text-anchor="middle" font-size="10" fill="#1e7b30">전체 흐름 추적 가능 — 오류 발생 시 즉각 대응</text>
+
+  <!-- 최하단: 요약 박스 bottom = 400+56=456 + 영역 bottom=64+408=472 → 최하단 472+20=492 ≈ 500 ✓ -->
+
+</svg>
